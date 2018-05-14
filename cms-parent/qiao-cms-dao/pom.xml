@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>com.kalix.qiao.cms</groupId>
-        <artifactId>qiao-parent</artifactId>
+        <artifactId>cms-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 

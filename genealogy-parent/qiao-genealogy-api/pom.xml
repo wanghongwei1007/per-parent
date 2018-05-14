@@ -26,6 +26,7 @@
         <dependency>
             <groupId>com.kalix.qiao.genealogy</groupId>
             <artifactId>qiao-genealogy-entities</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
