@@ -11,5 +11,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_content")
 public class ContentBean extends PersistentEntity {
-    private Long id;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

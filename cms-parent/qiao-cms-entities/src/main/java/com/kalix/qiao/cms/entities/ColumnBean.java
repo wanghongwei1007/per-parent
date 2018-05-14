@@ -2,8 +2,6 @@ package com.kalix.qiao.cms.entities;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 /**
  * Created by Administrator on 2018/5/13.
@@ -12,18 +10,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_column")
 public class ColumnBean extends PersistentEntity {
-    private Long id;
     private String name;
     private String url;
     private String seqNo;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

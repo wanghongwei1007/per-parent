@@ -11,5 +11,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_message_board")
 public class MessageBoardBean extends PersistentEntity {
-    private Long id;
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

@@ -11,5 +11,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_menu")
 public class MenuBean extends PersistentEntity {
-    private Long id;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

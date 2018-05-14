@@ -30,12 +30,12 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.kalix.qiao.address</groupId>
+                <groupId>com.kalix.qiao.genealogy</groupId>
                 <artifactId>qiao-genealogy-api</artifactId>
                 <version>${project.qiao.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.kalix.qiao.address</groupId>
+                <groupId>com.kalix.qiao.genealogy</groupId>
                 <artifactId>qiao-genealogy-entities</artifactId>
                 <version>${project.qiao.version}</version>
             </dependency>
