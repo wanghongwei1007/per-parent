@@ -8,29 +8,29 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kalix.qiao.system.dict</groupId>
-    <artifactId>dict-parent</artifactId>
-    <name>Kalix Qiao System Dict</name>
+    <groupId>com.kalix.qiao.system.setting</groupId>
+    <artifactId>setting-parent</artifactId>
+    <name>Kalix Qiao System Setting</name>
     <modules>
-        <module>qiao-system-dict-entities</module>
-        <module>qiao-system-dict-api</module>
-        <module>qiao-system-dict-dao</module>
-        <module>qiao-system-dict-biz</module>
-        <module>qiao-system-dict-rest</module>
-        <module>qiao-system-dict-extjs</module>
+        <module>qiao-system-setting-entities</module>
+        <module>qiao-system-setting-api</module>
+        <module>qiao-system-setting-dao</module>
+        <module>qiao-system-setting-biz</module>
+        <module>qiao-system-setting-rest</module>
+        <module>qiao-system-setting-extjs</module>
     </modules>
     <packaging>pom</packaging>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.kalix.qiao.system.dict</groupId>
-                <artifactId>qiao-system-dict-entities</artifactId>
+                <groupId>com.kalix.qiao.system.setting</groupId>
+                <artifactId>qiao-system-setting-entities</artifactId>
                 <version>${project.qiao.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.kalix.qiao.system.dict</groupId>
-                <artifactId>qiao-system-dict-api</artifactId>
+                <groupId>com.kalix.qiao.system.setting</groupId>
+                <artifactId>qiao-system-setting-api</artifactId>
                 <version>${project.qiao.version}</version>
             </dependency>
         </dependencies>

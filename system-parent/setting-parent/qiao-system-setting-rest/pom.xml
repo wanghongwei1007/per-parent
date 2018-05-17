@@ -2,19 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.kalix.qiao</groupId>
-        <artifactId>qiao-parent</artifactId>
+        <groupId>com.kalix.qiao.system.setting</groupId>
+        <artifactId>setting-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kalix.qiao.system</groupId>
-    <artifactId>system-parent</artifactId>
-    <name>Kalix Qiao System Parent</name>
-    <packaging>pom</packaging>
+    <artifactId>qiao-system-setting-rest</artifactId>
+    <name>Kalix Qiao System Setting REST</name>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <module>dict-parent</module>
-        <module>setting-parent</module>
-    </modules>
+    <properties>
+        <bundle.symbolicName>com.kalix.qiao.system.setting.rest</bundle.symbolicName>
+    </properties>
 </project>
