@@ -6,7 +6,7 @@ import com.kalix.qiao.system.setting.api.biz.IQiaoSettingBeanService;
 import com.kalix.qiao.system.setting.api.dao.IQiaoSettingBeanDao;
 import com.kalix.qiao.system.setting.entities.QiaoSettingBean;
 
-public class QiaoSettingBeanServiceImpl extends ShiroGenericBizServiceImpl<IQiaoSettingBeanDao, QiaoSettingBean>
+public class LinkBeanServiceImpl extends ShiroGenericBizServiceImpl<IQiaoSettingBeanDao, QiaoSettingBean>
         implements IQiaoSettingBeanService {
 
     @Override
