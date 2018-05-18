@@ -9,8 +9,20 @@
     <bean id="qiaoSettingBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.QiaoSettingBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
+    <bean id="blogrollBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.BlogrollBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <bean id="advertBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.AdvertBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
 
     <service id="qiaoSettingBeanDao" ref="qiaoSettingBeanDaoImpl"
              interface="com.kalix.qiao.system.setting.api.dao.IQiaoSettingBeanDao">
+    </service>
+    <service id="blogrollBeanDao" ref="blogrollBeanDaoImpl"
+             interface="com.kalix.qiao.system.setting.api.dao.IBlogrollBeanDao">
+    </service>
+    <service id="advertBeanDao" ref="advertBeanDaoImpl"
+             interface="com.kalix.qiao.system.setting.api.dao.IAdvertBeanDao">
     </service>
 </blueprint>

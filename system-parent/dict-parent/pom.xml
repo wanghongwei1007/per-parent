@@ -17,7 +17,6 @@
         <module>qiao-system-dict-dao</module>
         <module>qiao-system-dict-biz</module>
         <module>qiao-system-dict-rest</module>
-        <module>qiao-system-dict-extjs</module>
     </modules>
     <packaging>pom</packaging>
 

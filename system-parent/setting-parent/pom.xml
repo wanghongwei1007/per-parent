@@ -17,7 +17,6 @@
         <module>qiao-system-setting-dao</module>
         <module>qiao-system-setting-biz</module>
         <module>qiao-system-setting-rest</module>
-        <module>qiao-system-setting-extjs</module>
     </modules>
     <packaging>pom</packaging>
 
