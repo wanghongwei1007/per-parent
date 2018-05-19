@@ -1,4 +1,4 @@
-package com.kalix.cms.qiao.rest.test;
+package com.kalix.qiao.cms.rest.test;
 
 import com.kalix.framework.core.rest.test.APIRequest;
 import com.kalix.framework.core.rest.test.APIResponse;
@@ -20,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  * @author Carl Ji
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestHTTPRequests extends APITest {
+public class TestMenu extends APITest {
     //insert entity id return by tag
     private static long id;  //when insert succeed, it will be set new id
     //login cookie token
@@ -55,8 +55,8 @@ public class TestHTTPRequests extends APITest {
      */
     @Test
     public void test001_POST() {
-        String uri = getValue("post.uri");
-        String payload = loadFile("add.json");
+        String uri = getValue("menu_post.uri");
+        String payload = loadFile("menu_add.json");
         APIResponse response = APIRequest.POST(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
@@ -76,7 +76,7 @@ public class TestHTTPRequests extends APITest {
      */
     @Test
     public void test002_GETALL() {
-        String uri = getValue("getall.uri");
+        String uri = getValue("menu_getall.uri");
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token).param("page", "1").param("limit", "10")
                 .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
@@ -90,7 +90,7 @@ public class TestHTTPRequests extends APITest {
     @Test
     public void test003_GET() {
         Assert.assertNotNull(id);
-        String uri = String.format(getValue("get.uri"), id);
+        String uri = String.format(getValue("menu_get.uri"), id);
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token)
                 .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
@@ -104,9 +104,9 @@ public class TestHTTPRequests extends APITest {
     @Test
     public void test004_PUT() {
         Assert.assertNotNull(id);
-        String uri = String.format(getValue("put.uri"), id);
+        String uri = String.format(getValue("menu_put.uri"), id);
         //format data
-        String payload = String.format(loadFile("update.json"), id);
+        String payload = String.format(loadFile("menu_update.json"), id);
         APIResponse response = APIRequest.PUT(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
@@ -124,7 +124,7 @@ public class TestHTTPRequests extends APITest {
      */
     @Test
     public void test005_DELETE() {
-        String uri = String.format(getValue("delete.uri"), id);
+        String uri = String.format(getValue("menu_delete.uri"), id);
         APIResponse response = APIRequest.DELETE(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)

@@ -27,6 +27,8 @@
         <dependency>
             <groupId>com.kalix.framework.core</groupId>
             <artifactId>framework-core-restfultest</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
