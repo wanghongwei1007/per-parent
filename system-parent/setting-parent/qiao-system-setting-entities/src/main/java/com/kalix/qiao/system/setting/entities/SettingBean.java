@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_setting")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class QiaoSettingBean extends PersistentEntity {
+public class SettingBean extends PersistentEntity {
     private String label;    // 标签名
     private Integer value;    // 数据值
     private String type;    // 类型
