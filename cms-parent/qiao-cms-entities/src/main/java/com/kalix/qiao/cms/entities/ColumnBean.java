@@ -10,9 +10,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_cms_column")
 public class ColumnBean extends PersistentEntity {
-    private String name;
-    private String url;
-    private String seqNo;
+
+    private String name;//栏目名称
+    private int sequence;//排序
+    private String url;//栏目地址
+
 
     public String getName() {
         return name;
@@ -22,19 +24,19 @@ public class ColumnBean extends PersistentEntity {
         this.name = name;
     }
 
+    public int getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(int sequence) {
+        this.sequence = sequence;
+    }
+
     public String getUrl() {
         return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getSeqNo() {
-        return seqNo;
-    }
-
-    public void setSeqNo(String seqNo) {
-        this.seqNo = seqNo;
     }
 }

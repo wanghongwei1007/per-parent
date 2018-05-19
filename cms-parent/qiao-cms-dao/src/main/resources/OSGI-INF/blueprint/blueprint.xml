@@ -8,14 +8,23 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <bean id="addressGroupBeanDaoImpl" class="com.kalix.common.address.dao.AddressGroupBeanDaoImpl">
+    <!--栏目-->
+    <bean id="columnBeanDaoImpl" class="com.kalix.qiao.cms.dao.ColumnBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
-    <service interface="com.kalix.common.address.api.dao.IAddressGroupBeanDao" ref="addressGroupBeanDaoImpl"/>
+    <service interface="com.kalix.qiao.cms.api.dao.IColumnBeanDao" ref="columnBeanDaoImpl"/>
 
-    <bean id="addressBeanDaoImpl" class="com.kalix.common.address.dao.AddressBeanDaoImpl">
+    <!--内容-->
+    <bean id="contentBeanDaoImpl" class="com.kalix.qiao.cms.dao.ContentBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
-    <service interface="com.kalix.common.address.api.dao.IAddressBeanDao" ref="addressBeanDaoImpl"/>
+    <service interface="com.kalix.qiao.cms.api.dao.IContentBeanDao" ref="contentBeanDaoImpl"/>
+
+    <!--菜单-->
+    <bean id="menuBeanDaoImpl" class="com.kalix.qiao.cms.dao.MenuBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service interface="com.kalix.qiao.cms.api.dao.IMenuBeanDao" ref="menuBeanDaoImpl"/>
+
 </blueprint>
 

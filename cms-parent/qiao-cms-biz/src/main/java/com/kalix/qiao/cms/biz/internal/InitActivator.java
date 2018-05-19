@@ -1,4 +1,4 @@
-package com.kalix.common.address.biz.internal;
+package com.kalix.qiao.cms.biz.internal;
 
 
 import com.kalix.framework.core.api.osgi.BaseBundleActivator;
