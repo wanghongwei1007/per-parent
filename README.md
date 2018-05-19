@@ -1,5 +1,25 @@
 # qiao-parent
 乔氏家谱项目，包括内容管理模块、家谱管理模块
+## 项目总体目录结构
+### qiao-parent
+> 地址 ：https://github.com/xingshidongman/qiao-parent
+
+> 说明： 后台java服务库
+
+### qiao-vue-front
+> 地址 ：https://github.com/xingshidongman/qiao-vue-front
+
+> 说明： 前台 vue 界面库
+
+### kalix-vue-frame
+> 地址 ：https://github.com/xingshidongman/kalix-vue-frame
+
+> 说明： 前台 vue admin 核心库
+
+### kalix-vue-qiao
+> 地址 ：https://github.com/xingshidongman/kalix-vue-qiao
+
+> 说明： 前台 vue admin qiao 子模块库
 ## 菜单定义
 app 乔氏家谱
   内容管理
