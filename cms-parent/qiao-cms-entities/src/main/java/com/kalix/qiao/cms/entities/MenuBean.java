@@ -7,9 +7,10 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 /**
  * Created by Administrator on 2018/5/13.
+ * 菜单
  */
 @Entity
-@Table(name = "qiao_menu")
+@Table(name = "qiao_cms_menu")
 public class MenuBean extends PersistentEntity {
     private String name;
 

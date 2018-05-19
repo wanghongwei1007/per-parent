@@ -8,7 +8,7 @@ import javax.persistence.Table;
  * 栏目表
  */
 @Entity
-@Table(name = "qiao_column")
+@Table(name = "qiao_cms_column")
 public class ColumnBean extends PersistentEntity {
     private String name;
     private String url;

@@ -7,9 +7,10 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 /**
  * Created by Administrator on 2018/5/13.
+ * 内容表
  */
 @Entity
-@Table(name = "qiao_content")
+@Table(name = "qiao_cms_content")
 public class ContentBean extends PersistentEntity {
     private String title;
 
