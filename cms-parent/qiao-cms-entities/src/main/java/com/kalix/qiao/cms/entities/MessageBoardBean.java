@@ -7,6 +7,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 /**
  * Created by Administrator on 2018/5/13.
+ * 留言板
  */
 @Entity
 @Table(name = "qiao_message_board")

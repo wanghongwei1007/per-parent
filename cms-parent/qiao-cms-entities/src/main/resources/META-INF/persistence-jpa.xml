@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
-    <persistence-unit transaction-type="JTA" name="address-cm">
+    <persistence-unit transaction-type="JTA" name="cms-cm">
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
         <jta-data-source>osgi:service/javax.sql.DataSource/(osgi.jndi.service.name=jdbc/ds)
         </jta-data-source>
