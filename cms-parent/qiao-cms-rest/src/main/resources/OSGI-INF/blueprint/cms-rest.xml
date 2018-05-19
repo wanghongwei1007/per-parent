@@ -5,6 +5,9 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
     <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>
+    <!--<reference id="menuService" interface="com.kalix.qiao.cms.api.biz.IMenuBeanService"/>-->
+    <!--<reference id="contentService" interface="com.kalix.qiao.cms.api.biz.IContentBeanService"/>-->
+
 
     <camelContext id="cmsCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
