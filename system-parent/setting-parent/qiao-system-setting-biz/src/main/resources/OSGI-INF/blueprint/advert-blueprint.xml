@@ -5,16 +5,16 @@
 
     <reference id="cacheManager" interface="com.kalix.framework.core.api.cache.ICacheManager"/>
     <reference id="shiroService" interface="com.kalix.framework.core.api.security.IShiroService"/>
-    <reference id="qiaoSettingBeanDao" interface="com.kalix.qiao.system.setting.api.dao.IQiaoSettingBeanDao"/>
+    <reference id="advertBeanDao" interface="com.kalix.qiao.system.setting.api.dao.IAdvertBeanDao"/>
 
 
-    <bean id="qiaoSettingBeanServiceImpl" class="com.kalix.qiao.system.setting.biz.QiaoSettingBeanServiceImpl">
-        <property name="dao" ref="qiaoSettingBeanDao"/>
+    <bean id="advertBeanServiceImpl" class="com.kalix.qiao.system.setting.biz.AdvertBeanServiceImpl">
+        <property name="dao" ref="advertBeanDao"/>
         <property name="shiroService" ref="shiroService"/>
         <property name="cacheManager" ref="cacheManager"/>
     </bean>
 
-    <service id="qiaoSettingBeanService" interface="com.kalix.qiao.system.setting.api.biz.IQiaoSettingBeanService"
-             ref="qiaoSettingBeanServiceImpl">
+    <service id="advertBeanService" interface="com.kalix.qiao.system.setting.api.biz.IAdvertBeanService"
+           ref="advertBeanServiceImpl">
     </service>
 </blueprint>

@@ -58,4 +58,6 @@ public class AdvertBean extends PersistentEntity {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+
 }

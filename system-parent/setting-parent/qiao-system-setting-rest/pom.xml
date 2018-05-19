@@ -15,4 +15,19 @@
     <properties>
         <bundle.symbolicName>com.kalix.qiao.system.setting.rest</bundle.symbolicName>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-restfultest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kalix.qiao.system.setting</groupId>
+            <artifactId>qiao-system-setting-api</artifactId>
+        </dependency>
+    </dependencies>
 </project>

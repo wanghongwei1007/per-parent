@@ -2,13 +2,13 @@ package com.kalix.qiao.system.setting.dao;
 
 
 import com.kalix.framework.core.impl.dao.GenericDao;
-import com.kalix.qiao.system.setting.api.dao.IQiaoSettingBeanDao;
-import com.kalix.qiao.system.setting.entities.QiaoSettingBean;
+import com.kalix.qiao.system.setting.api.dao.ISettingBeanDao;
+import com.kalix.qiao.system.setting.entities.SettingBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-public class QiaoSettingBeanDaoImpl extends GenericDao<QiaoSettingBean, Long> implements IQiaoSettingBeanDao {
+public class SettingBeanDaoImpl extends GenericDao<SettingBean, Long> implements ISettingBeanDao {
     @Override
     @PersistenceContext(unitName = "qiao-system-setting-unit")
     public void setEntityManager(EntityManager em) {

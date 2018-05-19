@@ -6,7 +6,7 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <bean id="qiaoSettingBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.QiaoSettingBeanDaoImpl">
+    <bean id="SettingBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.SettingBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
     <bean id="blogrollBeanDaoImpl" class="com.kalix.qiao.system.setting.dao.BlogrollBeanDaoImpl">
@@ -16,8 +16,8 @@
         <tx:transaction method="*" value="Required"/>
     </bean>
 
-    <service id="qiaoSettingBeanDao" ref="qiaoSettingBeanDaoImpl"
-             interface="com.kalix.qiao.system.setting.api.dao.IQiaoSettingBeanDao">
+    <service id="SettingBeanDao" ref="SettingBeanDaoImpl"
+             interface="com.kalix.qiao.system.setting.api.dao.ISettingBeanDao">
     </service>
     <service id="blogrollBeanDao" ref="blogrollBeanDaoImpl"
              interface="com.kalix.qiao.system.setting.api.dao.IBlogrollBeanDao">
