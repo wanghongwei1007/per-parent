@@ -34,6 +34,7 @@
      家谱管理 genealogy (张哲)
      家谱查询 search (张哲)
      家谱导出 export (张哲)
+     地图     map
   系统管理    system
      数据字典 dict (孙俪)
      地区编码 district (孟庆伟)
