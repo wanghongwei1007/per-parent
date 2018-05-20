@@ -21,10 +21,6 @@
             <groupId>com.kalix.qiao.system.setting</groupId>
             <artifactId>qiao-system-setting-entities</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.kalix.qiao.system.setting</groupId>
-            <artifactId>qiao-system-setting-api</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
+
     </dependencies>
 </project>
