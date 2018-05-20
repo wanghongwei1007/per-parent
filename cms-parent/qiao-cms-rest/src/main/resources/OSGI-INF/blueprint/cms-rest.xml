@@ -4,14 +4,31 @@
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-   <!-- <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>-->
-    <reference id="menuService" interface="com.kalix.qiao.cms.api.biz.IMenuBeanService"/>
+    <!--栏目-->
+    <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>
+    <bean id="columnRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.cms.entities.columnBean"/>
+    </bean>
+    <camelContext id="columnCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="columnRoute"/>
+    </camelContext>
 
+    <!--菜单-->
+    <reference id="menuService" interface="com.kalix.qiao.cms.api.biz.IMenuBeanService"/>
     <bean id="menuRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.cms.entities.MenuBean"/>
     </bean>
     <camelContext id="menuCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="menuRoute"/>
+    </camelContext>
+
+    <!--内容-->
+    <reference id="contentService" interface="com.kalix.qiao.cms.api.biz.IContentBeanService"/>
+    <bean id="contenRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.cms.entities.ContenBean"/>
+    </bean>
+    <camelContext id="contentCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="contenRoute"/>
     </camelContext>
 
 
