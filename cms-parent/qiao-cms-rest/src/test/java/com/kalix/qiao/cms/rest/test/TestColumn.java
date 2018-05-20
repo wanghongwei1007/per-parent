@@ -41,7 +41,7 @@ public class TestColumn extends APITest {
         String username = getValue("login.username");
         String password = getValue("login.password");
 
-        APIResponse response = APIRequest.POST(uri).param("username", username).param("password", password).invoke().assertStatus(404);
+        APIResponse response = APIRequest.POST(uri).param("username", username).param("password", password).invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         JSONObject user = jsonObject.getJSONObject("user");
@@ -61,7 +61,7 @@ public class TestColumn extends APITest {
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
                 .type(MediaType.APPLICATION_JSON_TYPE).body(payload)
-                .invoke().assertStatus(404);
+                .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         Assert.assertNotNull(jsonObject);
@@ -78,7 +78,7 @@ public class TestColumn extends APITest {
     public void test002_GETALL() {
         String uri = getValue("column_getall.uri");
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token).param("page", "1").param("limit", "10")
-                .invoke().assertStatus(404);
+                .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         Assert.assertNotNull(jsonObject);
@@ -92,7 +92,7 @@ public class TestColumn extends APITest {
         Assert.assertNotNull(id);
         String uri = String.format(getValue("column_get.uri"), id);
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token)
-                .invoke().assertStatus(404);
+                .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         Assert.assertNotNull(jsonObject);
@@ -111,7 +111,7 @@ public class TestColumn extends APITest {
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
                 .type(MediaType.APPLICATION_JSON_TYPE).body(payload)
-                .invoke().assertStatus(404);
+                .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         Assert.assertNotNull(jsonObject);
@@ -128,7 +128,7 @@ public class TestColumn extends APITest {
         APIResponse response = APIRequest.DELETE(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
-                .invoke().assertStatus(404);
+                .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
         JSONObject jsonObject = new JSONObject(returnString);
         Assert.assertNotNull(jsonObject);

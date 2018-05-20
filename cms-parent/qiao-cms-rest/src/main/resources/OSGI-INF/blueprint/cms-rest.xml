@@ -7,7 +7,7 @@
     <!--栏目-->
     <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>
     <bean id="columnRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
-        <property name="beanName" value="com.kalix.qiao.cms.entities.columnBean"/>
+        <property name="beanName" value="com.kalix.qiao.cms.entities.ColumnBean"/>
     </bean>
     <camelContext id="columnCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="columnRoute"/>
