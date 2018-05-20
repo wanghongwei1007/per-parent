@@ -1,4 +1,4 @@
-package com.kalix.common.address.rest.internal;
+package com.kalix.qiao.genealogy.rest.internal;
 
 import com.kalix.framework.core.api.osgi.BaseBundleActivator;
 

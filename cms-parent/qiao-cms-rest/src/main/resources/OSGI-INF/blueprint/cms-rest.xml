@@ -4,21 +4,29 @@
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-    <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>
-    <!--<reference id="menuService" interface="com.kalix.qiao.cms.api.biz.IMenuBeanService"/>-->
-    <!--<reference id="contentService" interface="com.kalix.qiao.cms.api.biz.IContentBeanService"/>-->
+   <!-- <reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>-->
+    <reference id="menuService" interface="com.kalix.qiao.cms.api.biz.IMenuBeanService"/>
+
+    <bean id="menuRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.cms.entities.MenuBean"/>
+    </bean>
+    <camelContext id="menuCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="menuRoute"/>
+    </camelContext>
 
 
-    <camelContext id="cmsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+
+    <!--<camelContext id="cmsCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
         <restConfiguration component="servlet" bindingMode="json">
             <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
         </restConfiguration>
 
-        <!-- defines the rest services using the context-path /address -->
+        &lt;!&ndash; defines the rest services using the context-path /address &ndash;&gt;
         <rest path="/cms" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
             <description>address rest service</description>
 
         </rest>
-    </camelContext>
+    </camelContext>-->
 </blueprint>
