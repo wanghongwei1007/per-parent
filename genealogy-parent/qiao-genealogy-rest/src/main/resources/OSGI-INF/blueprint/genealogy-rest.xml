@@ -6,12 +6,10 @@
 
     <reference id="genealogyService" interface="com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService"/>
 
+    <bean id="genealogyRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.genealogy.entities.GenealogyBean"/>
+    </bean>
     <camelContext id="genealogyCamel" xmlns="http://camel.apache.org/schema/blueprint">
-
-        <restConfiguration component="servlet" bindingMode="json">
-            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
-        </restConfiguration>
-
-
+        <routeBuilder ref="genealogyRoute"/>
     </camelContext>
 </blueprint>

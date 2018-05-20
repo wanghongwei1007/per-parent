@@ -1,33 +1,14 @@
 <blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
-           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+">
+    <tx:enable-annotations/>
 
-    <service id="addressBeanService" interface="com.kalix.common.address.api.biz.IAddressBeanService"
-             ref="addressBeanServiceImpl">
-    </service>
-    <bean id="addressBeanServiceImpl" class="com.kalix.common.address.biz.AddressBeanServiceImpl">
-        <property name="dao" ref="addressBeanDao"/>
-        <property name="senderMessageService" ref="senderMessageService"/>
-        <property name="commonDictBeanService" ref="commonDictBeanService"/>
-        <property name="userBeanService" ref="userBeanService"/>
-        <property name="messageBeanService" ref="messageBeanService"/>
+    <reference id="genealogyBeanDao" interface="com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao"/>
+    <service id="genealogyBeanService" interface="com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService"
+             ref="genealogyBeanServiceImpl"/>
+    <bean id="genealogyBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.GenealogyBeanServiceImpl">
+        <property name="dao" ref="genealogyBeanDao"/>
     </bean>
-    <reference id="addressBeanDao" interface="com.kalix.common.address.api.dao.IAddressBeanDao"/>
-    <reference id="senderMessageService" interface="com.kalix.common.message.api.biz.ISenderMessageBeanService"/>
-    <reference id="commonDictBeanService" interface="com.kalix.common.system.dict.api.biz.ICommonDictBeanService"/>
-    <reference id="messageBeanService" interface="com.kalix.common.message.api.biz.IMessageBeanService"/>
-
-    <service id="addressGroupBeanService" interface="com.kalix.common.address.api.biz.IAddressGroupBeanService"
-             ref="addressGroupBeanServiceImpl">
-    </service>
-    <bean id="addressGroupBeanServiceImpl" class="com.kalix.common.address.biz.AddressGroupBeanServiceImpl">
-        <property name="dao" ref="addressGroupBeanDao"/>
-        <property name="orgBeanService" ref="organizationBeanService"/>
-        <property name="userBeanService" ref="userBeanService"/>
-        <property name="addressBeanService" ref="addressBeanServiceImpl"/>
-    </bean>
-    <reference id="addressGroupBeanDao" interface="com.kalix.common.address.api.dao.IAddressGroupBeanDao"/>
-    <reference id="organizationBeanService" interface="com.kalix.admin.core.api.biz.IOrganizationBeanService"/>
-    <reference id="userBeanService" interface="com.kalix.admin.core.api.biz.IUserBeanService"/>
 </blueprint>
-

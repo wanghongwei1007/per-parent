@@ -8,14 +8,9 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <bean id="addressGroupBeanDaoImpl" class="com.kalix.common.address.dao.AddressGroupBeanDaoImpl">
-        <tx:transaction method="*" value="Required"/>
+    <bean id="genealogyBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.GenealogyBeanDaoImpl">
     </bean>
-    <service interface="com.kalix.common.address.api.dao.IAddressGroupBeanDao" ref="addressGroupBeanDaoImpl"/>
+    <service interface="com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao" ref="genealogyBeanDaoImpl"/>
 
-    <bean id="addressBeanDaoImpl" class="com.kalix.common.address.dao.AddressBeanDaoImpl">
-        <tx:transaction method="*" value="Required"/>
-    </bean>
-    <service interface="com.kalix.common.address.api.dao.IAddressBeanDao" ref="addressBeanDaoImpl"/>
 </blueprint>
 
