@@ -25,14 +25,25 @@
 ## 菜单定义
 乔氏家谱
   前台管理    cms
-     栏目管理 column
-     菜单管理 menu
-     内容管理 content
+     栏目管理 column  (王鹏)
+     菜单管理 menu    (王鹏)
+     内容管理 content (王鹏)
+     留言管理 forum (孟庆伟)
+     回复管理 reply (孟庆伟)
+  家谱编修 clansman
+     家谱管理 genealogy (张哲)
+     家谱查询 search (张哲)
+     家谱导出 export (张哲)
   系统管理    system
-     数据字典 dict
-     广告管理 advert
-     友情链接 blogroll
-     公司信息 information
+     数据字典 dict (孙俪)
+     地区编码 district (孟庆伟)
+     广告管理 advert (孙俪)
+     友情链接 blogroll (孙俪)
+     公司信息 setting (孙俪)
+附加功能：
+  注册 (王鹏)
+  短信验证 (王鹏)
+  身份证验证 (王鹏)
 
 ## maven 的配置
 > 统一使用私服nexus进行maven包的管理
