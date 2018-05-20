@@ -24,15 +24,15 @@
 > 说明： 前台 vue admin qiao 子模块库
 ## 菜单定义
 乔氏家谱
-  前台管理    key:cms
-     栏目管理 key:column
-     菜单管理 key:menu
-     内容管理 key:content
-  系统管理    key:system
-     数据字典 key:dictionaries
-     广告管理 key:advertising
-     友情链接 key:blogroll
-     公司信息 key:information
+  前台管理    cms
+     栏目管理 column
+     菜单管理 menu
+     内容管理 content
+  系统管理    system
+     数据字典 dict
+     广告管理 advert
+     友情链接 blogroll
+     公司信息 information
 
 ## maven 的配置
 > 统一使用私服nexus进行maven包的管理
