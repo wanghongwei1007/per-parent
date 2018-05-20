@@ -25,7 +25,7 @@
     <!--内容-->
     <reference id="contentService" interface="com.kalix.qiao.cms.api.biz.IContentBeanService"/>
     <bean id="contenRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
-        <property name="beanName" value="com.kalix.qiao.cms.entities.ContenBean"/>
+        <property name="beanName" value="com.kalix.qiao.cms.entities.ContentBean"/>
     </bean>
     <camelContext id="contentCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="contenRoute"/>
