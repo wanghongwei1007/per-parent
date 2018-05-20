@@ -16,13 +16,15 @@
 
 > 说明： 前台 vue admin 核心库
 
+<font color="red">需要使用qiao分支</font>
+
 ### kalix-vue-qiao
 > 地址 ：https://github.com/xingshidongman/kalix-vue-qiao
 
 > 说明： 前台 vue admin qiao 子模块库
 ## 菜单定义
-app 乔氏家谱
-  内容管理
+乔氏家谱
+  前台管理
      栏目管理
      菜单管理
      内容管理
@@ -37,7 +39,8 @@ app 乔氏家谱
 
 * 修改C:\Windows\System32\drivers\etc\hosts,增加如下一行：
 ``` 
-192.168.31.128 nexus.apps.xing.com
+# 192.168.31.128 nexus.apps.xing.com
+ 125.222.244.17 nexus.apps.bogon.com
 ```
 * 创建下面文件形成settings.xml文件，复制到m2/repository目录
 ``` 
@@ -75,7 +78,7 @@ app 乔氏家谱
             <repositories>
                 <repository>
                     <id>remote-nexus</id>
-                    <url>http://nexus.apps.xing.com/nexus/content/groups/public/</url>
+                    <url>http://nexus.apps.bogon.com/nexus/content/groups/public/</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -85,7 +88,7 @@ app 乔氏家谱
                 </repository>
                 <repository>
                     <id>snapshot-nexus</id>
-                    <url>http://nexus.apps.xing.com/nexus/content/repositories/snapshots/</url>
+                    <url>http://nexus.apps.bogon.com/nexus/content/repositories/snapshots/</url>
                     <releases>
                         <enabled>false</enabled>
                     </releases>
