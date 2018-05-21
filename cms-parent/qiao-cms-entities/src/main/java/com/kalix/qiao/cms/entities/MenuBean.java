@@ -10,20 +10,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "qiao_cms_menu")
 public class MenuBean extends PersistentEntity {
-    private String message; //是否留言
+    private boolean message; //是否留言
     private String name;//菜单名称
     private int navid;//栏目id
     private int sequence;//排序
-    private String show;//是否显示
+    private boolean show;//是否显示
     private String url;//菜单地址
 
 
-    public String getMessage() {
+    public boolean isMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
+    public void setMessage(boolean message) {
         this.message = message;
+    }
+
+    public boolean isShow() {
+        return show;
+    }
+
+    public void setShow(boolean show) {
+        this.show = show;
     }
 
     public String getName() {
@@ -50,13 +58,7 @@ public class MenuBean extends PersistentEntity {
         this.sequence = sequence;
     }
 
-    public String getShow() {
-        return show;
-    }
 
-    public void setShow(String show) {
-        this.show = show;
-    }
 
     public String getUrl() {
         return url;
