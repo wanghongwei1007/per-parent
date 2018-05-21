@@ -1,9 +1,13 @@
+DELETE FROM qiao_cms_column;
+DELETE FROM qiao_cms_menu;
+
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (1, '通谱总论', 1, 'genealogy');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (2, '新闻动态', 2, 'news');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (3, '风土人情', 3, 'customs');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (4, '智库留言', 4, 'message');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (5, '谍谱百科', 5, 'wiki');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (6, '家谱编修', 6, 'compile');
+
 
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (1,'引论',1,1,'t','t','/genealogy/introduction');
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (2,'序',1,2,'t','t','/genealogy/sequence');
@@ -18,8 +22,6 @@ INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (1
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (11,'乔氏名人艺文',1,11,'t','t','/genealogy/celebrity');
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (12,'乔氏家谱宗系简介',1,12,'t','t','/genealogy/genealogy');
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (13,'附录',1,13,'t','t','/genealogy/appendix');
-
-
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (14,'简讯',2,1,'t','t','/news/newsletter');
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (15,'报道',2,2,'t','t','/news/reports');
 INSERT INTO qiao_cms_menu(id,name,navid,sequence,isMessage,isShow,url) VALUES (16,'公告',2,3,'t','t','/news/announcement');
