@@ -11,10 +11,22 @@
     <groupId>com.kalix.qiao.system</groupId>
     <artifactId>system-parent</artifactId>
     <name>Kalix Qiao System Parent</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kalix.qiao.system.district</groupId>
+            <artifactId>qiao-system-district-api</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <packaging>pom</packaging>
 
     <modules>
         <module>dict-parent</module>
+        <module>district-parent</module>
         <module>setting-parent</module>
     </modules>
 </project>
