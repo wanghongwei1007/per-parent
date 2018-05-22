@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
  *
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestAdvertRequests extends APITest {
+public class TestBlogroll extends APITest {
     //login cookie token
     private String token;
     private String access_token;
@@ -57,8 +57,8 @@ public class TestAdvertRequests extends APITest {
      */
     @Test
     public void test001_POST() {
-        String uri = getValue("advert_post.uri");
-        String payload = loadFile("advert_add.json");
+        String uri = getValue("blogroll_post.uri");
+        String payload = loadFile("blogroll_add.json");
         APIResponse response = APIRequest.POST(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
@@ -78,7 +78,7 @@ public class TestAdvertRequests extends APITest {
      */
     @Test
     public void test002_GETALL() {
-        String uri = getValue("advert_getall.uri");
+        String uri = getValue("blogroll_getall.uri");
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token).param("page", "1").param("limit", "10")
                 .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
@@ -92,7 +92,7 @@ public class TestAdvertRequests extends APITest {
     @Test
     public void test003_GET() {
         Assert.assertNotNull(id);
-        String uri = String.format(getValue("advert_get.uri"), id);
+        String uri = String.format(getValue("blogroll_get.uri"), id);
         APIResponse response = APIRequest.GET(uri).header("access_token", access_token)
                 .invoke().assertStatus(200);
         String returnString = response.getBody(String.class);
@@ -106,9 +106,9 @@ public class TestAdvertRequests extends APITest {
     @Test
     public void test004_PUT() {
         Assert.assertNotNull(id);
-        String uri = String.format(getValue("advert_put.uri"), id);
+        String uri = String.format(getValue("blogroll_put.uri"), id);
         //format data
-        String payload = String.format(loadFile("advert_update.json"), id);
+        String payload = String.format(loadFile("blogroll_update.json"), id);
         APIResponse response = APIRequest.PUT(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)
@@ -126,7 +126,7 @@ public class TestAdvertRequests extends APITest {
      */
     @Test
     public void test005_DELETE() {
-        String uri = String.format(getValue("advert_delete.uri"), id);
+        String uri = String.format(getValue("blogroll_delete.uri"), id);
         APIResponse response = APIRequest.DELETE(uri)
                 .header("Cookie", "JSESSIONID=" + token)
                 .header("access_token", access_token)

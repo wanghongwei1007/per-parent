@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 public class SettingBeanDaoImpl extends GenericDao<SettingBean, Long> implements ISettingBeanDao {
     @Override
-    @PersistenceContext(unitName = "qiao-system-setting-unit")
+    @PersistenceContext(unitName = "setting-unit")
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);
     }

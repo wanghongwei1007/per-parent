@@ -22,7 +22,7 @@ import javax.ws.rs.core.MediaType;
  *
  */
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestSettingRequests extends APITest {
+public class TestSetting extends APITest {
     //login cookie token
     private String token;
     private String access_token;

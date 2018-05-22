@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 
 public class BlogrollBeanDaoImpl extends GenericDao<BlogrollBean, Long> implements IBlogrollBeanDao {
     @Override
-    @PersistenceContext(unitName = "qiao-system-setting-unit")
+    @PersistenceContext(unitName = "setting-unit")
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);
     }
