@@ -27,5 +27,22 @@
     <bean id="contentBeanServiceImpl" class="com.kalix.qiao.cms.biz.ContentBeanServiceImpl">
         <property name="dao" ref="contentBeanDao"/>
     </bean>
+
+    <!--留言-->
+    <reference id="forumBeanDao" interface="com.kalix.qiao.cms.api.dao.IForumBeanDao"/>
+    <service id="forumBeanService" interface="com.kalix.qiao.cms.api.biz.IForumBeanService"
+             ref="forumBeanServiceImpl"/>
+    <bean id="forumBeanServiceImpl" class="com.kalix.qiao.cms.biz.ForumBeanServiceImpl">
+        <property name="dao" ref="forumBeanDao"/>
+    </bean>
+
+    <!--回复-->
+    <reference id="replyBeanDao" interface="com.kalix.qiao.cms.api.dao.IReplyBeanDao"/>
+    <service id="replyBeanService" interface="com.kalix.qiao.cms.api.biz.IReplyBeanService"
+             ref="replyBeanServiceImpl"/>
+    <bean id="replyBeanServiceImpl" class="com.kalix.qiao.cms.biz.ReplyBeanServiceImpl">
+        <property name="dao" ref="replyBeanDao"/>
+    </bean>
+
 </blueprint>
 

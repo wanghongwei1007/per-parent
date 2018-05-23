@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>qiao-system-district-entities</artifactId>
-    <name>Kalix Qiao System district Entities</name>
+    <name>Kalix Qiao System District Entities</name>
     <packaging>bundle</packaging>
 
     <properties>

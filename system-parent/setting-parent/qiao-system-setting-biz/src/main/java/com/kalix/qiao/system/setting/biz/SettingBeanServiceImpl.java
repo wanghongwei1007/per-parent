@@ -11,12 +11,6 @@ public class SettingBeanServiceImpl extends ShiroGenericBizServiceImpl<ISettingB
 
     @Override
     public JsonStatus saveEntity(SettingBean entity) {
-        Integer maxValue = dao.getFieldMaxValue("value", "type='" + entity.getType() + "'");
-
-        maxValue = maxValue + 1;
-
-        entity.setValue(maxValue);
-
         return super.saveEntity(entity);
     }
 }
