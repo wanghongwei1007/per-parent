@@ -9,4 +9,6 @@ import com.kalix.qiao.cms.entities.MenuBean;
  * Created by Administrator on 2018/5/13.
  */
 public class MenuBeanServiceImpl extends GenericBizServiceImpl<IMenuBeanDao, MenuBean> implements IMenuBeanService{
+
+
 }

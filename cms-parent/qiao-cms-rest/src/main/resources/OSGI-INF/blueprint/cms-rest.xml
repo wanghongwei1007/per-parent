@@ -31,19 +31,14 @@
         <routeBuilder ref="contenRoute"/>
     </camelContext>
 
+  <!--  <rest path="/content/getColumnAndMenu" consumes="application/json;charset=utf-8" produces="application/json">
+        <description>template rest service</description>
+        &lt;!&ndash; this is a rest GET to find all template &ndash;&gt;
+        <get id="route-getAllTemplate" outType="com.kalix.framework.core.api.persistence.JsonData">
+            <description>Find all Templates</description>
+            <to uri="bean:contentService?method=getColumnAndMenu()"/>
+        </get>
+    </rest>-->
 
 
-
-    <!--<camelContext id="cmsCamel" xmlns="http://camel.apache.org/schema/blueprint">
-
-        <restConfiguration component="servlet" bindingMode="json">
-            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
-        </restConfiguration>
-
-        &lt;!&ndash; defines the rest services using the context-path /address &ndash;&gt;
-        <rest path="/cms" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
-            <description>address rest service</description>
-
-        </rest>
-    </camelContext>-->
 </blueprint>
