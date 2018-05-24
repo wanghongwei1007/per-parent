@@ -6,7 +6,6 @@ import com.kalix.framework.core.util.Assert;
 import com.kalix.qiao.system.setting.api.biz.IBlogrollBeanService;
 import com.kalix.qiao.system.setting.api.dao.IBlogrollBeanDao;
 import com.kalix.qiao.system.setting.entities.BlogrollBean;
-import org.apache.commons.lang.StringUtils;
 
 /**
  * @类描述：

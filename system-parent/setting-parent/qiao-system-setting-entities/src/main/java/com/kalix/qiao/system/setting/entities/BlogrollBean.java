@@ -20,9 +20,17 @@ import javax.persistence.Table;
 @ApiModel("友情链接<br>BlogrollBean")
 public class BlogrollBean extends PersistentEntity {
     @ApiModelProperty("友情链接文字")
-    private String text;   //友情链接文字
+    private String linktext;   //友情链接文字
     @ApiModelProperty("跳转地址")
     private String texturl; //跳转地址
+
+    public String getLinktext() {
+        return linktext;
+    }
+
+    public void setLinktext(String linktext) {
+        this.linktext = linktext;
+    }
 
     public String getTexturl() {
         return texturl;
@@ -32,18 +40,11 @@ public class BlogrollBean extends PersistentEntity {
         this.texturl = texturl;
     }
 
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
 
     @Override
     public String toString() {
         return "BlogrollBean{" +
-                "text='" + text + '\'' +
+                "linktext='" + linktext + '\'' +
                 ", texturl='" + texturl + '\'' +
                 '}';
     }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>system-parent</artifactId>
+        <groupId>com.kalix.qiao.system</groupId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.kalix.qiao.system.district</groupId>
+    <artifactId>district-parent</artifactId>
+    <name>Kalix Qiao System District</name>
+    <modules>
+        <module>qiao-system-district-entities</module>
+        <module>qiao-system-district-api</module>
+        <module>qiao-system-district-dao</module>
+        <module>qiao-system-district-biz</module>
+        <module>qiao-system-district-rest</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.qiao.system.district</groupId>
+                <artifactId>qiao-system-district-entities</artifactId>
+                <version>${project.qiao.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.qiao.system.district</groupId>
+                <artifactId>qiao-system-district-api</artifactId>
+                <version>${project.qiao.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

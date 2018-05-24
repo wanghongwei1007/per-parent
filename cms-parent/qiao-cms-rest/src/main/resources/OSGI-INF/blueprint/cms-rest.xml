@@ -24,11 +24,29 @@
 
     <!--内容-->
     <reference id="contentService" interface="com.kalix.qiao.cms.api.biz.IContentBeanService"/>
-    <bean id="contenRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+    <bean id="contentRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.cms.entities.ContentBean"/>
     </bean>
     <camelContext id="contentCamel" xmlns="http://camel.apache.org/schema/blueprint">
-        <routeBuilder ref="contenRoute"/>
+        <routeBuilder ref="contentRoute"/>
+    </camelContext>
+
+    <!--留言-->
+    <reference id="forumService" interface="com.kalix.qiao.cms.api.biz.IForumBeanService"/>
+    <bean id="forumRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.cms.entities.ForumBean"/>
+    </bean>
+    <camelContext id="forumCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="forumRoute"/>
+    </camelContext>
+
+    <!--回复-->
+    <reference id="replyService" interface="com.kalix.qiao.cms.api.biz.IReplyBeanService"/>
+    <bean id="replyRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.cms.entities.ReplyBean"/>
+    </bean>
+    <camelContext id="replyCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="replyRoute"/>
     </camelContext>
 
   <!--  <rest path="/content/getColumnAndMenu" consumes="application/json;charset=utf-8" produces="application/json">
@@ -41,4 +59,16 @@
     </rest>-->
 
 
+    <!--<camelContext id="cmsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+
+        &lt;!&ndash; defines the rest services using the context-path /address &ndash;&gt;
+        <rest path="/cms" consumes="application/json;charset=utf-8" produces="application/json;charset=utf-8">
+            <description>address rest service</description>
+
+        </rest>
+    </camelContext>-->
 </blueprint>

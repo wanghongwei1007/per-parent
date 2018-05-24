@@ -14,40 +14,22 @@ import javax.persistence.Table;
 @Table(name = "qiao_setting")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class SettingBean extends PersistentEntity {
-    private String label;    // 标签名
-    private Integer value;    // 数据值
-    private String type;    // 类型
-    private String description;// 描述
+    private String site;    // 公司地址
+    private String phone;   // 电话
 
-    public String getLabel() {
-        return label;
+    public String getSite() {
+        return site;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setSite(String site) {
+        this.site = site;
     }
 
-    public Integer getValue() {
-        return value;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

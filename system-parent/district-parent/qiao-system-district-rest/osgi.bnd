@@ -1,0 +1,9 @@
+#-----------------------------------------------------------------
+# Use this file to add customized Bnd instructions for the bundle
+#-----------------------------------------------------------------
+
+Bundle-Activator: ${bundle.namespace}.internal.InitActivator
+Bundle-Category: Kalix Qiao System District
+Include-Resource: target/classes
+Import-Package: com.kalix.framework.core.api.persistence,\
+                com.kalix.qiao.system.district.entities,*
