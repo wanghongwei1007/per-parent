@@ -17,6 +17,7 @@
     <!--内容-->
     <bean id="contentBeanDaoImpl" class="com.kalix.qiao.cms.dao.ContentBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
+        <property name="menuBeanDao" ref="menuBeanDaoImpl"/>
     </bean>
     <service interface="com.kalix.qiao.cms.api.dao.IContentBeanDao" ref="contentBeanDaoImpl"/>
 

@@ -26,6 +26,7 @@
              ref="contentBeanServiceImpl"/>
     <bean id="contentBeanServiceImpl" class="com.kalix.qiao.cms.biz.ContentBeanServiceImpl">
         <property name="dao" ref="contentBeanDao"/>
+        <property name="columnBeanService" ref="columnBeanServiceImpl" />
     </bean>
 
     <!--留言-->

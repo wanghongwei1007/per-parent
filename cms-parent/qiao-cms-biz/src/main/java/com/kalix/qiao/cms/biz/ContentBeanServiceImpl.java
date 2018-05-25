@@ -21,27 +21,25 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
 
     private IColumnBeanService columnBeanService;
     private IMenuBeanService menuBeanService;
-    private IContentBeanDao contentBeanDao;
+
 
     @Override
     public JsonData getColumnAndMenu() {
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
-        System.out.print("————————————————————————————————————————————");
         String str = "[";
         for (int i = 0; i < columnList.size(); i++) {
             ColumnBean column = columnList.get(i);
             str += "{value: '" + column.getId() + "',label: '" + column.getName() + "'";
-            List<MenuBean> menuBeanList = contentBeanDao.getColumnAndMenu(column.getId());
+            List<MenuBean> menuBeanList = dao.getColumnAndMenu(column.getId());
             if (menuBeanList.size() > 0) {
                 str += ",children: [";
-                for (int k = 0; k < menuBeanList.size(); k++) {
-                    MenuBean menu = menuBeanList.get(k);
+                for (MenuBean menu : menuBeanList) {
                     str += "{value: '" + menu.getId() + "',label: '" + menu.getName() + "'}";
-                    if (k != menuBeanList.size() - 1) {
-                        str += ",";
-                    }
+                    str += ",";
                 }
+                str = str.substring(0, str.length() - 1);
                 str += "]";
+
             }
             str += "}";
             if (i != columnList.size() - 1) {
@@ -49,11 +47,15 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
             }
         }
         str += "]";
-        System.out.print("——————————————————————"+str);
+        System.out.print("——————————————————————" + str);
         JsonData jsonData = new JsonData();
         List<String> list = new ArrayList<>();
         list.add(str);
         jsonData.setData(list);
         return jsonData;
+    }
+
+    public void setColumnBeanService(IColumnBeanService columnBeanService) {
+        this.columnBeanService = columnBeanService;
     }
 }
