@@ -7,7 +7,7 @@
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
     <jpa:enable/>
     <tx:enable-annotations/>
-
+    <!--家谱管理-->
     <bean id="genealogyBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.GenealogyBeanDaoImpl">
     </bean>
     <service interface="com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao" ref="genealogyBeanDaoImpl"/>

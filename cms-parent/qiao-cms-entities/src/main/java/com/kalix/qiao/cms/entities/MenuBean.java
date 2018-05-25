@@ -19,6 +19,7 @@ public class MenuBean extends PersistentEntity {
 
 
 
+
     public String getName() {
         return name;
     }
