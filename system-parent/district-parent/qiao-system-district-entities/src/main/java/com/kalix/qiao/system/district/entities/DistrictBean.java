@@ -14,31 +14,31 @@ import javax.persistence.Table;
 @Table(name = "qiao_district")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class DistrictBean extends PersistentEntity{
-    private Integer coding;
-    private String detail;
-    private Integer parentencoding;
+    private String coding;
+    private String bewrite;
+    private String parentencoding;
 
-    public Integer getCoding() {
+    public String getCoding() {
         return coding;
     }
 
-    public void setCoding(Integer coding) {
+    public void setCoding(String coding) {
         this.coding = coding;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getBewrite() {
+        return bewrite;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setBewrite(String bewrite) {
+        this.bewrite = bewrite;
     }
 
-    public Integer getParentencoding() {
+    public String getParentencoding() {
         return parentencoding;
     }
 
-    public void setParentencoding(Integer parentencoding) {
+    public void setParentencoding(String parentencoding) {
         this.parentencoding = parentencoding;
     }
 }

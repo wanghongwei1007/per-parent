@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by Administrator on 2018/5/21 0021.
  */
 @Entity
-@Table(name = "qiao_generation")
+@Table(name = "qiao_genealogy_generation")
 public class GenerationBean extends PersistentEntity {
     private String grade;//字辈
 

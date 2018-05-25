@@ -9,7 +9,7 @@ import java.util.Date;
  * Created by Administrator on 2018/5/21 0021.
  */
 @Entity
-@Table(name = "qiao_record")
+@Table(name = "qiao_genealogy_record")
 public class RecordBean extends PersistentEntity {
     private String category;//记录类型
     private String chronicle;//族人纪事描述

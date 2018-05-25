@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by Administrator on 2018/5/21 0021.
  */
 @Entity
-@Table(name="qiao_kinsfolk")
+@Table(name="qiao_genealogy_kinsfolk")
 public class KinsfolkBean extends PersistentEntity{
     private String name;//关系人姓名
     private int category;//字典表关系

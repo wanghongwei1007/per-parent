@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by Administrator on 2018/5/20 0020.
  */
 @Entity
-@Table(name = "qiao_clansman")
+@Table(name = "qiao_genealogy_clansman")
 public class ClansmanBean extends PersistentEntity {
     private Date birth;//出生日期
     private int brothersid;//兄弟姐妹ID
