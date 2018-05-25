@@ -11,8 +11,11 @@ public class QiaoDictBeanServiceImpl extends BaseDictServiceImpl<IQiaoDictBeanDa
 
     @Override
     public JsonStatus saveEntity(QiaoDictBean entity) {
-        Integer maxValue = dao.getFieldMaxValue("value", "type='" + entity.getType() + "'");
-        maxValue = maxValue + 1;
+        Integer maxValue = dao.getFieldMaxValue("value","type='"+entity.getType()+"'");
+
+        maxValue=maxValue+1;
+        entity.setValue(maxValue);
+
         return super.saveEntity(entity);
     }
 }

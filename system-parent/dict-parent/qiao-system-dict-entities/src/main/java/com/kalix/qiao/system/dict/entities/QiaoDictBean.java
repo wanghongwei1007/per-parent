@@ -15,7 +15,7 @@ public class QiaoDictBean extends PersistentEntity{
     private String category;    // 分类
     private String description;
     private String label;
-    private int value;
+    private Integer value;
 
     public String getDescription() {
         return description;
@@ -33,11 +33,11 @@ public class QiaoDictBean extends PersistentEntity{
         this.label = label;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
