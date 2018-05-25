@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by Administrator on 2018/5/13.
  */
 @Entity
-@Table(name = "qiao_genealogy")
+@Table(name = "qiao_genealogy_genealogy")
 public class GenealogyBean extends PersistentEntity {
     private String genealogyname;//家谱名称
     private String area;//区
@@ -22,7 +22,6 @@ public class GenealogyBean extends PersistentEntity {
     private String encoding;//地区编码
     private String genealogysite;//谱属地
     private String hamlet;//村
-    private int id;//表标识
     private int listid;//栏目id（打印菜单）
     private int parentid;//父id
     private int part;//部id（字典表）

@@ -9,7 +9,7 @@ import javax.persistence.Table;
  * Created by Administrator on 2018/5/20 0020.
  */
 @Entity
-@Table(name = "qiao_location")
+@Table(name = "qiao_genealogy_location")
 public class LocationBean extends PersistentEntity {
     private Double destinationlatitude;//终点纬度
     private Double destinationlongitude;//终点经度
