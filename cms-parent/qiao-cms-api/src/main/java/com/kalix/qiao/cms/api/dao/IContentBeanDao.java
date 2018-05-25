@@ -10,5 +10,5 @@ import java.util.List;
  * Created by Administrator on 2018/5/13.
  */
 public interface IContentBeanDao extends IGenericDao<ContentBean, Long> {
-    List<MenuBean> getColumnAndMenu(int navid);
+    List<MenuBean> getColumnAndMenu(long navid);
 }

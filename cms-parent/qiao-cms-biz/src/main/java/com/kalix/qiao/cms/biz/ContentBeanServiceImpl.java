@@ -21,25 +21,21 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
 
     private IColumnBeanService columnBeanService;
     private IMenuBeanService menuBeanService;
+    private IContentBeanDao contentBeanDao;
 
     @Override
     public JsonData getColumnAndMenu() {
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
-        List<MenuBean> menuList = menuBeanService.getAllEntity();
+        System.out.print("————————————————————————————————————————————");
         String str = "[";
         for (int i = 0; i < columnList.size(); i++) {
             ColumnBean column = columnList.get(i);
             str += "{value: '" + column.getId() + "',label: '" + column.getName() + "'";
-            List<MenuBean> menuBeanList = new ArrayList<>();
-            for (MenuBean menuBean : menuList) {
-                if (column.getId() == menuBean.getNavid()) {
-                    menuBeanList.add(menuBean);
-                }
-            }
+            List<MenuBean> menuBeanList = contentBeanDao.getColumnAndMenu(column.getId());
             if (menuBeanList.size() > 0) {
                 str += ",children: [";
                 for (int k = 0; k < menuBeanList.size(); k++) {
-                    MenuBean menu = menuList.get(k);
+                    MenuBean menu = menuBeanList.get(k);
                     str += "{value: '" + menu.getId() + "',label: '" + menu.getName() + "'}";
                     if (k != menuBeanList.size() - 1) {
                         str += ",";
@@ -53,6 +49,7 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
             }
         }
         str += "]";
+        System.out.print("——————————————————————"+str);
         JsonData jsonData = new JsonData();
         List<String> list = new ArrayList<>();
         list.add(str);

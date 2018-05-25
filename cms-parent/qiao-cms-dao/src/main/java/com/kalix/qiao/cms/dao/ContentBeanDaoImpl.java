@@ -24,7 +24,7 @@ public class ContentBeanDaoImpl extends GenericDao<ContentBean, Long> implements
     }
 
     @Override
-    public List<MenuBean> getColumnAndMenu(int navid) {
+    public List<MenuBean> getColumnAndMenu(long navid) {
         return entityManager.createQuery("select m.id,m.name from MenuBean m where m.navid=" + navid + "", MenuBean.class).getResultList();
     }
 }
