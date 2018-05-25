@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "qiao_setting")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class SettingBean extends PersistentEntity {
-    private String site;    // 公司地址
+    private String site;    // 公司网址
     private String phone;   // 电话
 
     public String getSite() {
