@@ -1,8 +1,12 @@
 package com.kalix.qiao.cms.entities;
+
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
+
+
 /**
  * Created by Administrator on 2018/5/13.
  * 内容表
@@ -15,7 +19,7 @@ public class ContentBean extends PersistentEntity {
     private String content;//内容
     private String compile;//编撰人姓名
     private int sequence;//排序
-    private int listid;//菜单id
+    private int menuid;//菜单id
 
     public String getTitle() {
         return title;
@@ -57,11 +61,11 @@ public class ContentBean extends PersistentEntity {
         this.sequence = sequence;
     }
 
-    public int getListid() {
-        return listid;
+    public int getMenuid() {
+        return menuid;
     }
 
-    public void setListid(int listid) {
-        this.listid = listid;
+    public void setMenuid(int menuid) {
+        this.menuid = menuid;
     }
 }
