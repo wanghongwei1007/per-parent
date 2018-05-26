@@ -28,6 +28,7 @@
         <module>karaf-features</module>
         <module>genealogy-parent</module>
         <module>system-parent</module>
+        <module>forum-parent</module>
     </modules>
     <build>
         <plugins>

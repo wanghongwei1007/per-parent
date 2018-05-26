@@ -31,24 +31,6 @@
         <routeBuilder ref="contentRoute"/>
     </camelContext>
 
-    <!--留言-->
-    <reference id="forumService" interface="com.kalix.qiao.cms.api.biz.IForumBeanService"/>
-    <bean id="forumRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
-        <property name="beanName" value="com.kalix.qiao.cms.entities.ForumBean"/>
-    </bean>
-    <camelContext id="forumCamel" xmlns="http://camel.apache.org/schema/blueprint">
-        <routeBuilder ref="forumRoute"/>
-    </camelContext>
-
-    <!--回复-->
-    <reference id="replyService" interface="com.kalix.qiao.cms.api.biz.IReplyBeanService"/>
-    <bean id="replyRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
-        <property name="beanName" value="com.kalix.qiao.cms.entities.ReplyBean"/>
-    </bean>
-    <camelContext id="replyCamel" xmlns="http://camel.apache.org/schema/blueprint">
-        <routeBuilder ref="replyRoute"/>
-    </camelContext>
-
   <!--  <rest path="/content/getColumnAndMenu" consumes="application/json;charset=utf-8" produces="application/json">
         <description>template rest service</description>
         &lt;!&ndash; this is a rest GET to find all template &ndash;&gt;

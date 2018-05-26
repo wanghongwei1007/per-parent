@@ -8,7 +8,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * Created by Administrator on 2018/5/16.
+ * Created by sunli on 2018/5/16.
+ * 地区编码表
  */
 @Entity
 @Table(name = "qiao_district")

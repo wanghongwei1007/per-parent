@@ -1,5 +1,7 @@
 package com.kalix.qiao.system.district.biz;
-
+/**
+ * Created by sunli on 2018/5/13.
+ */
 import com.kalix.framework.core.api.persistence.JsonStatus;
 import com.kalix.framework.core.impl.biz.ShiroGenericBizServiceImpl;
 import com.kalix.qiao.system.district.api.biz.IDistrictBeanService;

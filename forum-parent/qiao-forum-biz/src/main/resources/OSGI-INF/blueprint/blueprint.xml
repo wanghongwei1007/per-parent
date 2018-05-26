@@ -1,0 +1,25 @@
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+">
+    <tx:enable-annotations/>
+
+    <!--留言-->
+    <reference id="forumBeanDao" interface="com.kalix.qiao.forum.api.dao.IForumBeanDao"/>
+    <service id="forumBeanService" interface="com.kalix.qiao.forum.api.biz.IForumBeanService"
+             ref="forumBeanServiceImpl"/>
+    <bean id="forumBeanServiceImpl" class="com.kalix.qiao.forum.biz.ForumBeanServiceImpl">
+        <property name="dao" ref="forumBeanDao"/>
+    </bean>
+
+    <!--回复-->
+    <reference id="replyBeanDao" interface="com.kalix.qiao.forum.api.dao.IReplyBeanDao"/>
+    <service id="replyBeanService" interface="com.kalix.qiao.forum.api.biz.IReplyBeanService"
+             ref="replyBeanServiceImpl"/>
+    <bean id="replyBeanServiceImpl" class="com.kalix.qiao.forum.biz.ReplyBeanServiceImpl">
+        <property name="dao" ref="replyBeanDao"/>
+    </bean>
+
+</blueprint>
+

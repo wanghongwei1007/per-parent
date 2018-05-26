@@ -8,7 +8,8 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 /**
- * Created by Administrator on 2018/5/16.
+ * Created by sunli on 2018/5/16.
+ * 公司信息表
  */
 @Entity
 @Table(name = "qiao_setting")

@@ -8,12 +8,7 @@ import com.kalix.qiao.system.setting.api.dao.IBlogrollBeanDao;
 import com.kalix.qiao.system.setting.entities.BlogrollBean;
 
 /**
- * @类描述：
- * @创建人：
- * @创建时间：
- * @修改人：
- * @修改时间：
- * @修改备注：
+ * Created by sunli on 2018/5/13.
  */
 public class BlogrollBeanServiceImpl extends ShiroGenericBizServiceImpl<IBlogrollBeanDao, BlogrollBean> implements IBlogrollBeanService {
     @Override

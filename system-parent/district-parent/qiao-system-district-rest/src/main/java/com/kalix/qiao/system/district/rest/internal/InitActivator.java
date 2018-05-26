@@ -3,7 +3,7 @@ package com.kalix.qiao.system.district.rest.internal;
 import com.kalix.framework.core.api.osgi.BaseBundleActivator;
 
 /**
- * @author chenyanxu
+ * @author sunli
  */
 public class InitActivator extends BaseBundleActivator {
 }

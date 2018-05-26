@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
  * <p/>
  * Need store some some APIs configuration in a env.properties files
  *
- * @author Carl Ji
+ * @author sunli
  * la
  *
  */

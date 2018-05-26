@@ -27,16 +27,5 @@
     </bean>
     <service interface="com.kalix.qiao.cms.api.dao.IMenuBeanDao" ref="menuBeanDaoImpl"/>
 
-    <!--留言-->
-    <bean id="forumBeanDaoImpl" class="com.kalix.qiao.cms.dao.ForumBeanDaoImpl">
-        <tx:transaction method="*" value="Required"/>
-    </bean>
-    <service interface="com.kalix.qiao.cms.api.dao.IForumBeanDao" ref="forumBeanDaoImpl"/>
-
-    <!--回复-->
-    <bean id="ReplyBeanDaoImpl" class="com.kalix.qiao.cms.dao.ReplyBeanDaoImpl">
-        <tx:transaction method="*" value="Required"/>
-    </bean>
-    <service interface="com.kalix.qiao.cms.api.dao.IReplyBeanDao" ref="ReplyBeanDaoImpl"/>
 </blueprint>
 
