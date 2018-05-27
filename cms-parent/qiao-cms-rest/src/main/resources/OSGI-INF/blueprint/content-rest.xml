@@ -10,11 +10,11 @@
         </restConfiguration>
 
         <!-- defines the rest services using the context-path /template -->
-        <rest path="/contents/getColumnAndMenu" consumes="application/json;charset=utf-8" produces="application/json">
+        <rest path="/contents/getMenuByColumnId" consumes="application/json;charset=utf-8" produces="application/json">
             <!-- this is a rest GET to view a template by the given id -->
             <get id="route-getColumnAndMenu" outType="com.kalix.framework.core.api.persistence.JsonData">
                 <description>Find Column And Menu</description>
-                <to uri="bean:contentService?method=getColumnAndMenu()"/>
+                <to uri="bean:contentService?method=getMenuByColumnId()"/>
             </get>
 
         </rest>

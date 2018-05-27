@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class MenuBean extends PersistentEntity {
     private boolean message; //是否留言
     private String name;//菜单名称
-    private int navid;//栏目id
+    private int columnId;//栏目id
     private int sequence;//排序
     private boolean show;//是否显示
     private String url;//菜单地址
@@ -28,12 +28,12 @@ public class MenuBean extends PersistentEntity {
         this.name = name;
     }
 
-    public int getNavid() {
-        return navid;
+    public int getColumnId() {
+        return columnId;
     }
 
-    public void setNavid(int navid) {
-        this.navid = navid;
+    public void setColumnId(int columnId) {
+        this.columnId = columnId;
     }
 
     public int getSequence() {

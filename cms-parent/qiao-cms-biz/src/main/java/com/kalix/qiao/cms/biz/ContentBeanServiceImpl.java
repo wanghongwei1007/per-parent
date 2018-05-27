@@ -1,5 +1,6 @@
 package com.kalix.qiao.cms.biz;
 
+import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.qiao.cms.api.biz.IColumnBeanService;
@@ -8,8 +9,8 @@ import com.kalix.qiao.cms.api.biz.IMenuBeanService;
 import com.kalix.qiao.cms.api.dao.IContentBeanDao;
 import com.kalix.qiao.cms.entities.ColumnBean;
 import com.kalix.qiao.cms.entities.ContentBean;
+import com.kalix.qiao.cms.entities.JsonClassBean;
 import com.kalix.qiao.cms.entities.MenuBean;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,38 +21,34 @@ import java.util.List;
 public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDao, ContentBean> implements IContentBeanService {
 
     private IColumnBeanService columnBeanService;
-    private IMenuBeanService menuBeanService;
-
 
     @Override
-    public JsonData getColumnAndMenu() {
+    public JsonData getMenuByColumnId() {
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
-        String str = "[";
-        for (int i = 0; i < columnList.size(); i++) {
-            ColumnBean column = columnList.get(i);
-            str += "{value: '" + column.getId() + "',label: '" + column.getName() + "'";
-            List<MenuBean> menuBeanList = dao.getColumnAndMenu(column.getId());
+        Gson gson = new Gson();
+        List<JsonClassBean> list = new ArrayList<>();
+        for (ColumnBean columnBean : columnList) {
+            JsonClassBean jsonClassBean = new JsonClassBean();
+            jsonClassBean.setValue(String.valueOf(columnBean.getId()));
+            jsonClassBean.setLabel(columnBean.getName());
+            List<MenuBean> menuBeanList = dao.getMenuByColumnId(columnBean.getId());
+            List children = new ArrayList();
             if (menuBeanList.size() > 0) {
-                str += ",children: [";
-                for (MenuBean menu : menuBeanList) {
-                    str += "{value: '" + menu.getId() + "',label: '" + menu.getName() + "'}";
-                    str += ",";
+                for (MenuBean menuBean : menuBeanList) {
+                    JsonClassBean json = new JsonClassBean();
+                    json.setValue(String.valueOf(menuBean.getId()));
+                    json.setLabel(menuBean.getName());
+                    children.add(json);
                 }
-                str = str.substring(0, str.length() - 1);
-                str += "]";
-
             }
-            str += "}";
-            if (i != columnList.size() - 1) {
-                str += ",";
-            }
+            jsonClassBean.setChildren(children);
+            list.add(jsonClassBean);
         }
-        str += "]";
-        System.out.print("——————————————————————" + str);
+        String str = gson.toJson(list);
         JsonData jsonData = new JsonData();
-        List<String> list = new ArrayList<>();
-        list.add(str);
-        jsonData.setData(list);
+        List<String> strList = new ArrayList<>();
+        strList.add(str);
+        jsonData.setData(strList);
         return jsonData;
     }
 
