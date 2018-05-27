@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Created by Administrator on 2018/5/16.
+ * 数据字典表
  */
 @Entity
 @Table(name = "qiao_dict")

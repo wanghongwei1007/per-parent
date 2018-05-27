@@ -8,12 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * @类描述：
- * @创建人：
- * @创建时间：
- * @修改人：
- * @修改时间：
- * @修改备注：
+ * Created by sunli on 2018/5/16.
+ * 广告管理表
  */
 @Entity
 @Table(name = "qiao_setting_advert")
