@@ -19,7 +19,7 @@ public class ContentBean extends PersistentEntity {
     private String content;//内容
     private String compile;//编撰人姓名
     private int sequence;//排序
-    private int menuid;//菜单id
+    private int menuId;//菜单id
 
     public String getTitle() {
         return title;
@@ -61,11 +61,11 @@ public class ContentBean extends PersistentEntity {
         this.sequence = sequence;
     }
 
-    public int getMenuid() {
-        return menuid;
+    public int getMenuId() {
+        return menuId;
     }
 
-    public void setMenuid(int menuid) {
-        this.menuid = menuid;
+    public void setMenuId(int menuId) {
+        this.menuId = menuId;
     }
 }
