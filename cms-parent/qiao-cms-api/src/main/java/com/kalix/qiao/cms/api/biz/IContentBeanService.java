@@ -10,4 +10,6 @@ import com.kalix.qiao.cms.entities.ContentBean;
 public interface IContentBeanService extends IBizService<ContentBean> {
 
     JsonData getMenuByColumnId();
+
+    JsonData getTreeInfo();
 }
