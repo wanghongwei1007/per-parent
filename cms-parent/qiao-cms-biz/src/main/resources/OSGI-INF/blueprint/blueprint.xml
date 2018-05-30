@@ -27,6 +27,7 @@
     <bean id="contentBeanServiceImpl" class="com.kalix.qiao.cms.biz.ContentBeanServiceImpl">
         <property name="dao" ref="contentBeanDao"/>
         <property name="columnBeanService" ref="columnBeanServiceImpl" />
+        <property name="menuBeanService" ref="menuBeanServiceImpl" />
     </bean>
 
 </blueprint>

@@ -1,18 +1,15 @@
-package com.kalix.qiao.cms.entities;
+package com.kalix.qiao.cms.api.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/5/26 0026.
+ * Created by wangpeng on 2018/5/26 0026.
+ * 栏目菜单级联查询格式封装
  */
-@Entity
-@Table(name = "qiao_cms_jsonBean")
-public class JsonClassBean {
+public class CascaderDTO {
     private String value;
     private String label;
-    private List children;
+    private List<CascaderDTO> children;
 
     public String getValue() {
         return value;

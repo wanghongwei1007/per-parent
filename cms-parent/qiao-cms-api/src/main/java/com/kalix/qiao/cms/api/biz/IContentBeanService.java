@@ -12,4 +12,6 @@ public interface IContentBeanService extends IBizService<ContentBean> {
     JsonData getMenuByColumnId();
 
     JsonData getTreeInfo();
+
+    JsonData getContentByMenuId(long menuId);
 }

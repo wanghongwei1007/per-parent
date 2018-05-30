@@ -24,5 +24,13 @@
                 <to uri="bean:contentService?method=getTreeInfo()"/>
             </get>
         </rest>
+
+        <rest path="/contents/getContentByMenuId" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <get id="route-getContentByMenuId" outType="java.util.List">
+                <description>Find Column And Menu</description>
+                <to uri="bean:contentService?method=getContentByMenuId(${header.menuId}, ${header.name})"/>
+            </get>
+        </rest>
     </camelContext>
 </blueprint>

@@ -7,6 +7,8 @@ import com.kalix.qiao.cms.api.biz.IColumnBeanService;
 import com.kalix.qiao.cms.api.biz.IContentBeanService;
 import com.kalix.qiao.cms.api.biz.IMenuBeanService;
 import com.kalix.qiao.cms.api.dao.IContentBeanDao;
+import com.kalix.qiao.cms.api.dto.CascaderDTO;
+import com.kalix.qiao.cms.api.dto.JsonTreeDTO;
 import com.kalix.qiao.cms.entities.*;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
 public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDao, ContentBean> implements IContentBeanService {
 
     private IColumnBeanService columnBeanService;
+    private IMenuBeanService menuBeanService;
 
     /**
      *栏目菜单级联查询
@@ -27,28 +30,29 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
     public JsonData getMenuByColumnId() {
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
         Gson gson = new Gson();
-        List<JsonClassBean> list = new ArrayList<>();
+        List<CascaderDTO> list = new ArrayList<>();
         for (ColumnBean columnBean : columnList) {
-            JsonClassBean jsonClassBean = new JsonClassBean();
-            jsonClassBean.setValue(String.valueOf(columnBean.getId()));
-            jsonClassBean.setLabel(columnBean.getName());
+            CascaderDTO cascaderDTO = new CascaderDTO();
+            cascaderDTO.setValue(String.valueOf(columnBean.getId()));
+            cascaderDTO.setLabel(columnBean.getName());
             List<MenuBean> menuBeanList = dao.getMenuByColumnId(columnBean.getId());
             List children = new ArrayList();
             if (menuBeanList.size() > 0) {
                 for (MenuBean menuBean : menuBeanList) {
-                    JsonClassBean json = new JsonClassBean();
+                    CascaderDTO json = new CascaderDTO();
                     json.setValue(String.valueOf(menuBean.getId()));
                     json.setLabel(menuBean.getName());
                     children.add(json);
                 }
             }
-            jsonClassBean.setChildren(children);
-            list.add(jsonClassBean);
+            cascaderDTO.setChildren(children);
+            list.add(cascaderDTO);
         }
         String str = gson.toJson(list);
         JsonData jsonData = new JsonData();
         List<String> strList = new ArrayList<>();
         strList.add(str);
+        jsonData.setTotalCount((long) list.size());
         jsonData.setData(strList);
         return jsonData;
     }
@@ -59,32 +63,52 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
      */
     @Override
     public JsonData getTreeInfo() {
-        Gson gson = new Gson();
-        List<JsonTreeBean> list = new ArrayList<>();
+        List<JsonTreeDTO> list = new ArrayList<>();
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
         for (ColumnBean column : columnList) {
-            JsonTreeBean jsonTreeBean = new JsonTreeBean();
-            String string = gson.toJson(column);
-            jsonTreeBean.setLabel(string);
+            JsonTreeDTO jsonTreeDTO = new JsonTreeDTO();
+            jsonTreeDTO.setLabel(column.getName());
+            jsonTreeDTO.setModelId(column.getId());
+            jsonTreeDTO.setFlag("column");
             List<MenuBean> menuBeanList = dao.getMenuByColumnId(column.getId());
             if (menuBeanList.size()>0) {
                 List children = new ArrayList();
                 for (MenuBean menuBean:menuBeanList) {
-                    JsonTreeBean jsonTreeBean1 = new JsonTreeBean();
-                    String str = gson.toJson(menuBean);
-                    jsonTreeBean1.setLabel(str);
-                    children.add(jsonTreeBean1);
+                    JsonTreeDTO jsonTreeDTO1 = new JsonTreeDTO();
+                    jsonTreeDTO1.setLabel(menuBean.getName());
+                    jsonTreeDTO1.setModelId(menuBean.getId());
+                    jsonTreeDTO1.setFlag("menu");
+                    children.add(jsonTreeDTO1);
                 }
-                jsonTreeBean.setChildren(children);
+                jsonTreeDTO.setChildren(children);
             }
-            list.add(jsonTreeBean);
+            list.add(jsonTreeDTO);
         }
         JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(list);
+        return jsonData;
+    }
+
+    /**
+     * 查询内容列表
+     * @param menuId 所属菜单ID
+     * @return
+     */
+    @Override
+    public JsonData getContentByMenuId(long menuId) {
+        List<ContentBean> list = dao.find("select c from ContentBean c where c.menuId=?1", menuId);
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
         jsonData.setData(list);
         return jsonData;
     }
 
     public void setColumnBeanService(IColumnBeanService columnBeanService) {
         this.columnBeanService = columnBeanService;
+    }
+
+    public void setMenuBeanService(IMenuBeanService menuBeanService) {
+        this.menuBeanService = menuBeanService;
     }
 }

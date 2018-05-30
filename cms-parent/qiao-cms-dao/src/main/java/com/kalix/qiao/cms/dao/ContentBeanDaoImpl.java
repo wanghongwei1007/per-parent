@@ -30,6 +30,11 @@ public class ContentBeanDaoImpl extends GenericDao<ContentBean, Long> implements
 //        return entityManager.createQuery("select m.id,m.name from MenuBean m where m.navid=" + navid + "", MenuBean.class).getResultList();
     }
 
+    @Override
+    public List<ContentBean> getContentByMenuId(long menuId) {
+       return entityManager.createQuery("select c from ContentBean c where c.menuId=" + menuId + "", ContentBean.class).getResultList();
+    }
+
     public void setMenuBeanDao(IMenuBeanDao menuBeanDao) {
         this.menuBeanDao = menuBeanDao;
     }

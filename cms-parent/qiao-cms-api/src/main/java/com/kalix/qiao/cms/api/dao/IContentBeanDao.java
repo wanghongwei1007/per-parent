@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface IContentBeanDao extends IGenericDao<ContentBean, Long> {
     List<MenuBean> getMenuByColumnId(long columnId);
+
+    List<ContentBean> getContentByMenuId(long menuId);
 }
