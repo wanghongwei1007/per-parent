@@ -23,7 +23,8 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
     private IMenuBeanService menuBeanService;
 
     /**
-     *栏目菜单级联查询
+     * 栏目菜单级联查询
+     *
      * @return
      */
     @Override
@@ -59,24 +60,33 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
 
     /**
      * 内容管理树形列表参数
+     *
      * @return
      */
     @Override
     public JsonData getTreeInfo() {
         List<JsonTreeDTO> list = new ArrayList<>();
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
+        int i = 0;
         for (ColumnBean column : columnList) {
             JsonTreeDTO jsonTreeDTO = new JsonTreeDTO();
             jsonTreeDTO.setLabel(column.getName());
-            jsonTreeDTO.setModelId(column.getId());
-            jsonTreeDTO.setFlag("column");
+            if (i > 0) {
+                jsonTreeDTO.setModelId(column.getId());
+                jsonTreeDTO.setFlag("column");
+            }
             List<MenuBean> menuBeanList = dao.getMenuByColumnId(column.getId());
-            if (menuBeanList.size()>0) {
+            if (menuBeanList.size() > 0) {
                 List children = new ArrayList();
-                for (MenuBean menuBean:menuBeanList) {
+                for (MenuBean menuBean : menuBeanList) {
                     JsonTreeDTO jsonTreeDTO1 = new JsonTreeDTO();
                     jsonTreeDTO1.setLabel(menuBean.getName());
                     jsonTreeDTO1.setModelId(menuBean.getId());
+                    if (i == 0) {
+                        jsonTreeDTO.setModelId(menuBean.getId());
+                        jsonTreeDTO.setFlag("columnMenu");
+                        i++;
+                    }
                     jsonTreeDTO1.setFlag("menu");
                     children.add(jsonTreeDTO1);
                 }
@@ -92,6 +102,7 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
 
     /**
      * 查询内容列表
+     *
      * @param menuId 所属菜单ID
      * @return
      */
