@@ -3,6 +3,7 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 /**
  * Created by sunli on 2018/5/13.
@@ -17,7 +18,15 @@ public class ForumBean extends PersistentEntity {
     private Long menuId;        //留言分类（菜单id）
     private int category=0; //审核标识
     private String categorytype; //类型标识
-//    private Date timenow;    //最新回复时间
+    private Date timenow;    //最新回复时间
+
+    public Date getTimenow() {
+        return timenow;
+    }
+
+    public void setTimenow(Date timenow) {
+        this.timenow = timenow;
+    }
 
     public String getIdcard() {
         return idcard;

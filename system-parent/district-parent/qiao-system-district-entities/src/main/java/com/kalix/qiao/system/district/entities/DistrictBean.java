@@ -15,9 +15,9 @@ import javax.persistence.Table;
 @Table(name = "qiao_district")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class DistrictBean extends PersistentEntity{
-    private String coding;
-    private String bewrite;
-    private String parentencoding;
+    private String coding; //编码
+    private String bewrite; //地区描述
+    private String parentencoding; //上级地区编码
 
     public String getCoding() {
         return coding;

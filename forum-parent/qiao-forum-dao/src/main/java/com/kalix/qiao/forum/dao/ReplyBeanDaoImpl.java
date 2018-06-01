@@ -6,6 +6,7 @@ import com.kalix.qiao.forum.entities.ReplyBean;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by sunli on 2018/5/13.
@@ -16,4 +17,11 @@ public class ReplyBeanDaoImpl extends GenericDao<ReplyBean, Long> implements IRe
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);
     }
+
+    @Override
+    public List<ReplyBean> findByParentId(Integer parentId) {
+        return (List<ReplyBean>) this.find("select rb from ReplyBean rb where rb.parentId = ?1 order by rb.id", parentId);
+    }
+
+
 }

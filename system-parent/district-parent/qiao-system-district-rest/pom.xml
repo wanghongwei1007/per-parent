@@ -15,4 +15,17 @@
     <properties>
         <bundle.symbolicName>com.kalix.qiao.system.district.rest</bundle.symbolicName>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.kalix.qiao.system.district</groupId>
+            <artifactId>qiao-system-district-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kalix.framework.core</groupId>
+            <artifactId>framework-core-restfultest</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
