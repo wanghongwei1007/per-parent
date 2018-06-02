@@ -1,0 +1,4 @@
+delete  FROM public.qiao_dict;
+
+INSERT INTO public.qiao_dict (id, createby, createbyid, creationdate, updateby, updatebyid, updatedate, category, type, version_, description, label, value) VALUES (116057, '管理员', -1, '2018-05-25 18:28:49.676000', '管理员', -1, '2018-05-25 18:28:49.662000', null, '审核标识', 1, '', '未审核', 0);
+INSERT INTO public.qiao_dict (id, createby, createbyid, creationdate, updateby, updatebyid, updatedate, category, type, version_, description, label, value) VALUES (116056, '管理员', -1, '2018-05-25 18:28:38.337000', '管理员', -1, '2018-05-25 18:28:38.303000', null, '审核标识', 1, '', '已审核', 1);
