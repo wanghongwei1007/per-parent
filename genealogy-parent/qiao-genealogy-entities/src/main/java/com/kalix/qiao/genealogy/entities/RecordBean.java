@@ -11,27 +11,10 @@ import java.util.Date;
 @Entity
 @Table(name = "qiao_genealogy_record")
 public class RecordBean extends PersistentEntity {
-    private String category;//记录类型
-    private String chronicle;//族人纪事描述
     private int member;//族人id
+    private String category;//记录类型
     private String site;//纪念地址
     private Date time;//纪念日期
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getChronicle() {
-        return chronicle;
-    }
-
-    public void setChronicle(String chronicle) {
-        this.chronicle = chronicle;
-    }
 
     public int getMember() {
         return member;
@@ -39,6 +22,14 @@ public class RecordBean extends PersistentEntity {
 
     public void setMember(int member) {
         this.member = member;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getSite() {
@@ -56,4 +47,14 @@ public class RecordBean extends PersistentEntity {
     public void setTime(Date time) {
         this.time = time;
     }
+
+    public String getChronicle() {
+        return chronicle;
+    }
+
+    public void setChronicle(String chronicle) {
+        this.chronicle = chronicle;
+    }
+
+    private String chronicle;//族人纪事描述
 }
