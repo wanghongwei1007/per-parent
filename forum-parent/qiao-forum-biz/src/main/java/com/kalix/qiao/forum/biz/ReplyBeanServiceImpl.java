@@ -18,6 +18,19 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
 
 
     @Override
+    public ReplyForTreeTable getAllReply() {
+        ReplyForTreeTable rft = new ReplyForTreeTable();
+        List<ReplyBean> replyBeanList = new ArrayList<>();
+        List<ReplyBean> replys= dao.find("select r from ReplyBean r where r.parentId= -1 order by r.creationDate desc");
+        if(replys.size()>1){
+            List<ReplyForTreeTable> childList = new ArrayList<>();
+           // rft.setChildren(replys);
+        }
+
+        return rft;
+    }
+
+    @Override
     public JsonData getReplyByPostId(long postId) {
         List<ReplyForTreeTable> list = new ArrayList<>();
         List<ReplyBean> replyBeanList = new ArrayList<>();
@@ -44,7 +57,7 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
         replyForTreeTable.setCreationDate(replyBean.getCreationDate());
         replyForTreeTable.setContent(replyBean.getContent());
         replyForTreeTable.setCategory(replyBean.getCategory());
-        replyForTreeTable.setValue(String.valueOf(replyBean.getId()));
+        //replyForTreeTable.setValue(String.valueOf(replyBean.getId()));
         List<ReplyBean> childList = dao.find("select r from ReplyBean r where r.parentId=?1", replyBean.getId());
         if(childList.size()>0){
             List<ReplyForTreeTable> childrenList = new ArrayList<>();
