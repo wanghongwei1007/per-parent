@@ -23,5 +23,10 @@ public class ReplyBeanDaoImpl extends GenericDao<ReplyBean, Long> implements IRe
         return (List<ReplyBean>) this.find("select rb from ReplyBean rb where rb.parentId = ?1 order by rb.id", parentId);
     }
 
+    @Override
+    public List<ReplyBean> findListByPostId(long postId) {
+        return null;
+    }
+
 
 }
