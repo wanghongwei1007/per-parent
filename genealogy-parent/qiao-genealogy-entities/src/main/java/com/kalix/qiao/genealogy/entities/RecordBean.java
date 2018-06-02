@@ -11,11 +11,11 @@ import java.util.Date;
 @Entity
 @Table(name = "qiao_genealogy_record")
 public class RecordBean extends PersistentEntity {
-    private String category;//记录类型
-    private String chronicle;//族人纪事描述
     private int member;//族人id
+    private String category;//记录类型
     private String site;//纪念地址
     private Date time;//纪念日期
+    private String chronicle;//族人纪事描述
 
     public String getCategory() {
         return category;

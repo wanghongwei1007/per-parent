@@ -14,23 +14,23 @@ import java.util.Date;
 @Table(name = "qiao_genealogy_genealogy")
 public class GenealogyBean extends PersistentEntity {
     private String genealogyname;//家谱名称
-    private String area;//区
-    private  int category;//审核标识
-    private String city;//市
+    private int parentid;//父id
     private String country;//国家
+    private String province;//省
+    private String city;//市
+    private String area;//区
     private String county;//县
+    private String hamlet;//村
+    private String streets;//街道
     private String encoding;//地区编码
     private String genealogysite;//谱属地
-    private String hamlet;//村
-    private int listid;//栏目id（打印菜单）
-    private int parentid;//父id
-    private int part;//部id（字典表）
-    private String province;//省
     private String remarks;//备注
-    private String streets;//街道
     private String summarize;//概况
+    private int listid;//栏目id（打印菜单）
+    private int part;//部id（字典表）
     private String unit;//卷id（字典表）
     private String volume;//册id（字典表）
+    private  int category;//审核标识
 
     public String getGenealogyname() {
         return genealogyname;

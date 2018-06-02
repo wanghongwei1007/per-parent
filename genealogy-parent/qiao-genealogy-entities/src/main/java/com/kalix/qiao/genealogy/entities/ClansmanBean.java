@@ -13,32 +13,32 @@ import java.util.Date;
 @Entity
 @Table(name = "qiao_genealogy_clansman")
 public class ClansmanBean extends PersistentEntity {
-    private Date birth;//出生日期
-    private int brothersid;//兄弟姐妹ID
-    private int childrenid;//子女ID
-    private Date datetime;//死亡日期
-    private String describe;//描述
-    private String duty;//官爵
-    private String education;//教育
+    private String name;//族人姓名
+    private String sex;//性别
+    private String matrimony;//婚姻
+    private int spouseid;//配偶id
     private int fatherid;//父id
-    private int genealogynameid;//家谱id
+    private int motherid;//母id
+    private String sequence;//排行
     private String generations;//世代
     private int gradeid;//字辈id
-    private String health;//健康状况
-    private String imgurl;//图片
-    private String matrimony;//婚姻
     private String monicker;//字号
-    private int motherid;//母id
-    private String name;//族人姓名
-    private String necropolis;//埋葬地
-    private String sequence;//排行
-    private String sex;//性别
-    private String site;///家庭住址
-    private int spouseid;//配偶id
+    private Date birth;//出生日期
+    private Date datetime;//死亡日期
+    private String weight;//体重
     private String stature;//身高
+    private String duty;//官爵
+    private String health;//健康状况
+    private String education;//教育
+    private int brothersid;//兄弟姐妹ID
+    private String site;///家庭住址
+    private int childrenid;//子女ID
+    private String necropolis;//埋葬地
+    private String describe;//描述
+    private String imgurl;//图片
     private String videourl;//视频
     private String voiceurl;//音频
-    private String weight;//体重
+    private int genealogynameid;//家谱id
 
     public Date getBirth() {
         return birth;
