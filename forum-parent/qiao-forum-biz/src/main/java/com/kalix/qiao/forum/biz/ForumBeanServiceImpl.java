@@ -21,7 +21,7 @@ public class ForumBeanServiceImpl extends GenericBizServiceImpl<IForumBeanDao, F
         if(modelList.size()>0){
             for (ForumBean forumBean:modelList){
                 ForumJsonBean forumJsonBean = new ForumJsonBean();
-                forumJsonBean.setValue(String.valueOf(forumBean.getId()));
+                forumJsonBean.setValue(forumBean.getId());
                 forumJsonBean.setLabel(forumBean.getTitle());
                 list.add(forumJsonBean);
             }

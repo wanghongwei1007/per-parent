@@ -12,10 +12,10 @@ import javax.persistence.Table;
 @Table(name = "qiao_forum_reply")
 public class ReplyBean extends PersistentEntity {
     private String username; //回复人姓名
-    private int userId;      //排序
+    private long userId;      //排序
     private String content;  //回复内容
-    private int parentId;    //父节点
-    private int postId;      //发帖id
+    private long parentId;    //父节点
+    private long postId;      //发帖id
     private String category; //审核标识
 
     public String getUsername() {
@@ -42,27 +42,27 @@ public class ReplyBean extends PersistentEntity {
         this.category = category;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    public int getParentId() {
+    public long getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(long parentId) {
         this.parentId = parentId;
     }
 
-    public int getPostId() {
+    public long getPostId() {
         return postId;
     }
 
-    public void setPostId(int postId) {
+    public void setPostId(long postId) {
         this.postId = postId;
     }
 }

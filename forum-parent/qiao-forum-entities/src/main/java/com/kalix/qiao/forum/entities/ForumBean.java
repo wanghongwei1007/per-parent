@@ -15,7 +15,7 @@ public class ForumBean extends PersistentEntity {
     private String idcard;   //发帖人别名
     private String title;    //标题
     private String content;  //帖子内容
-    private Long menuId;        //留言分类（菜单id）
+    private String menuName; //留言分类（菜单id）
     private int category=0; //审核标识
     private String categorytype; //类型标识
     private Date timenow;    //最新回复时间
@@ -52,12 +52,12 @@ public class ForumBean extends PersistentEntity {
         this.content = content;
     }
 
-    public Long getMenuId() {
-        return menuId;
+    public String getMenuName() {
+        return menuName;
     }
 
-    public void setMenuId(Long menuId) {
-        this.menuId = menuId;
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
     }
 
     public int getCategory() {
