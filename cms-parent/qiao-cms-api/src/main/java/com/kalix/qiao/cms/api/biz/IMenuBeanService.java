@@ -16,4 +16,10 @@ public interface IMenuBeanService extends IBizService<MenuBean> {
      * wangpeng 2018-5-28
      */
     JsonData getMenuById(long id);
+
+    /**
+     * 数据集合
+     * @return
+     */
+    JsonData getMenuList();
 }
