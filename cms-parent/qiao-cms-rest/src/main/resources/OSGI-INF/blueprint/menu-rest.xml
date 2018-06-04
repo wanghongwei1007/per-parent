@@ -16,5 +16,12 @@
                 <to uri="bean:menuService?method=getMenuById(${header.model_id})"/>
             </get>
         </rest>
+        <rest path="/menus/getMenuList" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <get id="route-getMenuList" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find Column And Menu</description>
+                <to uri="bean:menuService?method=getMenuList(${header.page},${header.limit})"/>
+            </get>
+        </rest>
     </camelContext>
 </blueprint>

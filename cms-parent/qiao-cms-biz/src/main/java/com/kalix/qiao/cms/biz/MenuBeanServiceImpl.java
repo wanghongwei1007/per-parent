@@ -3,19 +3,34 @@ package com.kalix.qiao.cms.biz;
 import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
+import com.kalix.qiao.cms.api.biz.IColumnBeanService;
 import com.kalix.qiao.cms.api.biz.IMenuBeanService;
 import com.kalix.qiao.cms.api.dao.IMenuBeanDao;
+import com.kalix.qiao.cms.entities.ColumnBean;
 import com.kalix.qiao.cms.entities.MenuBean;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2018/5/13.
+ * Created by wangpeng on 2018/5/13.
  */
-public class MenuBeanServiceImpl extends GenericBizServiceImpl<IMenuBeanDao, MenuBean> implements IMenuBeanService{
+public class MenuBeanServiceImpl extends GenericBizServiceImpl<IMenuBeanDao, MenuBean> implements IMenuBeanService {
 
+    private IColumnBeanService columnBeanService;
 
+    public void setColumnBeanService(IColumnBeanService columnBeanService) {
+        this.columnBeanService = columnBeanService;
+    }
+
+    /**
+     * wangpeng
+     *
+     * @param id findById
+     * @return
+     */
     @Override
     public JsonData getMenuById(long id) {
         MenuBean menuBean = dao.get(id);
@@ -30,4 +45,35 @@ public class MenuBeanServiceImpl extends GenericBizServiceImpl<IMenuBeanDao, Men
         jsonData.setData(list);
         return jsonData;
     }
+
+    /**
+     * 查询数据列表
+     *
+     * @return
+     */
+    @Override
+    public JsonData getMenuList(int page, int limit) {
+        List<ColumnBean> columnBeanList = columnBeanService.getAllEntity();
+        Map<String, ColumnBean> map = new HashMap<>();
+        for (ColumnBean column : columnBeanList) {
+            map.put(String.valueOf(column.getId()), column);
+        }
+        List<MenuBean> menulist = dao.find("select m from MenuBean m order by m.columnId , m.sequence");
+        List<MenuBean> list = menulist.subList(page*limit-limit, limit*page>menulist.size()?menulist.size():limit*page);
+        for (MenuBean menu : list) {
+            ColumnBean columnBean = map.get(String.valueOf(menu.getColumnId()));
+            if (menu.getColumnId() == 1) {
+                menu.setViewURL("/" + columnBean.getUrl() + "#" + menu.getUrl());
+            } else {
+                menu.setViewURL("/" + columnBean.getUrl() + "/" + menu.getUrl());
+            }
+            menu.setColumnName(columnBean.getName());
+        }
+        JsonData jsonData = new JsonData();
+        jsonData.setData(list);
+        jsonData.setTotalCount((long) menulist.size());
+        return jsonData;
+    }
+
+
 }
