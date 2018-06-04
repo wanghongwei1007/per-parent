@@ -52,25 +52,26 @@ public class MenuBeanServiceImpl extends GenericBizServiceImpl<IMenuBeanDao, Men
      * @return
      */
     @Override
-    public JsonData getMenuList() {
+    public JsonData getMenuList(int page, int limit) {
         List<ColumnBean> columnBeanList = columnBeanService.getAllEntity();
         Map<String, ColumnBean> map = new HashMap<>();
         for (ColumnBean column : columnBeanList) {
             map.put(String.valueOf(column.getId()), column);
         }
-        List<MenuBean> list = dao.find("select m from MenuBean m order by m.columnId , m.sequence");
+        List<MenuBean> menulist = dao.find("select m from MenuBean m order by m.columnId , m.sequence");
+        List<MenuBean> list = menulist.subList(page*limit-limit, limit*page>menulist.size()?menulist.size():limit*page);
         for (MenuBean menu : list) {
             ColumnBean columnBean = map.get(String.valueOf(menu.getColumnId()));
-            if(menu.getColumnId() == 1){
-                menu.setUrl("/"+columnBean.getUrl()+"#"+menu.getUrl());
-            }else{
-                menu.setUrl("/"+columnBean.getUrl()+"/"+menu.getUrl());
+            if (menu.getColumnId() == 1) {
+                menu.setViewURL("/" + columnBean.getUrl() + "#" + menu.getUrl());
+            } else {
+                menu.setViewURL("/" + columnBean.getUrl() + "/" + menu.getUrl());
             }
             menu.setColumnName(columnBean.getName());
         }
         JsonData jsonData = new JsonData();
         jsonData.setData(list);
-        jsonData.setTotalCount((long) list.size());
+        jsonData.setTotalCount((long) menulist.size());
         return jsonData;
     }
 

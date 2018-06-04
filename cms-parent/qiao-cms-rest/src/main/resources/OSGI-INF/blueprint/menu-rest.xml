@@ -20,7 +20,7 @@
             <!-- this is a rest GET to view a template by the given id -->
             <get id="route-getMenuList" outType="com.kalix.framework.core.api.persistence.JsonData">
                 <description>Find Column And Menu</description>
-                <to uri="bean:menuService?method=getMenuList()"/>
+                <to uri="bean:menuService?method=getMenuList(${header.page},${header.limit})"/>
             </get>
         </rest>
     </camelContext>

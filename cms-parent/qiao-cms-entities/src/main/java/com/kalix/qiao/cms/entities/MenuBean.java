@@ -21,7 +21,17 @@ public class MenuBean extends PersistentEntity {
 
     @Transient
     private String columnName;
+    
+    @Transient
+    private String viewURL;
 
+    public String getViewURL() {
+        return viewURL;
+    }
+
+    public void setViewURL(String viewURL) {
+        this.viewURL = viewURL;
+    }
 
     public String getColumnName() {
         return columnName;

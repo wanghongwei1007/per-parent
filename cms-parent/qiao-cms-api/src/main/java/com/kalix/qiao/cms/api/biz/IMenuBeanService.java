@@ -21,5 +21,5 @@ public interface IMenuBeanService extends IBizService<MenuBean> {
      * 数据集合
      * @return
      */
-    JsonData getMenuList();
+    JsonData getMenuList(int page, int limit);
 }
