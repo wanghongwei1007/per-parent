@@ -1,12 +1,14 @@
 package com.kalix.qiao.forum.api.dto;
 
+import com.kalix.framework.core.api.web.model.BaseDTO;
+
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by sunli on 2018/6/1.
  */
-public class ReplyForTreeTable{
+public class ReplyForTreeTable extends BaseDTO{
     private long id;
     private String username; //回复人姓名
     private String content;  //回复内容
@@ -16,14 +18,6 @@ public class ReplyForTreeTable{
     private Long parentId;  // 父节点
     private String parentName; //父节点姓名
     private List<ReplyForTreeTable>  children;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public Date getCreationDate() {
         return creationDate;
