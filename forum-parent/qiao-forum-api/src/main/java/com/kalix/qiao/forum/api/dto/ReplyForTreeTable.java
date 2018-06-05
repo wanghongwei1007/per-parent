@@ -9,7 +9,6 @@ import java.util.List;
  * Created by sunli on 2018/6/1.
  */
 public class ReplyForTreeTable extends BaseDTO{
-    private long id;
     private String username; //回复人姓名
     private String content;  //回复内容
     private String  category; //审核标识
