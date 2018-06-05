@@ -40,60 +40,36 @@ public class ClansmanBean extends PersistentEntity {
     private String voiceurl;//音频
     private int genealogynameid;//家谱id
 
-    public Date getBirth() {
-        return birth;
+    public String getName() {
+        return name;
     }
 
-    public void setBirth(Date birth) {
-        this.birth = birth;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getBrothersid() {
-        return brothersid;
+    public String getSex() {
+        return sex;
     }
 
-    public void setBrothersid(int brothersid) {
-        this.brothersid = brothersid;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public int getChildrenid() {
-        return childrenid;
+    public String getMatrimony() {
+        return matrimony;
     }
 
-    public void setChildrenid(int childrenid) {
-        this.childrenid = childrenid;
+    public void setMatrimony(String matrimony) {
+        this.matrimony = matrimony;
     }
 
-    public Date getDatetime() {
-        return datetime;
+    public int getSpouseid() {
+        return spouseid;
     }
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
-    }
-
-    public String getDescribe() {
-        return describe;
-    }
-
-    public void setDescribe(String describe) {
-        this.describe = describe;
-    }
-
-    public String getDuty() {
-        return duty;
-    }
-
-    public void setDuty(String duty) {
-        this.duty = duty;
-    }
-
-    public String getEducation() {
-        return education;
-    }
-
-    public void setEducation(String education) {
-        this.education = education;
+    public void setSpouseid(int spouseid) {
+        this.spouseid = spouseid;
     }
 
     public int getFatherid() {
@@ -104,12 +80,20 @@ public class ClansmanBean extends PersistentEntity {
         this.fatherid = fatherid;
     }
 
-    public int getGenealogynameid() {
-        return genealogynameid;
+    public int getMotherid() {
+        return motherid;
     }
 
-    public void setGenealogynameid(int genealogynameid) {
-        this.genealogynameid = genealogynameid;
+    public void setMotherid(int motherid) {
+        this.motherid = motherid;
+    }
+
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
     }
 
     public String getGenerations() {
@@ -128,30 +112,6 @@ public class ClansmanBean extends PersistentEntity {
         this.gradeid = gradeid;
     }
 
-    public String getHealth() {
-        return health;
-    }
-
-    public void setHealth(String health) {
-        this.health = health;
-    }
-
-    public String getImgurl() {
-        return imgurl;
-    }
-
-    public void setImgurl(String imgurl) {
-        this.imgurl = imgurl;
-    }
-
-    public String getMatrimony() {
-        return matrimony;
-    }
-
-    public void setMatrimony(String matrimony) {
-        this.matrimony = matrimony;
-    }
-
     public String getMonicker() {
         return monicker;
     }
@@ -160,44 +120,68 @@ public class ClansmanBean extends PersistentEntity {
         this.monicker = monicker;
     }
 
-    public int getMotherid() {
-        return motherid;
+    public Date getBirth() {
+        return birth;
     }
 
-    public void setMotherid(int motherid) {
-        this.motherid = motherid;
+    public void setBirth(Date birth) {
+        this.birth = birth;
     }
 
-    public String getName() {
-        return name;
+    public Date getDatetime() {
+        return datetime;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDatetime(Date datetime) {
+        this.datetime = datetime;
     }
 
-    public String getNecropolis() {
-        return necropolis;
+    public String getWeight() {
+        return weight;
     }
 
-    public void setNecropolis(String necropolis) {
-        this.necropolis = necropolis;
+    public void setWeight(String weight) {
+        this.weight = weight;
     }
 
-    public String getSequence() {
-        return sequence;
+    public String getStature() {
+        return stature;
     }
 
-    public void setSequence(String sequence) {
-        this.sequence = sequence;
+    public void setStature(String stature) {
+        this.stature = stature;
     }
 
-    public String getSex() {
-        return sex;
+    public String getDuty() {
+        return duty;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setDuty(String duty) {
+        this.duty = duty;
+    }
+
+    public String getHealth() {
+        return health;
+    }
+
+    public void setHealth(String health) {
+        this.health = health;
+    }
+
+    public String getEducation() {
+        return education;
+    }
+
+    public void setEducation(String education) {
+        this.education = education;
+    }
+
+    public int getBrothersid() {
+        return brothersid;
+    }
+
+    public void setBrothersid(int brothersid) {
+        this.brothersid = brothersid;
     }
 
     public String getSite() {
@@ -208,20 +192,36 @@ public class ClansmanBean extends PersistentEntity {
         this.site = site;
     }
 
-    public int getSpouseid() {
-        return spouseid;
+    public int getChildrenid() {
+        return childrenid;
     }
 
-    public void setSpouseid(int spouseid) {
-        this.spouseid = spouseid;
+    public void setChildrenid(int childrenid) {
+        this.childrenid = childrenid;
     }
 
-    public String getStature() {
-        return stature;
+    public String getNecropolis() {
+        return necropolis;
     }
 
-    public void setStature(String stature) {
-        this.stature = stature;
+    public void setNecropolis(String necropolis) {
+        this.necropolis = necropolis;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
+    public String getImgurl() {
+        return imgurl;
+    }
+
+    public void setImgurl(String imgurl) {
+        this.imgurl = imgurl;
     }
 
     public String getVideourl() {
@@ -240,11 +240,11 @@ public class ClansmanBean extends PersistentEntity {
         this.voiceurl = voiceurl;
     }
 
-    public String getWeight() {
-        return weight;
+    public int getGenealogynameid() {
+        return genealogynameid;
     }
 
-    public void setWeight(String weight) {
-        this.weight = weight;
+    public void setGenealogynameid(int genealogynameid) {
+        this.genealogynameid = genealogynameid;
     }
 }

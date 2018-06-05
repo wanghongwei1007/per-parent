@@ -10,7 +10,6 @@ import com.kalix.qiao.cms.api.dao.IContentBeanDao;
 import com.kalix.qiao.cms.api.dto.CascaderDTO;
 import com.kalix.qiao.cms.api.dto.JsonTreeDTO;
 import com.kalix.qiao.cms.entities.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class ContentBeanServiceImpl extends GenericBizServiceImpl<IContentBeanDa
     public JsonData getMenuByColumnId() {
         List<ColumnBean> columnList = columnBeanService.getAllEntity();
         Gson gson = new Gson();
-        List<CascaderDTO> list = new ArrayList<>();
+        List <CascaderDTO> list = new ArrayList<>();
         for (ColumnBean columnBean : columnList) {
             CascaderDTO cascaderDTO = new CascaderDTO();
             cascaderDTO.setValue(String.valueOf(columnBean.getId()));
