@@ -1,25 +1,29 @@
 package com.kalix.qiao.forum.api.dto;
 
+import com.kalix.framework.core.api.web.model.BaseDTO;
+
 import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/6/1.
+ * Created by sunli on 2018/6/1.
  */
-public class ReplyForTreeTable {
-    private String value; //id
+public class ReplyForTreeTable extends BaseDTO{
     private String username; //回复人姓名
     private String content;  //回复内容
-    private Date creationDate;// 创建日期
-    private String category; //审核标识
+    private String  category; //审核标识
+    private Date creationDate; //回复时间
+    private Boolean leaf; //是否是叶子节点
+    private Long parentId;  // 父节点
+    private String parentName; //父节点姓名
     private List<ReplyForTreeTable>  children;
 
-    public String getValue() {
-        return value;
+    public Date getCreationDate() {
+        return creationDate;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public String getUsername() {
@@ -38,12 +42,20 @@ public class ReplyForTreeTable {
         this.content = content;
     }
 
-    public Date getCreationDate() {
-        return creationDate;
+    public Long getParentId() {
+        return parentId;
     }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+    public void setParentId(Long parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     public String getCategory() {
@@ -52,6 +64,14 @@ public class ReplyForTreeTable {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public Boolean getLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(Boolean leaf) {
+        this.leaf = leaf;
     }
 
     public List<ReplyForTreeTable> getChildren() {

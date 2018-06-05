@@ -18,6 +18,7 @@
              ref="menuBeanServiceImpl"/>
     <bean id="menuBeanServiceImpl" class="com.kalix.qiao.cms.biz.MenuBeanServiceImpl">
         <property name="dao" ref="menuBeanDao"/>
+        <property name="columnBeanService" ref="columnBeanServiceImpl" />
     </bean>
 
     <!--内容-->

@@ -6,14 +6,14 @@ import java.util.List;
  * Created by Administrator on 2018/6/1.
  */
 public class ForumJsonBean {
-    private String value;
+    private long value;
     private String label;
 
-    public String getValue() {
+    public long getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(long value) {
         this.value = value;
     }
 

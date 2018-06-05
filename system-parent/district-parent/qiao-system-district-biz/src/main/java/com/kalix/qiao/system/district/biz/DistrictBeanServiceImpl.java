@@ -3,6 +3,7 @@ package com.kalix.qiao.system.district.biz;
  * Created by sunli on 2018/5/13.
  */
 
+import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.api.persistence.JsonStatus;
 import com.kalix.framework.core.impl.biz.ShiroGenericBizServiceImpl;
@@ -39,7 +40,7 @@ public class DistrictBeanServiceImpl extends ShiroGenericBizServiceImpl<IDistric
                 twoModel.setLabel(two.getBewrite());
                 List<DistrictBean> threeList = dao.find("select d from DistrictBean d where d.parentencoding = ?1" , two.getCoding());
                 List<CascaderDTO> thList = new ArrayList<>();
-                for (DistrictBean three:twoList) {
+                for (DistrictBean three:threeList) {
                     CascaderDTO threeModel = new CascaderDTO();
                     threeModel.setValue(three.getBewrite());
                     threeModel.setLabel(three.getBewrite());
@@ -51,8 +52,11 @@ public class DistrictBeanServiceImpl extends ShiroGenericBizServiceImpl<IDistric
             oneModel.setChildren(tsList);
             list.add(oneModel);
         }
+        List<String> infoList = new ArrayList<>();
+        infoList.add(new Gson().toJson(list));
         JsonData jsonData = new JsonData();
-        jsonData.setData(list);
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(infoList);
         return jsonData;
     }
 

@@ -3,6 +3,8 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 /**
  * Created by Administrator on 2018/5/13.
  * 菜单
@@ -17,8 +19,27 @@ public class MenuBean extends PersistentEntity {
     private boolean show;//是否显示
     private String url;//菜单地址
 
+    @Transient
+    private String columnName;
+    
+    @Transient
+    private String viewURL;
 
+    public String getViewURL() {
+        return viewURL;
+    }
 
+    public void setViewURL(String viewURL) {
+        this.viewURL = viewURL;
+    }
+
+    public String getColumnName() {
+        return columnName;
+    }
+
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
 
     public String getName() {
         return name;

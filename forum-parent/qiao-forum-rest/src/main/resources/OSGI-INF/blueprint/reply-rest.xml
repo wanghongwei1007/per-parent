@@ -11,11 +11,13 @@
         <!-- defines the rest services using the context-path /template -->
         <rest path="/replys/getReplyByPostId" consumes="application/json;charset=utf-8" produces="application/json">
             <!-- this is a rest GET to view a template by the given id -->
-            <get id="route-getReplyByPostId" outType="com.kalix.framework.core.api.persistence.JsonData">
-                <description>Find Column And Menu</description>
+            <get id="route-getReplyByPostId">
+                <description>Find Forum and Reply</description>
                 <to uri="bean:replyService?method=getReplyByPostId(${header.postId})"/>
             </get>
         </rest>
+
+
 
 
     </camelContext>
