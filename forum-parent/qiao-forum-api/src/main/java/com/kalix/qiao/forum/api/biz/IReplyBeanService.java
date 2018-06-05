@@ -13,5 +13,7 @@ public interface IReplyBeanService extends IBizService<ReplyBean> {
 
     ReplyForTreeTable getReplyByPostId(long postId);
 
+   // ReplyForTreeTable getReplyByPostId(long postId);
+
   //  List<ReplyForTreeTable> getReplyById(long id);
 }

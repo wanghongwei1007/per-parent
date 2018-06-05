@@ -17,7 +17,7 @@ public class ForumBeanServiceImpl extends GenericBizServiceImpl<IForumBeanDao, F
     @Override
     public JsonData getReplyForTree() {
         List<ForumJsonBean> list = new ArrayList<>();
-        List<ForumBean> modelList = dao.find("select f from ForumBean f order by f.timenow desc");
+        List<ForumBean> modelList = dao.find("select f from ForumBean f where f.category=1 order by f.timenow desc");
         if(modelList.size()>0){
             for (ForumBean forumBean:modelList){
                 ForumJsonBean forumJsonBean = new ForumJsonBean();

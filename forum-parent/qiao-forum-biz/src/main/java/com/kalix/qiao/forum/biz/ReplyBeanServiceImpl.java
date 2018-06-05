@@ -5,6 +5,7 @@ import com.kalix.qiao.forum.api.biz.IReplyBeanService;
 import com.kalix.qiao.forum.api.dao.IReplyBeanDao;
 import com.kalix.qiao.forum.api.dto.ReplyForTreeTable;
 import com.kalix.qiao.forum.entities.ReplyBean;
+import com.kalix.qiao.forum.util.Compare;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,30 +15,22 @@ import java.util.List;
  */
 public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, ReplyBean> implements IReplyBeanService {
 
-    /*@Override
-    public ReplyForTreeTable getReplyByPostId(long postId) {
-        ReplyForTreeTable  rtt = new ReplyForTreeTable();
-        List<ReplyBean> replyBeanList = new ArrayList<>();
-        replyBeanList = dao.find("select r from ReplyBean r where r.category='1' and r.parentId=-1 order by r.creationDate desc");
-        List<ReplyForTreeTable> rtts = new ArrayList<>();
-        if(replyBeanList.size()>0){
-            rtts = getReplyById(postId);
-        }
-        rtt.setChildren(rtts);
-        return rtt;
-    }
-    */
-    /**
-     * 根据用户id获取指定用户的回复列表
-     */
-    /*
     @Override
-    public List<ReplyForTreeTable> getReplyById(long id) {
-        List<ReplyForTreeTable> replyTree = dao.find("select r from ReplyBean r where r.postId=?1 and r.parentId != -1 order by r.creationDate desc",id);
-        return replyTree;
-    }*/
-
     public ReplyForTreeTable getReplyByPostId(long postId) {
+        ReplyForTreeTable rtt = new ReplyForTreeTable();
+        if(postId == -1){
+          /*  List<ReplyBean>  replyBeans = dao.getAll().stream()
+                    .sorted(Compare.<ReplyBean>compare())
+                    .collect();*/
+        }
+
+        return null;
+
+    }
+
+
+
+    /*public ReplyForTreeTable getReplyByPostId(long postId) {
         ReplyForTreeTable  rtt = new ReplyForTreeTable();
         List<ReplyForTreeTable> list = new ArrayList<>();
         List<ReplyBean> replyBeanList = new ArrayList<>();
@@ -54,10 +47,6 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
             }
         }
         rtt.setChildren(list);
-  //      String  str = gson.toJson(list);
-//        JsonData jsonData = new JsonData();
-//        jsonData.setTotalCount((long)replyBeanList.size());
-//        jsonData.setData(list);
         return rtt;
     }
 
@@ -79,5 +68,5 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
         }
         list.add(replyForTreeTable);
         return list;
-    }
+    }*/
 }

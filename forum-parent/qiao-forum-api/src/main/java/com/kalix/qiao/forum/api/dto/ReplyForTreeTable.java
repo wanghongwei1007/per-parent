@@ -12,7 +12,6 @@ public class ReplyForTreeTable extends BaseDTO{
     private String username; //回复人姓名
     private String content;  //回复内容
     private String  category; //审核标识
-    private Date creationDate; //回复时间
     private Boolean leaf; //是否是叶子节点
     private Long parentId;  // 父节点
     private String parentName; //父节点姓名
