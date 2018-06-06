@@ -30,8 +30,12 @@ public class ClansmanBean extends PersistentEntity {
     private String duty;//官爵
     private String health;//健康状况
     private String education;//教育
-    private int brothersid;//兄弟姐妹ID
-    private String site;///家庭住址
+    private int brothersid;//兄弟ID
+    private int sistersid;//姐妹ID
+    private String appearance;//外貌
+    private String honor;//荣誉
+    private String hobby;//爱好
+    private String homeaddress;///家庭住址
     private int childrenid;//子女ID
     private String necropolis;//埋葬地
     private String describe;//描述
@@ -184,12 +188,44 @@ public class ClansmanBean extends PersistentEntity {
         this.brothersid = brothersid;
     }
 
-    public String getSite() {
-        return site;
+    public int getSistersid() {
+        return sistersid;
     }
 
-    public void setSite(String site) {
-        this.site = site;
+    public void setSistersid(int sistersid) {
+        this.sistersid = sistersid;
+    }
+
+    public String getAppearance() {
+        return appearance;
+    }
+
+    public void setAppearance(String appearance) {
+        this.appearance = appearance;
+    }
+
+    public String getHonor() {
+        return honor;
+    }
+
+    public void setHonor(String honor) {
+        this.honor = honor;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public String getHomeaddress() {
+        return homeaddress;
+    }
+
+    public void setHomeaddress(String homeaddress) {
+        this.homeaddress = homeaddress;
     }
 
     public int getChildrenid() {

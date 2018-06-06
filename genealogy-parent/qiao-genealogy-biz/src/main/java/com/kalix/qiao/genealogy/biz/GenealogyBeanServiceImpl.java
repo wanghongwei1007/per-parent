@@ -55,10 +55,10 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
                 List children = new ArrayList();
                 for (ClansmanBean clansmanBean : ClansmanBeanList) {
                     JsonTreeZsDTO jsonTreeDTO = new JsonTreeZsDTO();
-//                    jsonTreeDTO.setLabel(ClansmanBean.getName());
-//                    jsonTreeDTO.setModelId(ClansmanBean.getId());
+                    jsonTreeDTO.setLabel(clansmanBean.getName());
+                    jsonTreeDTO.setModelId(clansmanBean.getId());
                     if (i == 0) {
-//                        jsonTreeDTO.setModelId(ClansmanBean.getId());
+                        jsonTreeDTO.setModelId(clansmanBean.getId());
                         jsonTreeDTO.setFlag("genealogyClansman");
                         i++;
                     }

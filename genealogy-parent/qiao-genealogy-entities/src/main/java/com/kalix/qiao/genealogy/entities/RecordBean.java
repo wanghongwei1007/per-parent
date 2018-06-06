@@ -15,6 +15,7 @@ public class RecordBean extends PersistentEntity {
     private String category;//记录类型
     private String site;//纪念地址
     private Date time;//纪念日期
+    private String chronicle;//族人纪事描述
 
     public int getMember() {
         return member;
@@ -55,6 +56,4 @@ public class RecordBean extends PersistentEntity {
     public void setChronicle(String chronicle) {
         this.chronicle = chronicle;
     }
-
-    private String chronicle;//族人纪事描述
 }

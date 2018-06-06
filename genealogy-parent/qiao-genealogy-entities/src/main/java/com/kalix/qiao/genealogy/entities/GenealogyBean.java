@@ -22,6 +22,14 @@ public class GenealogyBean extends PersistentEntity {
     private String county;//县
     private String hamlet;//村
     private String streets;//街道
+    private String encoding;//地区编码
+    private String genealogysite;//谱属地
+    private String remarks;//备注
+    private String summarize;//概况
+    private int listid;//栏目id（打印菜单）
+    private int part;//部id（字典表）
+    private String unit;//卷id（字典表）
+    private String volume;//册id（字典表）
 
     public String getGenealogyname() {
         return genealogyname;
@@ -159,21 +167,6 @@ public class GenealogyBean extends PersistentEntity {
         this.volume = volume;
     }
 
-    public int getCategory() {
-        return category;
-    }
 
-    public void setCategory(int category) {
-        this.category = category;
-    }
 
-    private String encoding;//地区编码
-    private String genealogysite;//谱属地
-    private String remarks;//备注
-    private String summarize;//概况
-    private int listid;//栏目id（打印菜单）
-    private int part;//部id（字典表）
-    private String unit;//卷id（字典表）
-    private String volume;//册id（字典表）
-    private  int category;//审核标识
 }
