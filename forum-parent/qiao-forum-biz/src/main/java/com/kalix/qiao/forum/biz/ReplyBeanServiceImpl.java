@@ -5,7 +5,6 @@ import com.kalix.qiao.forum.api.biz.IReplyBeanService;
 import com.kalix.qiao.forum.api.dao.IReplyBeanDao;
 import com.kalix.qiao.forum.api.dto.ReplyForTreeTable;
 import com.kalix.qiao.forum.entities.ReplyBean;
-import com.kalix.qiao.forum.util.Compare;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,23 +13,19 @@ import java.util.List;
  * Created by sunli on 2018/5/13.
  */
 public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, ReplyBean> implements IReplyBeanService {
-
-    @Override
+   /* @Override
     public ReplyForTreeTable getReplyByPostId(long postId) {
         ReplyForTreeTable rtt = new ReplyForTreeTable();
         if(postId == -1){
-          /*  List<ReplyBean>  replyBeans = dao.getAll().stream()
+          *//*  List<ReplyBean>  replyBeans = dao.getAll().stream()
                     .sorted(Compare.<ReplyBean>compare())
-                    .collect();*/
+                    .collect();*//*
         }
-
         return null;
-
     }
-
-
-
-    /*public ReplyForTreeTable getReplyByPostId(long postId) {
+*/
+   @Override
+    public ReplyForTreeTable getReplyByPostId(long postId) {
         ReplyForTreeTable  rtt = new ReplyForTreeTable();
         List<ReplyForTreeTable> list = new ArrayList<>();
         List<ReplyBean> replyBeanList = new ArrayList<>();
@@ -40,33 +35,49 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
             replyBeanList = dao.find("select r from ReplyBean r where r.postId =?1 order by r.creationDate desc", postId);
         }
         if(replyBeanList.size()>0){
-            List<ReplyForTreeTable> childList = new ArrayList<>();
             for(ReplyBean replyBean:replyBeanList){
-                ReplyForTreeTable replyForTreeTable = new ReplyForTreeTable();
-                list = getReplyByParentId(replyBean,replyForTreeTable, childList);
+                list = getReplyByParentId(replyBean);
             }
         }
-        rtt.setChildren(list);
+       rtt.setChildren(list);
         return rtt;
     }
 
-    private List<ReplyForTreeTable> getReplyByParentId(ReplyBean replyBean,ReplyForTreeTable replyForTreeTable, List<ReplyForTreeTable> list){
-        replyForTreeTable.setId(replyBean.getId());
-        replyForTreeTable.setUsername(replyBean.getUsername());
-        replyForTreeTable.setCreationDate(replyBean.getCreationDate());
-        replyForTreeTable.setContent(replyBean.getContent());
-        replyForTreeTable.setCategory(replyBean.getCategory());
-        replyForTreeTable.setParentId(replyBean.getParentId());
-        List<ReplyBean> childList = dao.find("select r from ReplyBean r where r.parentId=?1", replyBean.getId());
+    @Override
+    public List<ReplyForTreeTable> getReplyByParentId(ReplyBean replyBean){
+        ReplyForTreeTable rtt = new ReplyForTreeTable();
+        List<ReplyForTreeTable> list = new ArrayList<>();
+        List<ReplyForTreeTable> childrenList= new ArrayList<>();
+        rtt.setId(replyBean.getId());
+        rtt.setUsername(replyBean.getUsername());
+        rtt.setCreationDate(replyBean.getCreationDate());
+        rtt.setContent(replyBean.getContent());
+        rtt.setCategory(replyBean.getCategory());
+        rtt.setParentId(replyBean.getParentId());
+        rtt.setLeaf(true);
+        List<ReplyBean> childList = dao.find("select r from ReplyBean r where r.parentId=?1 order by r.creationDate desc", replyBean.getId());
         if(childList.size()>0){
-            List<ReplyForTreeTable> childrenList = new ArrayList<>();
+
             for(ReplyBean replyBean1 : childList){
-                ReplyForTreeTable rt = new ReplyForTreeTable();
-                childrenList = getReplyByParentId(replyBean1,rt,list);
+                childrenList = getReplyByParentId(replyBean1);
             }
-            replyForTreeTable.setChildren(childrenList);
+            rtt.setLeaf(false);
         }
-        list.add(replyForTreeTable);
+        rtt.setChildren(childrenList);
+        list.add(rtt);
         return list;
-    }*/
+        /*List<ReplyForTreeTable> childrenList = new ArrayList<>();
+        for(ReplyBean replyBean1 : childList){
+            ReplyForTreeTable rt = new ReplyForTreeTable();
+            childrenList = getReplyByParentId(replyBean1,rt,list);
+            if(childrenList.size() > 1){
+                ReplyForTreeTable rtt = new ReplyForTreeTable();
+                childrenList = getReplyByParentId(replyBean1,rtt,list);
+                replyForTreeTable.setChildren(childrenList);
+            }else if(childrenList.size() == 1){
+                replyForTreeTable = childrenList.get(0);
+            }else{
+            }
+        }*/
+    }
 }
