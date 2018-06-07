@@ -1,7 +1,7 @@
 package com.kalix.qiao.forum.api.biz;
 
 import com.kalix.framework.core.api.biz.IBizService;
-import com.kalix.qiao.forum.api.dto.ReplyForTreeTable;
+import com.kalix.qiao.forum.api.dto.ReplyTreeDTO;
 import com.kalix.qiao.forum.entities.ReplyBean;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface IReplyBeanService extends IBizService<ReplyBean> {
 
-    ReplyForTreeTable getReplyByPostId(long postId);
+    ReplyTreeDTO getReplyByPostId(long postId);
 
-    List<ReplyForTreeTable> getReplyByParentId(ReplyBean replyBean);
+    // List<ReplyTreeDTO> getReplyByParentId(ReplyBean replyBean);
 }

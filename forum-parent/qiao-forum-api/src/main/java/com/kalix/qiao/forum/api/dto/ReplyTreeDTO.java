@@ -2,20 +2,22 @@ package com.kalix.qiao.forum.api.dto;
 
 import com.kalix.framework.core.api.web.model.BaseDTO;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by sunli on 2018/6/1.
  */
-public class ReplyForTreeTable extends BaseDTO{
+public class ReplyTreeDTO extends BaseDTO{
     private String username; //回复人姓名
     private String content;  //回复内容
     private String  category; //审核标识
-     private Boolean leaf=false; //是否是叶子节点
+    private Boolean leaf; //是否是叶子节点
     private Long parentId;  // 父节点
     private String parentName; //父节点姓名
-    private List<ReplyForTreeTable>  children;
+    private Long postId;  //帖子id
+    private List<ReplyTreeDTO>  children = new ArrayList<ReplyTreeDTO>();
 
     public Date getCreationDate() {
         return creationDate;
@@ -73,11 +75,19 @@ public class ReplyForTreeTable extends BaseDTO{
         this.leaf = leaf;
     }
 
-    public List<ReplyForTreeTable> getChildren() {
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
+
+    public List<ReplyTreeDTO> getChildren() {
         return children;
     }
 
-    public void setChildren(List<ReplyForTreeTable> children) {
+    public void setChildren(List<ReplyTreeDTO> children) {
         this.children = children;
     }
 }
