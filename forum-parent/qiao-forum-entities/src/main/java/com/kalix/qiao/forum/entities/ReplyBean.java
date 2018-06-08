@@ -14,7 +14,7 @@ public class ReplyBean extends PersistentEntity {
     private String username; //回复人姓名
     private long userId;      //排序
     private String content;  //回复内容
-    private Long isLeaf;    //是否是子节点
+    private long isLeaf;    //是否是子节点
     private long parentId;    //父节点
     private long postId;      //发帖id
     private String category; //审核标识
@@ -35,11 +35,11 @@ public class ReplyBean extends PersistentEntity {
         this.content = content;
     }
 
-    public Long getIsLeaf() {
+    public long getIsLeaf() {
         return isLeaf;
     }
 
-    public void setIsLeaf(Long isLeaf) {
+    public void setIsLeaf(long isLeaf) {
         this.isLeaf = isLeaf;
     }
 
