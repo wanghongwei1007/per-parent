@@ -9,19 +9,19 @@ INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (5, '谍谱百科', 5, 
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (6, '家谱编修', 6, 'compile');
 
 
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (1,'引论',1,1,'t','t','/genealogy/introduction');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (2,'序',1,2,'t','t','/genealogy/sequence');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (3,'凡例',1,3,'t','t','/genealogy/routines');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (4,'中华民族共族',1,4,'t','t','/genealogy/chinese');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (5,'乔姓渊源列祖',1,5,'t','t','/genealogy/lezu');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (6,'画像',1,6,'t','t','/genealogy/portrait');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (7,'像赞',1,7,'t','t','/genealogy/description');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (8,'图腾分布家族树',1,8,'t','t','/genealogy/totem');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (9,'郡望郡堂字辈',1,9,'t','t','/genealogy/generation');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (10,'家学家风家训',1,10,'t','t','/genealogy/training');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (11,'乔氏名人艺文',1,11,'t','t','/genealogy/celebrity');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (12,'乔氏家谱宗系简介',1,12,'t','t','/genealogy/genealogy');
-INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (13,'附录',1,13,'t','t','/genealogy/appendix');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (1,'引论',1,1,'t','t','#introduction');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (2,'序',1,2,'t','t','#sequence');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (3,'凡例',1,3,'t','t','#routines');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (4,'中华民族共族',1,4,'t','t','#chinese');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (5,'乔姓渊源列祖',1,5,'t','t','#lezu');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (6,'画像',1,6,'t','t','#portrait');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (7,'像赞',1,7,'t','t','#description');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (8,'图腾分布家族树',1,8,'t','t','#totem');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (9,'郡望郡堂字辈',1,9,'t','t','#generation');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (10,'家学家风家训',1,10,'t','t','#training');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (11,'乔氏名人艺文',1,11,'t','t','#celebrity');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (12,'乔氏家谱宗系简介',1,12,'t','t','#genealogy');
+INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (13,'附录',1,13,'t','t','#appendix');
 INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (14,'简讯',2,1,'t','t','/news/newsletter');
 INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (15,'报道',2,2,'t','t','/news/reports');
 INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (16,'公告',2,3,'t','t','/news/announcement');
