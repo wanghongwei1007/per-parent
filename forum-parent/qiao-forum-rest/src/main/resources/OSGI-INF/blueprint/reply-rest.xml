@@ -22,7 +22,7 @@
             <!-- this is a rest GET to view a template by the given id -->
             <get id="route-getReplyByPostId">
                 <description>Find Forum and Reply</description>
-                <to uri="bean:replyService?method=getReplyByPostId(${header.postId})"/>
+                <to uri="bean:replyService?method=getReplyByPostId(${header.postId},${header.jsonStr})"/>
             </get>
         </rest>
 

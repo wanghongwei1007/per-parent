@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface IReplyBeanService extends IBizService<ReplyBean> {
 
-    ReplyTreeDTO getReplyByPostId(long postId);
+    ReplyTreeDTO getReplyByPostId(long postId, String jsonStr);
 
     // List<ReplyTreeDTO> getReplyByParentId(ReplyBean replyBean);
 }
