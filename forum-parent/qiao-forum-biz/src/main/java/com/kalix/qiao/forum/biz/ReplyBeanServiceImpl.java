@@ -1,6 +1,7 @@
 package com.kalix.qiao.forum.biz;
 
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
+import com.kalix.framework.core.util.SerializeUtil;
 import com.kalix.qiao.forum.api.biz.IReplyBeanService;
 import com.kalix.qiao.forum.api.dao.IReplyBeanDao;
 import com.kalix.qiao.forum.api.dto.ReplyTreeDTO;
@@ -10,21 +11,29 @@ import org.dozer.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sunli on 2018/5/23.
  */
 public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, ReplyBean> implements IReplyBeanService {
     @Override
-    public ReplyTreeDTO getReplyByPostId(long postId) {
+    public ReplyTreeDTO getReplyByPostId(long postId, String jsonStr) {
+        Map<String, Object> jsonMap = SerializeUtil.jsonToMap(jsonStr);
+        String username = (String)jsonMap.get("%username%");
         ReplyTreeDTO root = new ReplyTreeDTO();
         root.setId(-1L);
         List<ReplyBean> beans = new ArrayList<>();
-        if(postId == -1){
-            beans = dao.getAll();
-        }else{
-            beans = dao.find("select r from ReplyBean r where r.postId =?1 order by r.creationDate desc", postId);
+        String sql = "select r from ReplyBean r where 1=1";
+        if (username != null && !username.isEmpty())  {
+            sql += " and r.username like '%"+username+"%'";
         }
+        if(postId != -1){
+            sql += " and r.postId =" + postId;
+        }
+        sql += " order by r.creationDate desc";
+        beans = dao.find(sql);
+
         if(beans != null && beans.size() > 0){
             List<ReplyBean> rootElements = getRootElements(beans);
             if(rootElements != null && rootElements.size() > 0){
