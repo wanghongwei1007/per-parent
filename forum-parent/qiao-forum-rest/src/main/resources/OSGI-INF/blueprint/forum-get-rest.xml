@@ -8,7 +8,8 @@
         <restConfiguration component="servlet" bindingMode="json">
             <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
         </restConfiguration>
-        <!-- defines the rest services using the context-path /template -->
+
+        <!-- 回复管理左侧菜单树 -->
         <rest path="/forums/getReplyForTree" consumes="application/json;charset=utf-8" produces="application/json">
             <!-- this is a rest GET to view a template by the given id -->
             <get id="route-getReplyForTree" outType="com.kalix.framework.core.api.persistence.JsonData">

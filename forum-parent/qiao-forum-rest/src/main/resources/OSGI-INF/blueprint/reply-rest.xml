@@ -9,14 +9,6 @@
             <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
         </restConfiguration>
 
-        <!-- 回复树 -->
-        <!--<rest path="/replys/getAllReply" consumes="application/json;charset=utf-8" produces="application/json">
-            <get id="route-getAllReply">
-                <description>Find Forum and Reply</description>
-                <to uri="bean:replyService?method=getAllReply"/>
-            </get>
-        </rest>-->
-
         <!-- 回复树表管理 -->
         <rest path="/replys/getReplyByPostId" consumes="application/json;charset=utf-8" produces="application/json">
             <!-- this is a rest GET to view a template by the given id -->

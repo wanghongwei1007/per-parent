@@ -14,6 +14,9 @@ import java.util.List;
  * Created by sunli on 2018/5/13.
  */
 public class ForumBeanServiceImpl extends GenericBizServiceImpl<IForumBeanDao, ForumBean> implements IForumBeanService {
+    /**
+     * 回复管理左侧菜单
+     */
     @Override
     public JsonData getReplyForTree() {
         List<ForumJsonBean> list = new ArrayList<>();

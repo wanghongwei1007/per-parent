@@ -17,6 +17,10 @@ import java.util.Map;
  * Created by sunli on 2018/5/23.
  */
 public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, ReplyBean> implements IReplyBeanService {
+
+    /**
+     * 回复树
+     */
     @Override
     public ReplyTreeDTO getReplyByPostId(long postId, String jsonStr) {
         Map<String, Object> jsonMap = SerializeUtil.jsonToMap(jsonStr);

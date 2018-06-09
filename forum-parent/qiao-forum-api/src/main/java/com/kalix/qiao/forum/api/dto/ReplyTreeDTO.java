@@ -17,7 +17,7 @@ public class ReplyTreeDTO extends BaseDTO{
     private Long parentId;  // 父节点
     private String parentName; //父节点姓名
     private Long postId;  //帖子id
-    private List<ReplyTreeDTO>  children = new ArrayList<ReplyTreeDTO>();
+    private List<ReplyTreeDTO>  children = new ArrayList<ReplyTreeDTO>(); //子回复
 
     public Date getCreationDate() {
         return creationDate;
