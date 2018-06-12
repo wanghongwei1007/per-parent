@@ -6,9 +6,8 @@ import java.util.List;
  * Created by wangpeng on 2018/5/26 0026.
  * 树形列表参数封装
  */
-public class JsonTreeZsDTO extends BaseDTO {
+public class JsonTreeZsDTO{
     private String label;
-    private String flag;
     private long modelId;
     private List<JsonTreeZsDTO> children;
 
@@ -20,13 +19,6 @@ public class JsonTreeZsDTO extends BaseDTO {
         this.label = label;
     }
 
-    public String getFlag() {
-        return flag;
-    }
-
-    public void setFlag(String flag) {
-        this.flag = flag;
-    }
 
     public long getModelId() {
         return modelId;

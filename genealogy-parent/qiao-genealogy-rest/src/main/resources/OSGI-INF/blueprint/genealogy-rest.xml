@@ -7,6 +7,16 @@
     <reference id="genealogyService" interface="com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService"/>
     <bean id="genealogyRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.genealogy.entities.GenealogyBean"/>
+        <property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/genealogys/queryForTree" />
+                    <property name="getDescription" value="获得家谱所属组织结构树"/>
+                    <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                    <property name="getToUri" value="bean:genealogyService?method=queryForTree()"/>
+                </bean>
+            </list>
+        </property>
     </bean>
     <camelContext id="genealogyCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="genealogyRoute"/>

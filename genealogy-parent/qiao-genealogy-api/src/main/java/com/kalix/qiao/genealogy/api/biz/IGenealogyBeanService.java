@@ -8,9 +8,6 @@ import com.kalix.qiao.genealogy.entities.GenealogyBean;
  * Created by Administrator on 2018/5/13.
  */
 public interface IGenealogyBeanService extends IBizService<GenealogyBean> {
-    JsonData getGenealogyByGeneId();
 
-    JsonData getTree();
-
-    JsonData getClansmanByClansId(long clansId);
+    JsonData queryForTree();
 }
