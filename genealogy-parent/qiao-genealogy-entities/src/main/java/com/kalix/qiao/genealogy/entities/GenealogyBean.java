@@ -22,7 +22,7 @@ public class GenealogyBean extends PersistentEntity {
     private String county;//县
     private String hamlet;//村
     private String streets;//街道
-    private String encoding;//地区编码
+    private String encoding;//
     private String genealogysite;//谱属地
     private String remarks;//备注
     private String summarize;//概况

@@ -12,4 +12,6 @@ public interface IGenealogyBeanService extends IBizService<GenealogyBean> {
     JsonData queryForTree();
 
     JsonData findById(long id);
+
+    JsonData deleteById(long id);
 }

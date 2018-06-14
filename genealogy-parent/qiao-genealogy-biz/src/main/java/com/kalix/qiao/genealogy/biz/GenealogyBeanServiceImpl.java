@@ -1,6 +1,5 @@
 package com.kalix.qiao.genealogy.biz;
 
-import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService;
@@ -46,5 +45,11 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
         jsonData.setData(list);
         jsonData.setTotalCount((long) list.size());
         return jsonData;
+    }
+
+    @Override
+    public JsonData deleteById(long id) {
+
+        return null;
     }
 }

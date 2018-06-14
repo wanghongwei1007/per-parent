@@ -22,6 +22,13 @@
                     <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
                     <property name="getToUri" value="bean:genealogyService?method=findById(${header.id})"/>
                 </bean>
+
+                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                     <property name="path" value="/genealogys/deleteById" />
+                     <property name="getDescription" value="删除家谱及谱下族人信息"/>
+                     <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                     <property name="getToUri" value="bean:genealogyService?method=deleteById(${header.id})"/>
+                 </bean>
             </list>
         </property>
     </bean>
