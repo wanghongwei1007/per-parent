@@ -15,6 +15,13 @@
                     <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
                     <property name="getToUri" value="bean:genealogyService?method=queryForTree()"/>
                 </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/genealogys/findById" />
+                    <property name="getDescription" value="家谱信息查看回显"/>
+                    <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
+                    <property name="getToUri" value="bean:genealogyService?method=findById(${header.id})"/>
+                </bean>
             </list>
         </property>
     </bean>

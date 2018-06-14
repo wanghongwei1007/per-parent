@@ -10,4 +10,6 @@ import com.kalix.qiao.genealogy.entities.GenealogyBean;
 public interface IGenealogyBeanService extends IBizService<GenealogyBean> {
 
     JsonData queryForTree();
+
+    JsonData findById(long id);
 }

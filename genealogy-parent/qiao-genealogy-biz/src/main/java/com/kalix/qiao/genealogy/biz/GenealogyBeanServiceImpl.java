@@ -36,4 +36,15 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
         }
         return jsonData;
     }
+
+    @Override
+    public JsonData findById(long id) {
+        GenealogyBean genealogyBean = dao.get(id);
+        List<GenealogyBean> list = new ArrayList<>();
+        list.add(genealogyBean);
+        JsonData jsonData = new JsonData();
+        jsonData.setData(list);
+        jsonData.setTotalCount((long) list.size());
+        return jsonData;
+    }
 }
