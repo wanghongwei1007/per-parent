@@ -6,6 +6,8 @@ import com.kalix.qiao.system.dict.api.biz.IQiaoDictBeanService;
 import com.kalix.qiao.system.dict.api.dao.IQiaoDictBeanDao;
 import com.kalix.qiao.system.dict.entities.QiaoDictBean;
 
+import java.util.List;
+
 public class QiaoDictBeanServiceImpl extends BaseDictServiceImpl<IQiaoDictBeanDao, QiaoDictBean>
         implements IQiaoDictBeanService {
 
@@ -17,5 +19,10 @@ public class QiaoDictBeanServiceImpl extends BaseDictServiceImpl<IQiaoDictBeanDa
         entity.setValue(maxValue);
 
         return super.saveEntity(entity);
+    }
+
+    @Override
+    public List getLabelByType() {
+        return dao.find("select d from QiaoDictBean d where d.type='类型标识'");
     }
 }

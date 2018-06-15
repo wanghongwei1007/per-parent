@@ -18,8 +18,13 @@
             </get>
         </rest>
 
-
-
+        <!-- 回复管理审核状态的改变 -->
+        <rest path="/replys/getCategory" consumes="application/json;charset=utf-8" produces="application/json">
+            <get id="route-getCategory">
+                <description>Edit Category</description>
+                <to uri="bean:replyService?method=getCategory(${header.id})"/>
+            </get>
+        </rest>
 
     </camelContext>
 </blueprint>

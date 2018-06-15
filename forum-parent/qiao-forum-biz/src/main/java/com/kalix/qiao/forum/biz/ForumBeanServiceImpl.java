@@ -26,6 +26,7 @@ public class ForumBeanServiceImpl extends GenericBizServiceImpl<IForumBeanDao, F
                 ForumJsonBean forumJsonBean = new ForumJsonBean();
                 forumJsonBean.setValue(forumBean.getId());
                 forumJsonBean.setLabel(forumBean.getTitle());
+                forumJsonBean.setContent(forumBean.getContent());
                 list.add(forumJsonBean);
             }
         }
@@ -33,5 +34,13 @@ public class ForumBeanServiceImpl extends GenericBizServiceImpl<IForumBeanDao, F
         jsonData.setData(list);
         jsonData.setTotalCount((long)list.size());
         return jsonData;
+    }
+    /**
+     * 留言管理审核状态
+     */
+    @Override
+    public int getCategory(long id) {
+        String sql="update ForumBean f set f.category = 1 where f.id ="+id;
+        return dao.update(sql);
     }
 }

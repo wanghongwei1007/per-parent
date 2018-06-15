@@ -13,5 +13,6 @@ public interface IReplyBeanService extends IBizService<ReplyBean> {
     // 回复树
     ReplyTreeDTO getReplyByPostId(long postId, String jsonStr);
 
-    // List<ReplyTreeDTO> getReplyByParentId(ReplyBean replyBean);
+    // 回复管理审核状态的改变
+    int getCategory(long id);
 }
