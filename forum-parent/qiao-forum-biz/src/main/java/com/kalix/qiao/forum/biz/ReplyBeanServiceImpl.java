@@ -53,6 +53,7 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
         }
         return root;
     }
+
     /**
      * 递归函数加载子节点
      * @param root
@@ -89,6 +90,16 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
         }
         return roots;
     }
+
+    /**
+     * 回复管理审核状态的改变
+     */
+    @Override
+    public int getCategory(long id) {
+        String sql="update ReplyBean r set r.category = '1' where r.id ="+id;
+        return dao.update(sql);
+    }
+
 
 
    /* @Override

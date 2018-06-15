@@ -58,5 +58,13 @@
                 <to uri="bean:qiaoDictBeanService?method=getDictTypes(${header.query})"/>
             </get>
         </rest>
+
+        <!-- 留言管理中类型标识的下拉列表 -->
+        <rest path="/dicts/getLabelByType" consumes="application/json;charset=utf-8" produces="application/json">
+            <get id="route-getLabelByType">
+                <description>Edit CategoryType</description>
+                <to uri="bean:qiaoDictBeanService?method=getLabelByType()"/>
+            </get>
+        </rest>
     </camelContext>
 </blueprint>

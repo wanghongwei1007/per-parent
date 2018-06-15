@@ -10,4 +10,6 @@ import com.kalix.qiao.forum.entities.ForumBean;
 public interface IForumBeanService extends IBizService<ForumBean> {
     //回复管理左侧菜单
     JsonData getReplyForTree();
+    //留言管理审核状态的改变
+    int getCategory(long id);
 }

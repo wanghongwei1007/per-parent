@@ -8,6 +8,7 @@ import java.util.List;
 public class ForumJsonBean {
     private long value;
     private String label;
+    private String content;
 
     public long getValue() {
         return value;
@@ -25,4 +26,11 @@ public class ForumJsonBean {
         this.label = label;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

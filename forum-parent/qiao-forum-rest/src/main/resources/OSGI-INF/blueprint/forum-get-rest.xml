@@ -18,6 +18,14 @@
             </get>
         </rest>
 
+        <!-- 留言管理审核修改 -->
+        <rest path="/forums/getCategory" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <get id="route-getCategory">
+                <description>Edit Category</description>
+                <to uri="bean:forumService?method=getCategory(${header.id})"/>
+            </get>
+        </rest>
 
     </camelContext>
 </blueprint>
