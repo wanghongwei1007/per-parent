@@ -2,12 +2,14 @@ package com.kalix.qiao.genealogy.biz;
 
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
+import com.kalix.qiao.genealogy.api.biz.IClansmanBeanService;
 import com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService;
 import com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao;
 import com.kalix.qiao.genealogy.entities.GenealogyBean;
 import com.kalix.qiao.genealogy.api.dto.JsonTreeZsDTO;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,6 +17,7 @@ import java.util.List;
  */
 public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBeanDao, GenealogyBean> implements IGenealogyBeanService {
 
+    private IClansmanBeanService clansmanBeanService;
 
     @Override
     public JsonData queryForTree() {
@@ -39,6 +42,11 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
     @Override
     public JsonData findById(long id) {
         GenealogyBean genealogyBean = dao.get(id);
+        String[] strings = genealogyBean.getGenealogysite().split(",");
+        List<String> stringList = Arrays.asList(strings);
+        JsonData j = new JsonData();
+        j.setData(stringList);
+        genealogyBean.setDefaultOption(j);
         List<GenealogyBean> list = new ArrayList<>();
         list.add(genealogyBean);
         JsonData jsonData = new JsonData();
@@ -49,7 +57,13 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
 
     @Override
     public JsonData deleteById(long id) {
+        dao.remove(id);
+        clansmanBeanService.deleteByGenealogyId(id);
+        JsonData jsonData = new JsonData();
+        return jsonData;
+    }
 
-        return null;
+    public void setClansmanBeanService(IClansmanBeanService clansmanBeanService) {
+        this.clansmanBeanService = clansmanBeanService;
     }
 }

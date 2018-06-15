@@ -1,9 +1,11 @@
 package com.kalix.qiao.genealogy.entities;
 
+import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.time.DateTimeException;
 import java.util.Date;
 
@@ -30,6 +32,17 @@ public class GenealogyBean extends PersistentEntity {
     private int part;//部id（字典表）
     private String unit;//卷id（字典表）
     private String volume;//册id（字典表）
+
+    @Transient
+    private JsonData defaultOption; // 级联菜单默认选中项
+
+    public JsonData getDefaultOption() {
+        return defaultOption;
+    }
+
+    public void setDefaultOption(JsonData defaultOption) {
+        this.defaultOption = defaultOption;
+    }
 
     public String getGenealogyname() {
         return genealogyname;

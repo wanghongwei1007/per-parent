@@ -35,4 +35,14 @@
     <camelContext id="genealogyCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="genealogyRoute"/>
     </camelContext>
+
+    <!--族人-->
+    <reference id="clansmanService" interface="com.kalix.qiao.genealogy.api.biz.IClansmanBeanService"/>
+    <bean id="clansmanRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.genealogy.entities.ClansmanBean"/>
+    </bean>
+    <camelContext id="clansmanCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="clansmanRoute"/>
+    </camelContext>
+
 </blueprint>

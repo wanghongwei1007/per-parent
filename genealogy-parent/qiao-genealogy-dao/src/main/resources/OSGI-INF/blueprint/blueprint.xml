@@ -12,5 +12,9 @@
     </bean>
     <service interface="com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao" ref="genealogyBeanDaoImpl"/>
 
+    <!--族人管理-->
+    <bean id="clansmanBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.ClansmanBeanDaoImpl">
+    </bean>
+    <service interface="com.kalix.qiao.genealogy.api.dao.IClansmanBeanDao" ref="clansmanBeanDaoImpl" />
 </blueprint>
 
