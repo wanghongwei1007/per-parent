@@ -6,7 +6,7 @@ import com.kalix.qiao.genealogy.api.biz.IClansmanBeanService;
 import com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService;
 import com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao;
 import com.kalix.qiao.genealogy.entities.GenealogyBean;
-import com.kalix.qiao.genealogy.api.dto.JsonTreeZsDTO;
+import com.kalix.qiao.genealogy.api.dto.ClansmanDTO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,11 +22,11 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
     @Override
     public JsonData queryForTree() {
         List<GenealogyBean> genealogyBeanList = dao.getAll();
-        List<JsonTreeZsDTO> list = new ArrayList<>();
+        List<ClansmanDTO> list = new ArrayList<>();
         JsonData jsonData = new JsonData();
         if (genealogyBeanList.size()>0) {
             for(GenealogyBean g:genealogyBeanList){
-                JsonTreeZsDTO j = new JsonTreeZsDTO();
+                ClansmanDTO j = new ClansmanDTO();
                 j.setModelId(g.getId());
                 j.setLabel(g.getGenealogyname());
                 list.add(j);

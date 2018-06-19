@@ -40,6 +40,16 @@
     <reference id="clansmanService" interface="com.kalix.qiao.genealogy.api.biz.IClansmanBeanService"/>
     <bean id="clansmanRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.genealogy.entities.ClansmanBean"/>
+        <property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/clansmans/getClansmanByGenealogyId" />
+                    <property name="getDescription" value="谱下族人信息"/>
+                    <property name="getToUri"
+                              value="bean:clansmanService?method=getClansmanByGenealogyId(${header.genealogyId},${header.jsonStr})"/>
+                </bean>
+            </list>
+        </property>
     </bean>
     <camelContext id="clansmanCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="clansmanRoute"/>

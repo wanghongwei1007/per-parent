@@ -1,6 +1,7 @@
 package com.kalix.qiao.genealogy.api.biz;
 
 import com.kalix.framework.core.api.biz.IBizService;
+import com.kalix.qiao.genealogy.api.dto.ClansmanDTO;
 import com.kalix.qiao.genealogy.entities.ClansmanBean;
 
 /**
@@ -9,4 +10,6 @@ import com.kalix.qiao.genealogy.entities.ClansmanBean;
 public interface IClansmanBeanService extends IBizService<ClansmanBean> {
 
     void deleteByGenealogyId(long id);
+
+    ClansmanDTO getClansmanByGenealogyId(int genealogyId, String jsonStr);
 }
