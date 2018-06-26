@@ -6,6 +6,7 @@ import com.kalix.qiao.system.dict.api.biz.IQiaoDictBeanService;
 import com.kalix.qiao.system.dict.api.dao.IQiaoDictBeanDao;
 import com.kalix.qiao.system.dict.entities.QiaoDictBean;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class QiaoDictBeanServiceImpl extends BaseDictServiceImpl<IQiaoDictBeanDao, QiaoDictBean>
@@ -22,7 +23,7 @@ public class QiaoDictBeanServiceImpl extends BaseDictServiceImpl<IQiaoDictBeanDa
     }
 
     @Override
-    public List getLabelByType() {
-        return dao.find("select d from QiaoDictBean d where d.type='类型标识'");
+    public List getLabelByType(String type) {
+        return dao.find("select d from QiaoDictBean d where d.type=?1 order by d.value", type);
     }
 }

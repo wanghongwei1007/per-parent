@@ -63,7 +63,7 @@
         <rest path="/dicts/getLabelByType" consumes="application/json;charset=utf-8" produces="application/json">
             <get id="route-getLabelByType">
                 <description>Edit CategoryType</description>
-                <to uri="bean:qiaoDictBeanService?method=getLabelByType()"/>
+                <to uri="bean:qiaoDictBeanService?method=getLabelByType(${header.type})"/>
             </get>
         </rest>
     </camelContext>

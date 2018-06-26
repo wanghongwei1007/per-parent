@@ -20,9 +20,10 @@ public class ClansmanBean extends PersistentEntity {
     private int fatherid;//父id
     private int motherid;//母id
     private String sequence;//排行
+   // private int sequenceOrder;// 排行排序字段，字典表获取？
     private String generations;//世代
-    private int gradeid;//字辈id
-    private String monicker;//字号
+    private String gradeid;//字辈id
+    private String monicker;//字号s
     private Date birth;//出生日期
     private Date datetime;//死亡日期
     private String weight;//体重
@@ -43,6 +44,14 @@ public class ClansmanBean extends PersistentEntity {
     private String videourl;//视频
     private String voiceurl;//音频
     private int genealogynameid;//家谱id
+
+//    public int getSequenceOrder() {
+//        return sequenceOrder;
+//    }
+//
+//    public void setSequenceOrder(int sequenceOrder) {
+//        this.sequenceOrder = sequenceOrder;
+//    }
 
     public String getName() {
         return name;
@@ -108,11 +117,11 @@ public class ClansmanBean extends PersistentEntity {
         this.generations = generations;
     }
 
-    public int getGradeid() {
+    public String getGradeid() {
         return gradeid;
     }
 
-    public void setGradeid(int gradeid) {
+    public void setGradeid(String gradeid) {
         this.gradeid = gradeid;
     }
 

@@ -16,5 +16,16 @@
     <bean id="clansmanBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.ClansmanBeanDaoImpl">
     </bean>
     <service interface="com.kalix.qiao.genealogy.api.dao.IClansmanBeanDao" ref="clansmanBeanDaoImpl" />
+
+    <!--记事管理-->
+    <bean id="recordBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.RecordBeanDaoImpl">
+    </bean>
+    <service interface="com.kalix.qiao.genealogy.api.dao.IRecordBeanDao" ref="recordBeanDaoImpl" />
+
+    <!--字辈管理-->
+    <bean id="generationBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.GenerationBeanDaoImpl">
+    </bean>
+    <service interface="com.kalix.qiao.genealogy.api.dao.IGenerationBeanDao" ref="generationBeanDaoImpl" />
+
 </blueprint>
 

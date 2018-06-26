@@ -55,4 +55,49 @@
         <routeBuilder ref="clansmanRoute"/>
     </camelContext>
 
+    <!--记事-->
+    <reference id="recordService" interface="com.kalix.qiao.genealogy.api.biz.IRecordBeanService"/>
+    <bean id="recordRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.genealogy.entities.RecordBean"/>
+        <!--<property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/records/getClansmanByGenealogyId" />
+                    <property name="getDescription" value="谱下族人信息"/>
+                    <property name="getToUri"
+                              value="bean:clansmanService?method=getClansmanByGenealogyId(${header.genealogyId},${header.jsonStr})"/>
+                </bean>
+            </list>
+        </property>-->
+    </bean>
+    <camelContext id="recordCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="recordRoute"/>
+    </camelContext>
+
+    <!--字辈-->
+    <reference id="generationService" interface="com.kalix.qiao.genealogy.api.biz.IGenerationBeanService"/>
+    <bean id="generationRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.genealogy.entities.GenerationBean"/>
+        <property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/generations/getGenerationByGenealogyId" />
+                    <property name="getDescription" value="谱下字辈信息"/>
+                    <property name="getToUri"
+                              value="bean:generationService?method=getGenerationByGenealogyId(${header.genealogyId})"/>
+                </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/generations/getGenerationForSelect" />
+                    <property name="getDescription" value="谱下字辈下拉菜单"/>
+                    <property name="getToUri"
+                              value="bean:generationService?method=getGenerationForSelect(${header.genealogyId})"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <camelContext id="generationCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="generationRoute"/>
+    </camelContext>
+
 </blueprint>

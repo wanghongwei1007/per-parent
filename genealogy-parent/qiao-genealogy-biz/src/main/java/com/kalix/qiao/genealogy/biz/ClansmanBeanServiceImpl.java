@@ -37,7 +37,7 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
         if(genealogyId != -1){
             sql += " and c.genealogynameid =" + genealogyId;
         }
-        sql += " order by c.id desc";
+        sql += " order by c.id";
         beans = dao.find(sql);
 
         if(beans != null && beans.size() > 0){

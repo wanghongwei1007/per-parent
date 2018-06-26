@@ -21,4 +21,21 @@
     <bean id="clansmanBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.ClansmanBeanServiceImpl">
         <property name="dao" ref="clansmanBeanDao"/>
     </bean>
+
+    <!--记事管理-->
+    <reference id="recordBeanDao" interface="com.kalix.qiao.genealogy.api.dao.IRecordBeanDao"/>
+    <service id="recordBeanService" interface="com.kalix.qiao.genealogy.api.biz.IRecordBeanService"
+             ref="recordBeanServiceImpl"/>
+    <bean id="recordBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.RecordBeanServiceImpl">
+        <property name="dao" ref="recordBeanDao"/>
+    </bean>
+
+     <!--字辈管理-->
+    <reference id="generationBeanDao" interface="com.kalix.qiao.genealogy.api.dao.IGenerationBeanDao"/>
+    <service id="generationBeanService" interface="com.kalix.qiao.genealogy.api.biz.IGenerationBeanService"
+             ref="generationBeanServiceImpl"/>
+    <bean id="generationBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.GenerationServiceImpl">
+        <property name="dao" ref="generationBeanDao"/>
+    </bean>
+
 </blueprint>

@@ -4,6 +4,7 @@ import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.qiao.genealogy.api.biz.IClansmanBeanService;
 import com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService;
+import com.kalix.qiao.genealogy.api.biz.IGenerationBeanService;
 import com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao;
 import com.kalix.qiao.genealogy.entities.GenealogyBean;
 import com.kalix.qiao.genealogy.api.dto.ClansmanDTO;
@@ -18,6 +19,7 @@ import java.util.List;
 public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBeanDao, GenealogyBean> implements IGenealogyBeanService {
 
     private IClansmanBeanService clansmanBeanService;
+    private IGenerationBeanService generationBeanService;
 
     @Override
     public JsonData queryForTree() {
@@ -59,11 +61,16 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
     public JsonData deleteById(long id) {
         dao.remove(id);
         clansmanBeanService.deleteByGenealogyId(id);
+        generationBeanService.DeleteByGenealogyId(id);
         JsonData jsonData = new JsonData();
         return jsonData;
     }
 
     public void setClansmanBeanService(IClansmanBeanService clansmanBeanService) {
         this.clansmanBeanService = clansmanBeanService;
+    }
+
+    public void setGenerationBeanService(IGenerationBeanService generationBeanService) {
+        this.generationBeanService = generationBeanService;
     }
 }

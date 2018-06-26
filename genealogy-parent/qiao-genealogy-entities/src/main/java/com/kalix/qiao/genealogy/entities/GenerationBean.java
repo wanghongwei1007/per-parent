@@ -4,8 +4,6 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.DateTimeException;
-import java.util.Date;
 
 /**
  * Created by Administrator on 2018/5/21 0021.
@@ -14,6 +12,15 @@ import java.util.Date;
 @Table(name = "qiao_genealogy_generation")
 public class GenerationBean extends PersistentEntity {
     private String grade;//字辈
+    private long genealogyId;// 家谱ID
+
+    public long getGenealogyId() {
+        return genealogyId;
+    }
+
+    public void setGenealogyId(long genealogyId) {
+        this.genealogyId = genealogyId;
+    }
 
     public String getGrade() {
         return grade;
