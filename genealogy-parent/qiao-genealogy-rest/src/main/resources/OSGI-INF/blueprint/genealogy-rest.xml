@@ -48,6 +48,22 @@
                     <property name="getToUri"
                               value="bean:clansmanService?method=getClansmanByGenealogyId(${header.genealogyId},${header.jsonStr})"/>
                 </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/clansmans/deleteOneAndChildrens" />
+                    <property name="getDescription" value="删除族人子节点"/>
+                    <property name="getToUri"
+                              value="bean:clansmanService?method=deleteOneAndChildrens(${header.id})"/>
+                </bean>
+
+
+                <!--<bean class="com.kalix.framework.core.api.camel.CustomRest">-->
+                    <!--<property name="path" value="/clansmans/clansmanFileUpload" />-->
+                    <!--<property name="getDescription" value="文件上传"/>-->
+                    <!--<property name="getToUri"-->
+                              <!--value="bean:clansmanService?method=clansmanFileUpload()"/>-->
+                <!--</bean>-->
+
             </list>
         </property>
     </bean>

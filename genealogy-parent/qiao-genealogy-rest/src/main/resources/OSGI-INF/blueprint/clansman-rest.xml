@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+    <!--//<reference id="columnService" interface="com.kalix.qiao.cms.api.biz.IColumnBeanService"/>-->
+    <camelContext id="clansmanCamelExt" xmlns="http://camel.apache.org/schema/blueprint">
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+        <!-- defines the rest services using the context-path /template -->
+        <rest path="/clansmans/clansmanFileUpload" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <post id="route-clansmanFileUpload">
+                <description>FileUpload</description>
+                <to uri="bean:clansmanService?method=clansmanFileUpload(${header.request})"/>
+            </post>
+        </rest>
+    </camelContext>
+</blueprint>

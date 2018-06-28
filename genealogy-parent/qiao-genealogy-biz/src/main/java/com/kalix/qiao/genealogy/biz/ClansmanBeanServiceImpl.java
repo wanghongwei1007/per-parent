@@ -9,6 +9,8 @@ import com.kalix.qiao.genealogy.entities.ClansmanBean;
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +57,29 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
     }
 
     /**
+     * 递归删除族人子节点
+     * @param id
+     * @return
+     */
+    @Override
+    public String deleteOneAndChildrens(long id) {
+        List<ClansmanBean> clansmanBeans = dao.find("select c from ClansmanBean c where c.fatherid = ?1", id);
+        deleteChilderns(clansmanBeans);
+        dao.remove(id);
+        return "ok";
+    }
+
+    private void deleteChilderns(List<ClansmanBean> clansmanBeans){
+        if(clansmanBeans.size()>0){
+            for (ClansmanBean c : clansmanBeans) {
+                List<ClansmanBean> clansmanChildrens = dao.find("select c from ClansmanBean c where c.fatherid=?1", c.getId());
+                dao.remove(c.getId());
+                deleteChilderns(clansmanChildrens);
+            }
+        }
+    }
+
+    /**
      * 递归函数加载子节点
      * @param root
      * @param elements
@@ -88,4 +113,15 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
         }
         return roots;
     }
+
+    /**
+     * 文件上传
+     * @param
+     */
+    @Override
+    public void clansmanFileUpload(HttpServletRequest request) {
+        String fileName = "123";
+        System.out.print(fileName);
+    }
+
 }
