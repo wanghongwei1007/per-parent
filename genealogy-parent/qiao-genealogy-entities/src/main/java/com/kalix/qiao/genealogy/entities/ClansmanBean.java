@@ -41,8 +41,11 @@ public class ClansmanBean extends PersistentEntity {
     private String necropolis;//埋葬地
     private String describe;//描述
     private String imgurl;//图片
+    private String imgName;
     private String videourl;//视频
+    private String videoName;//视频
     private String voiceurl;//音频
+    private String voiceName;//音频
     private int genealogynameid;//家谱id
 
 //    public int getSequenceOrder() {
@@ -291,5 +294,29 @@ public class ClansmanBean extends PersistentEntity {
 
     public void setGenealogynameid(int genealogynameid) {
         this.genealogynameid = genealogynameid;
+    }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    public String getVideoName() {
+        return videoName;
+    }
+
+    public void setVideoName(String videoName) {
+        this.videoName = videoName;
+    }
+
+    public String getVoiceName() {
+        return voiceName;
+    }
+
+    public void setVoiceName(String voiceName) {
+        this.voiceName = voiceName;
     }
 }
