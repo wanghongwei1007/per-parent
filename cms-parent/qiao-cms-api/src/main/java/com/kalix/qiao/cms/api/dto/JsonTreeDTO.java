@@ -8,7 +8,7 @@ import java.util.List;
  * Created by wangpeng on 2018/5/26 0026.
  * 树形列表参数封装
  */
-public class JsonTreeDTO extends BaseDTO {
+public class JsonTreeDTO {
     private String label;
     private String flag;
     private long modelId;
