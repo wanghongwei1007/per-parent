@@ -8,4 +8,5 @@ import com.kalix.qiao.genealogy.entities.RecordBean;
  */
 public interface IRecordBeanDao extends IGenericDao<RecordBean, Long> {
 
+    void DeleteByClansmanId(long clansmanId);
 }

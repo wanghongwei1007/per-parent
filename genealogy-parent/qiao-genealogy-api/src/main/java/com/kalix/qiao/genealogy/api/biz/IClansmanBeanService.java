@@ -18,5 +18,4 @@ public interface IClansmanBeanService extends IBizService<ClansmanBean> {
 
     String deleteOneAndChildrens(long id);
 
-    void clansmanFileUpload(HttpServletRequest request);
 }

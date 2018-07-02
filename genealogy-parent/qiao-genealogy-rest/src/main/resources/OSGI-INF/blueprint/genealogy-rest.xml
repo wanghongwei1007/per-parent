@@ -75,16 +75,16 @@
     <reference id="recordService" interface="com.kalix.qiao.genealogy.api.biz.IRecordBeanService"/>
     <bean id="recordRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.genealogy.entities.RecordBean"/>
-        <!--<property name="rests">
+        <property name="rests">
             <list>
                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
-                    <property name="path" value="/records/getClansmanByGenealogyId" />
-                    <property name="getDescription" value="谱下族人信息"/>
+                    <property name="path" value="/records/getRecordByClansmanId" />
+                    <property name="getDescription" value="族人记事"/>
                     <property name="getToUri"
-                              value="bean:clansmanService?method=getClansmanByGenealogyId(${header.genealogyId},${header.jsonStr})"/>
+                              value="bean:recordService?method=getRecordByClansmanId(${header.clansmanId})"/>
                 </bean>
             </list>
-        </property>-->
+        </property>
     </bean>
     <camelContext id="recordCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="recordRoute"/>

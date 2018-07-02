@@ -11,18 +11,18 @@ import java.util.Date;
 @Entity
 @Table(name = "qiao_genealogy_record")
 public class RecordBean extends PersistentEntity {
-    private int member;//族人id
+    private long clansmanId;//族人id
     private String category;//记录类型
     private String site;//纪念地址
     private Date time;//纪念日期
     private String chronicle;//族人纪事描述
 
-    public int getMember() {
-        return member;
+    public long getClansmanId() {
+        return clansmanId;
     }
 
-    public void setMember(int member) {
-        this.member = member;
+    public void setClansmanId(long clansmanId) {
+        this.clansmanId = clansmanId;
     }
 
     public String getCategory() {

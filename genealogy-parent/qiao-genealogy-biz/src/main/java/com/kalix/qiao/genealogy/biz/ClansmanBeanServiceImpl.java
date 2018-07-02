@@ -3,6 +3,7 @@ package com.kalix.qiao.genealogy.biz;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.framework.core.util.SerializeUtil;
 import com.kalix.qiao.genealogy.api.biz.IClansmanBeanService;
+import com.kalix.qiao.genealogy.api.biz.IRecordBeanService;
 import com.kalix.qiao.genealogy.api.dao.IClansmanBeanDao;
 import com.kalix.qiao.genealogy.api.dto.ClansmanDTO;
 import com.kalix.qiao.genealogy.entities.ClansmanBean;
@@ -19,6 +20,12 @@ import java.util.Map;
  * Created by wangpeng on 2018/6/15.
  */
 public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBeanDao, ClansmanBean> implements IClansmanBeanService {
+
+    private IRecordBeanService recordBeanService;
+
+    public void setRecordBeanService(IRecordBeanService recordBeanService) {
+        this.recordBeanService = recordBeanService;
+    }
 
     @Override
     public void deleteByGenealogyId(long id) {
@@ -66,6 +73,7 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
         List<ClansmanBean> clansmanBeans = dao.find("select c from ClansmanBean c where c.fatherid = ?1", id);
         deleteChilderns(clansmanBeans);
         dao.remove(id);
+        recordBeanService.DeleteByClansmanId(id);
         return "ok";
     }
 
@@ -74,6 +82,7 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
             for (ClansmanBean c : clansmanBeans) {
                 List<ClansmanBean> clansmanChildrens = dao.find("select c from ClansmanBean c where c.fatherid=?1", c.getId());
                 dao.remove(c.getId());
+                recordBeanService.DeleteByClansmanId(c.getId());
                 deleteChilderns(clansmanChildrens);
             }
         }
@@ -114,14 +123,5 @@ public class ClansmanBeanServiceImpl extends GenericBizServiceImpl<IClansmanBean
         return roots;
     }
 
-    /**
-     * 文件上传
-     * @param
-     */
-    @Override
-    public void clansmanFileUpload(HttpServletRequest request) {
-        String fileName = "123";
-        System.out.print(fileName);
-    }
 
 }

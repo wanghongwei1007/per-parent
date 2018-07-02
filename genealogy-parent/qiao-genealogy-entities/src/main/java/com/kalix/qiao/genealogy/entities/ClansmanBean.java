@@ -37,8 +37,10 @@ public class ClansmanBean extends PersistentEntity {
     private String honor;//荣誉
     private String hobby;//爱好
     private String homeaddress;///家庭住址
+    private String detailedAddress;//详细地址
     private int childrenid;//子女ID
     private String necropolis;//埋葬地
+    private String necropolisAddress;//详细地址
     private String describe;//描述
     private String imgurl;//图片
     private String imgName;
@@ -318,5 +320,21 @@ public class ClansmanBean extends PersistentEntity {
 
     public void setVoiceName(String voiceName) {
         this.voiceName = voiceName;
+    }
+
+    public String getDetailedAddress() {
+        return detailedAddress;
+    }
+
+    public void setDetailedAddress(String detailedAddress) {
+        this.detailedAddress = detailedAddress;
+    }
+
+    public String getNecropolisAddress() {
+        return necropolisAddress;
+    }
+
+    public void setNecropolisAddress(String necropolisAddress) {
+        this.necropolisAddress = necropolisAddress;
     }
 }

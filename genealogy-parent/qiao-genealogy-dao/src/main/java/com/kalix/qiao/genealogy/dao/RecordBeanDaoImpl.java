@@ -18,4 +18,9 @@ public class RecordBeanDaoImpl extends GenericDao<RecordBean, Long> implements I
     }
 
 
+    @Override
+    public void DeleteByClansmanId(long clansmanId) {
+        String sql = "delete from qiao_genealogy_record g where g.clansmanId = '"+clansmanId+"'";
+        entityManager.createNativeQuery(sql).executeUpdate();
+    }
 }
