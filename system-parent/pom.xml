@@ -23,5 +23,6 @@
         <module>dict-parent</module>
         <module>district-parent</module>
         <module>setting-parent</module>
+        <module>station-parent</module>
     </modules>
 </project>
