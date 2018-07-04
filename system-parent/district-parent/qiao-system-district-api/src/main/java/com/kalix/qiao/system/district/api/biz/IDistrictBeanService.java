@@ -12,4 +12,6 @@ public interface IDistrictBeanService extends IBizService<DistrictBean> {
 
     JsonData getDistrictForCascader();
 
+    JsonData getDistrictForLocation();
+
 }

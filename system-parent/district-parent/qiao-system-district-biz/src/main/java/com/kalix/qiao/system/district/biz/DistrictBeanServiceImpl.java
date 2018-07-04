@@ -61,6 +61,34 @@ public class DistrictBeanServiceImpl extends ShiroGenericBizServiceImpl<IDistric
     }
 
     @Override
+    public JsonData getDistrictForLocation() {
+        CascaderDTO cascaderDTO = new CascaderDTO();
+        List<CascaderDTO> list = new ArrayList<>();
+        List<DistrictBean> oneList = dao.find("select d from DistrictBean d where d.parentencoding = '0'");
+        for (DistrictBean one : oneList) {
+            CascaderDTO oneModel = new CascaderDTO();
+            oneModel.setValue(one.getBewrite());
+            oneModel.setLabel(one.getBewrite());
+            List<DistrictBean> twoList = dao.find("select d from DistrictBean d where d.parentencoding = ?1" , one.getCoding());
+            List<CascaderDTO> tsList = new ArrayList<>();
+            for (DistrictBean two:twoList) {
+                CascaderDTO twoModel = new CascaderDTO();
+                twoModel.setValue(two.getBewrite());
+                twoModel.setLabel(two.getBewrite());
+                tsList.add(twoModel);
+            }
+            oneModel.setChildren(tsList);
+            list.add(oneModel);
+        }
+        List<String> infoList = new ArrayList<>();
+        infoList.add(new Gson().toJson(list));
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(infoList);
+        return jsonData;
+    }
+
+    @Override
     public JsonStatus saveEntity(DistrictBean entity) {
         return super.saveEntity(entity);
     }

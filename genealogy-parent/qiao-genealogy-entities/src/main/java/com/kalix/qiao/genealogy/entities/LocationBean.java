@@ -6,54 +6,54 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * Created by Administrator on 2018/5/20 0020.
+ * Created by wangpeng on 2018/7/3
  */
 @Entity
 @Table(name = "qiao_genealogy_location")
 public class LocationBean extends PersistentEntity {
-    private Double destinationlatitude;//终点纬度
-    private Double destinationlongitude;//终点经度
-    private int genealogynameid;//家谱ID
-    private Double startlatitude;//起始纬度
-    private Double startlongitude;//起始经度
+    private long genealogyId;//家谱ID
+    private String startProvince;
+    private String startCity;
+    private String endProvince;
+    private String endCity;
 
-    public Double getDestinationlatitude() {
-        return destinationlatitude;
+    public long getGenealogyId() {
+        return genealogyId;
     }
 
-    public void setDestinationlatitude(Double destinationlatitude) {
-        this.destinationlatitude = destinationlatitude;
+    public void setGenealogyId(long genealogyId) {
+        this.genealogyId = genealogyId;
     }
 
-    public Double getDestinationlongitude() {
-        return destinationlongitude;
+    public String getStartCity() {
+        return startCity;
     }
 
-    public void setDestinationlongitude(Double destinationlongitude) {
-        this.destinationlongitude = destinationlongitude;
+    public void setStartCity(String startCity) {
+        this.startCity = startCity;
     }
 
-    public int getGenealogynameid() {
-        return genealogynameid;
+    public String getEndCity() {
+        return endCity;
     }
 
-    public void setGenealogynameid(int genealogynameid) {
-        this.genealogynameid = genealogynameid;
+    public void setEndCity(String endCity) {
+        this.endCity = endCity;
     }
 
-    public Double getStartlatitude() {
-        return startlatitude;
+    public String getStartProvince() {
+        return startProvince;
     }
 
-    public void setStartlatitude(Double startlatitude) {
-        this.startlatitude = startlatitude;
+    public void setStartProvince(String startProvince) {
+        this.startProvince = startProvince;
     }
 
-    public Double getStartlongitude() {
-        return startlongitude;
+    public String getEndProvince() {
+        return endProvince;
     }
 
-    public void setStartlongitude(Double startlongitude) {
-        this.startlongitude = startlongitude;
+    public void setEndProvince(String endProvince) {
+        this.endProvince = endProvince;
     }
 }
