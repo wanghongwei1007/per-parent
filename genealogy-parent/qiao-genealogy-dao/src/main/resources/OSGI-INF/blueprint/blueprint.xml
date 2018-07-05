@@ -27,5 +27,10 @@
     </bean>
     <service interface="com.kalix.qiao.genealogy.api.dao.IGenerationBeanDao" ref="generationBeanDaoImpl" />
 
+    <!--迁徙记录-->
+    <bean id="locationBeanDaoImpl" class="com.kalix.qiao.genealogy.dao.LocationBeanDaoImpl">
+    </bean>
+    <service interface="com.kalix.qiao.genealogy.api.dao.ILocationBeanDao" ref="locationBeanDaoImpl" />
+
 </blueprint>
 

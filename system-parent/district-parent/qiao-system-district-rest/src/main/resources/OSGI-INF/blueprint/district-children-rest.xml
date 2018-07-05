@@ -16,5 +16,13 @@
                 <to uri="bean:districtService?method=getDistrictForCascader()"/>
             </get>
         </rest>
+        <rest path="/districts/getDistrictForLocation" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <get id="route-getDistrictForLocation" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find Column And Menu</description>
+                <to uri="bean:districtService?method=getDistrictForLocation()"/>
+            </get>
+        </rest>
+
     </camelContext>
 </blueprint>

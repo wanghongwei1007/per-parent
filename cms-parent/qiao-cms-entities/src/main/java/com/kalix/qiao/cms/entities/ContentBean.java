@@ -2,6 +2,7 @@ package com.kalix.qiao.cms.entities;
 
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.Date;
 public class ContentBean extends PersistentEntity {
     private String title;//标题
     private String subtitle;//次标题
+    @Column(name = "content",columnDefinition="text")
     private String content;//内容
     private String compile;//编撰人姓名
     private int sequence;//排序

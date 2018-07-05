@@ -116,4 +116,38 @@
         <routeBuilder ref="generationRoute"/>
     </camelContext>
 
+    <!--迁徙记录-->
+    <reference id="locationService" interface="com.kalix.qiao.genealogy.api.biz.ILocationBeanService"/>
+    <bean id="locationRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.qiao.genealogy.entities.LocationBean"/>
+        <property name="rests">
+            <list>
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/locations/getLocationByGenealogyId" />
+                    <property name="getDescription" value="分页获取家谱迁徙记录"/>
+                    <property name="getToUri"
+                              value="bean:locationService?method=getLocationByGenealogyId(${header.jsonStr}, ${header.page}, ${header.limit})"/>
+                </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/locations/deleteById" />
+                    <property name="getDescription" value="删除"/>
+                    <property name="getToUri"
+                              value="bean:locationService?method=deleteById(${header.id})"/>
+                </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/locations/getLocationForMap" />
+                    <property name="getDescription" value="封装地图数据"/>
+                    <property name="getToUri"
+                              value="bean:locationService?method=getLocationForMap(${header.genealogyId})"/>
+                </bean>
+
+            </list>
+        </property>
+    </bean>
+    <camelContext id="locationCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="locationRoute"/>
+    </camelContext>
+
 </blueprint>

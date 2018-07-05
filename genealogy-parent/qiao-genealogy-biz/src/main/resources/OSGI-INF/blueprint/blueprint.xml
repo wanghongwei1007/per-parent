@@ -38,4 +38,12 @@
         <property name="dao" ref="generationBeanDao"/>
     </bean>
 
+     <!--迁徙记录-->
+    <reference id="locationBeanDao" interface="com.kalix.qiao.genealogy.api.dao.ILocationBeanDao"/>
+    <service id="locationBeanService" interface="com.kalix.qiao.genealogy.api.biz.ILocationBeanService"
+             ref="locationBeanServiceImpl"/>
+    <bean id="locationBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.LocationBeanServiceImpl">
+        <property name="dao" ref="locationBeanDao"/>
+    </bean>
+
 </blueprint>
