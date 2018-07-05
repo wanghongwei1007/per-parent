@@ -4,8 +4,10 @@ import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.qiao.genealogy.api.biz.ILocationBeanService;
 import com.kalix.qiao.genealogy.api.dao.ILocationBeanDao;
+import com.kalix.qiao.genealogy.api.dto.MapDTO;
 import com.kalix.qiao.genealogy.entities.LocationBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,7 +27,29 @@ public class LocationBeanServiceImpl extends GenericBizServiceImpl<ILocationBean
     }
 
     @Override
-    public void deleteById(long id) {
+    public String deleteById(long id) {
         dao.remove(id);
+        return "删除成功";
+    }
+
+    /**
+     * 迁徙地图数据封装
+     * @param genealogyId 家谱ID
+     * @return
+     */
+    @Override
+    public JsonData getLocationForMap(long genealogyId) {
+        List<LocationBean> locationBeans = dao.find("select l from LocationBean l where l.genealogyId = ?1", genealogyId);
+        List<MapDTO> list = new ArrayList<>();
+        for (LocationBean l:locationBeans) {
+            MapDTO mapDTO = new MapDTO();
+            mapDTO.setFromCoord(l.getStartCity());
+            mapDTO.setToCoord(l.getEndCity());
+            list.add(mapDTO);
+        }
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(list);
+        return jsonData;
     }
 }

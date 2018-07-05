@@ -11,5 +11,7 @@ public interface ILocationBeanService extends IBizService<LocationBean> {
 
     JsonData getLocationByGenealogyId(long jsonStr, int page, int limit);
 
-    void deleteById(long id);
+    String deleteById(long id);
+
+    JsonData getLocationForMap(long genealogyId);
 }

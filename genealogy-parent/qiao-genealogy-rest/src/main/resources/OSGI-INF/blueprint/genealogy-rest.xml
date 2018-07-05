@@ -130,10 +130,17 @@
                 </bean>
 
                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
-                    <property name="path" value="/locations/getLocationByGenealogyId/{id}" />
+                    <property name="path" value="/locations/deleteById" />
                     <property name="getDescription" value="删除"/>
                     <property name="getToUri"
                               value="bean:locationService?method=deleteById(${header.id})"/>
+                </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                    <property name="path" value="/locations/getLocationForMap" />
+                    <property name="getDescription" value="封装地图数据"/>
+                    <property name="getToUri"
+                              value="bean:locationService?method=getLocationForMap(${header.genealogyId})"/>
                 </bean>
 
             </list>
