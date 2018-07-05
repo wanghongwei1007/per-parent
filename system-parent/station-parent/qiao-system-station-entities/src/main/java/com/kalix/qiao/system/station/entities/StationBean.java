@@ -2,10 +2,7 @@ package com.kalix.qiao.system.station.entities;
 
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by sunli on 2018/7/3
@@ -16,6 +13,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 public class StationBean extends PersistentEntity{
     private String imgurl; //站长图片
+    @Column(name = "introduce", columnDefinition = "text")
     private String introduce; //站长介绍
 
     public String getImgurl() {
