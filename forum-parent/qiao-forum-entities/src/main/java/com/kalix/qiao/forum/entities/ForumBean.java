@@ -1,6 +1,7 @@
 package com.kalix.qiao.forum.entities;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
@@ -14,6 +15,7 @@ import java.util.Date;
 public class ForumBean extends PersistentEntity {
     private String idcard;   //发帖人别名
     private String title;    //标题
+    @Column(name = "content", columnDefinition = "text")
     private String content;  //帖子内容
     private String menuName; //留言分类（菜单id）
     private int category=0; //审核标识
