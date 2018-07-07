@@ -7,10 +7,13 @@
 
     <!--家谱管理-->
     <reference id="genealogyBeanDao" interface="com.kalix.qiao.genealogy.api.dao.IGenealogyBeanDao"/>
+    <reference id="excelService" interface="com.kalix.middleware.excel.api.biz.IExcelService"/>
+
     <service id="genealogyBeanService" interface="com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService"
              ref="genealogyBeanServiceImpl"/>
     <bean id="genealogyBeanServiceImpl" class="com.kalix.qiao.genealogy.biz.GenealogyBeanServiceImpl">
         <property name="dao" ref="genealogyBeanDao"/>
+        <property name="excelService" ref="excelService"/>
         <property name="clansmanBeanService" ref="clansmanBeanServiceImpl"/>
     </bean>
 

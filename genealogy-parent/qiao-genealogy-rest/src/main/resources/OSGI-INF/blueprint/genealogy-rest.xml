@@ -5,6 +5,7 @@
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
     <!--家普编修-->
     <reference id="genealogyService" interface="com.kalix.qiao.genealogy.api.biz.IGenealogyBeanService"/>
+
     <bean id="genealogyRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
         <property name="beanName" value="com.kalix.qiao.genealogy.entities.GenealogyBean"/>
         <property name="rests">
@@ -28,6 +29,18 @@
                      <property name="getDescription" value="删除家谱及谱下族人信息"/>
                      <property name="getOutType" value="com.kalix.framework.core.api.persistence.JsonData"/>
                      <property name="getToUri" value="bean:genealogyService?method=deleteById(${header.id})"/>
+                 </bean>
+
+                 <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                     <property name="path" value="/genealogys/writeSVCFile" />
+                     <property name="getDescription" value="writeSVCFile"/>
+                     <property name="getToUri" value="bean:genealogyService?method=writeSVCFile(${header.id})"/>
+                 </bean>
+
+                <bean class="com.kalix.framework.core.api.camel.CustomRest">
+                     <property name="path" value="/genealogys/exportExcel" />
+                     <property name="getDescription" value="exportExcel"/>
+                     <property name="getToUri" value="bean:genealogyService?method=exportExcel(${header.id})"/>
                  </bean>
             </list>
         </property>
