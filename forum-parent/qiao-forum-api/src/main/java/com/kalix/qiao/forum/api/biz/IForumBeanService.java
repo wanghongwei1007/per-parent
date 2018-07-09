@@ -12,4 +12,6 @@ public interface IForumBeanService extends IBizService<ForumBean> {
     JsonData getReplyForTree();
     //留言管理审核状态的改变
     int getCategory(long id);
+    //删除帖子及回复的功能
+    void deleteAllById(long id);
 }

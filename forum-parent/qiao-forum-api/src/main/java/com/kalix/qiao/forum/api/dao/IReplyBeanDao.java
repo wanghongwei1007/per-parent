@@ -14,4 +14,6 @@ public interface IReplyBeanDao extends IGenericDao<ReplyBean, Long> {
 
     List<ReplyBean> findListByPostId(long postId);
 
+    void deleteAllByPostid(long id);
+
 }

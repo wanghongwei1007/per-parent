@@ -16,4 +16,5 @@ public class ForumBeanDaoImpl extends GenericDao<ForumBean, Long> implements IFo
     public void setEntityManager(EntityManager em) {
         super.setEntityManager(em);
     }
+
 }

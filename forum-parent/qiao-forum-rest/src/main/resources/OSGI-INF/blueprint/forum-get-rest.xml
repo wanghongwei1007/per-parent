@@ -27,5 +27,14 @@
             </get>
         </rest>
 
+        <!-- 留言管理删除帖子以及回复的功能 -->
+        <rest path="/forums/deleteAllById" consumes="application/json;charset=utf-8" produces="application/json">
+            <!-- this is a rest GET to view a template by the given id -->
+            <get id="route-deleteAllById">
+                <description>Edit Category</description>
+                <to uri="bean:forumService?method=deleteAllById(${header.id})"/>
+            </get>
+        </rest>
+
     </camelContext>
 </blueprint>

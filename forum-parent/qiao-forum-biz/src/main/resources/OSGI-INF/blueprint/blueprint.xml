@@ -11,6 +11,7 @@
              ref="forumBeanServiceImpl"/>
     <bean id="forumBeanServiceImpl" class="com.kalix.qiao.forum.biz.ForumBeanServiceImpl">
         <property name="dao" ref="forumBeanDao"/>
+        <property name="iReplyBeanService" ref="replyBeanServiceImpl"/>
     </bean>
 
     <!--回复-->

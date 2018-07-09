@@ -28,5 +28,11 @@ public class ReplyBeanDaoImpl extends GenericDao<ReplyBean, Long> implements IRe
         return null;
     }
 
+    @Override
+    public void deleteAllByPostid(long id) {
+        String sql = "delete from qiao_forum_reply r where r.postid='"+id+"'";
+        entityManager.createNativeQuery(sql).executeUpdate();
+    }
+
 
 }

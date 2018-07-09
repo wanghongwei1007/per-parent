@@ -100,48 +100,9 @@ public class ReplyBeanServiceImpl extends GenericBizServiceImpl<IReplyBeanDao, R
         return dao.update(sql);
     }
 
-
-
-   /* @Override
-    public ReplyTreeDTO getReplyByPostId(long postId) {
-        ReplyTreeDTO  rtt = new ReplyTreeDTO();
-        List<ReplyTreeDTO> list = new ArrayList<>();
-        List<ReplyBean> replyBeanList = new ArrayList<>();
-        if(postId == -1){
-            replyBeanList = dao.find("select r from ReplyBean r where r.category='0' and r.parentId=-1 order by r.creationDate desc");
-        }else{
-            replyBeanList = dao.find("select r from ReplyBean r where r.postId =?1 order by r.creationDate desc", postId);
-        }
-        if(replyBeanList.size()>0){
-            for(ReplyBean replyBean:replyBeanList){
-                list = getReplyByParentId(replyBean);
-            }
-        }
-       rtt.setChildren(list);
-        return rtt;
+    @Override
+    public void deleteAllByPostid(long id) {
+        dao.deleteAllByPostid(id);
     }
 
-    @Override
-    public List<ReplyTreeDTO> getReplyByParentId(ReplyBean replyBean){
-        ReplyTreeDTO rtt = new ReplyTreeDTO();
-        List<ReplyTreeDTO> list = new ArrayList<>();
-        List<ReplyTreeDTO> childrenList= new ArrayList<>();
-        rtt.setId(replyBean.getId());
-        rtt.setUsername(replyBean.getUsername());
-        rtt.setCreationDate(replyBean.getCreationDate());
-        rtt.setContent(replyBean.getContent());
-        rtt.setCategory(replyBean.getCategory());
-        rtt.setParentId(replyBean.getParentId());
-        rtt.setLeaf(true);
-        List<ReplyBean> childList = dao.find("select r from ReplyBean r where r.parentId=?1 order by r.creationDate desc", replyBean.getId());
-        if(childList.size()>0){
-            for(ReplyBean replyBean1 : childList){
-                childrenList = getReplyByParentId(replyBean1);
-            }
-            rtt.setLeaf(false);
-        }
-        rtt.setChildren(childrenList);
-        list.add(rtt);
-        return list;
-    }*/
 }

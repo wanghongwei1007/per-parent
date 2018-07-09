@@ -15,4 +15,7 @@ public interface IReplyBeanService extends IBizService<ReplyBean> {
 
     // 回复管理审核状态的改变
     int getCategory(long id);
+
+    // 留言管理的删除帖子以及回复的功能
+    void deleteAllByPostid(long id);
 }
