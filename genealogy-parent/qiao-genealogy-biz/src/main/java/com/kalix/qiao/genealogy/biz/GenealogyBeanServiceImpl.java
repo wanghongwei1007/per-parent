@@ -1,6 +1,5 @@
 package com.kalix.qiao.genealogy.biz;
 
-import com.csvreader.CsvWriter;
 import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
@@ -14,14 +13,6 @@ import com.kalix.qiao.genealogy.entities.ClansmanBean;
 import com.kalix.qiao.genealogy.entities.GenealogyBean;
 import com.kalix.qiao.genealogy.api.dto.ClansmanDTO;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -36,60 +27,6 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
 
     @Override
     public void writeSVCFile(long id){
-//        try {
-//            // 创建CSV写对象
-//            List<ClansmanBean> ls=new ArrayList<>();
-//            for (int i = 0; i <1000; i++) {
-//                ClansmanBean s=new ClansmanBean();
-//                s.setName("小帅"+i);
-//                s.setSex("男"+i);
-//                s.setHealth("良好");
-//                s.setHomeaddress("dsafksdlk");
-//                ls.add(s);
-//            }
-//            //写入临时文件
-//            File tempFile = File.createTempFile("vehicle", ".csv");
-//            CsvWriter csvWriter = new CsvWriter(tempFile.getCanonicalPath(),',', Charset.forName("UTF-8"));
-//            // 写表头
-//            long s= System.currentTimeMillis();
-//            System.err.println();
-//            String[] headers = {"姓名","年龄","编号","性别"};
-//            csvWriter.writeRecord(headers);
-//            for (ClansmanBean stu : ls) {
-//                csvWriter.write(stu.getName());
-//                csvWriter.write(stu.getSex());
-//                csvWriter.write(stu.getHealth());
-//                csvWriter.write(stu.getHomeaddress());
-//                csvWriter.endRecord();
-//            }
-//            csvWriter.close();
-//            long e=System.currentTimeMillis();
-//
-//            System.err.println(e-s);
-//
-//            /**
-//             * 写入csv结束，写出流
-//             */
-//            java.io.OutputStream out = response.getOutputStream();
-//            byte[] b = new byte[10240];
-//            java.io.File fileLoad = new java.io.File(tempFile.getCanonicalPath());
-//            response.reset();
-//            response.setContentType("application/csv");
-//            response.setHeader("content-disposition", "attachment; filename=vehicleModel.csv");
-//            long fileLength = fileLoad.length();
-//            String length1 = String.valueOf(fileLength);
-//            response.setHeader("Content_Length", length1);
-//            java.io.FileInputStream in = new java.io.FileInputStream(fileLoad);
-//            int n;
-//            while ((n = in.read(b)) != -1) {
-//                out.write(b, 0, n); //每次写入out1024字节
-//            }
-//            in.close();
-//            out.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override
@@ -169,16 +106,16 @@ public class GenealogyBeanServiceImpl extends GenericBizServiceImpl<IGenealogyBe
                     case 3 :map.put(fields.get(i), "父亲");break; // 父亲
                     case 4 :map.put(fields.get(i), "祖父");break; // 祖父
                     case 5 :map.put(fields.get(i), "母亲");break; // 母亲
-                    case 6 :map.put(fields.get(i), "世代，数字");break; // 世代 数字
+                    case 6 :map.put(fields.get(i), "1");break; // 世代 数字
                     case 7 :map.put(fields.get(i), clansmanBean.getGradeid());break; // 字辈
-                    case 8 :map.put(fields.get(i), "排行，数字");break; // 排行 数字
+                    case 8 :map.put(fields.get(i), "1");break; // 排行 数字
                     case 9 :map.put(fields.get(i), "兄弟");break; // 兄弟
                     case 10 :map.put(fields.get(i), "姐妹");break; // 姐妹
                     case 11 :map.put(fields.get(i), "子女");break; // 子女
                     case 12 :map.put(fields.get(i), new SimpleDateFormat("yyyy-MM-dd").format(clansmanBean.getBirth()));break; // 出生日期
                     case 13 :map.put(fields.get(i), new SimpleDateFormat("yyyy-MM-dd").format(clansmanBean.getDatetime()));break; // 纪念日期
-                    case 14 :map.put(fields.get(i), clansmanBean.getHomeaddress()+","+clansmanBean.getDetailedAddress());break; // 家庭地址
-                    case 15 :map.put(fields.get(i), clansmanBean.getNecropolis()+","+clansmanBean.getNecropolisAddress());break; // 葬于
+                    case 14 :map.put(fields.get(i), (clansmanBean.getHomeaddress()+","+clansmanBean.getDetailedAddress()).replaceAll(",","、"));break; // 家庭地址
+                    case 15 :map.put(fields.get(i), (clansmanBean.getNecropolis()+","+clansmanBean.getNecropolisAddress()).replaceAll(",","、"));break; // 葬于
                     case 16 :map.put(fields.get(i), "123456789");break; // 通讯
                     case 17 :map.put(fields.get(i), "汉族");break; // 民族
                     case 18 :map.put(fields.get(i), "");break; // 出生地址
