@@ -1,6 +1,7 @@
 package com.kalix.qiao.forum.entities;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,6 +14,7 @@ import javax.persistence.Table;
 public class ReplyBean extends PersistentEntity {
     private String username; //回复人姓名
     private long userId;      //排序
+    @Column(name = "content", columnDefinition = "text")
     private String content;  //回复内容
     private long isLeaf;    //是否是子节点
     private long parentId;    //父节点
