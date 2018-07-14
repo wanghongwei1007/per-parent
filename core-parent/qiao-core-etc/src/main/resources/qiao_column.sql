@@ -7,6 +7,8 @@ INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (3, '风土人情', 3, 
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (4, '智库留言', 4, 'message');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (5, '谍谱百科', 5, 'wiki');
 INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (6, '家谱编修', 6, 'compile');
+INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (7, '站长介绍', 7, 'station');
+INSERT INTO qiao_cms_column(id,name,sequence,url) VALUES (8, '联系我们', 8, 'contact');
 
 
 INSERT INTO qiao_cms_menu(id,name,columnId,sequence,message,show,url) VALUES (1,'引论',1,1,'t','t','#introduction');
