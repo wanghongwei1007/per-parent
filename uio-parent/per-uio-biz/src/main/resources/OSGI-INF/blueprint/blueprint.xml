@@ -1,0 +1,15 @@
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+">
+    <tx:enable-annotations/>
+
+    <reference id="uioBeanDao" interface="com.kalix.per.uio.api.dao.IUioBeanDao"/>
+    <service id="uioBeanService" interface="com.kalix.per.uio.api.biz.IUioBeanService"
+             ref="uioBeanServiceImpl"/>
+    <bean id="uioBeanServiceImpl" class="com.kalix.per.uio.biz.UioBeanServiceImpl">
+        <property name="dao" ref="uioBeanDao"/>
+    </bean>
+</blueprint>
+

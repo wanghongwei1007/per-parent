@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.3.0" name="kalix-features-common-${project.common.version}">
     <feature name="common-all" version="${project.common.version}">
-        <feature>qiao-core</feature>
-        <feature>qiao-cms</feature>
-        <feature>qiao-genealogy</feature>
-		<feature>qiao-config</feature>
+        <feature>per-core</feature>
+        <feature>per-reg</feature>
+		<feature>per-config</feature>
     </feature>
 
-    <feature name="qiao-core" version="${project.common.version}">
+    <feature name="per-core" version="${project.common.version}">
         <!--<bundle>mvn:com.kalix.common.core/common-core-extjs/${project.common.version}</bundle>-->
-        <bundle>mvn:com.kalix.qiao.core/qiao-core-etc/${project.qiao.version}</bundle>
+        <bundle>mvn:com.kalix.per.core/per-core-etc/${project.per.version}</bundle>
     </feature>
 
-    <feature name="qiao-cms" version="${project.qiao.version}">
-        <bundle>mvn:com.kalix.qiao.cms/qiao-cms-entities/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.cms/qiao-cms-api/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.cms/qiao-cms-dao/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.cms/qiao-cms-biz/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.cms/qiao-cms-rest/${project.qiao.version}</bundle>
-    </feature>
-
-    <feature name="qiao-genealogy" version="${project.qiao.version}">
-        <bundle>mvn:com.kalix.qiao.genealogy/qiao-genealogy-entities/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.genealogy/qiao-genealogy-api/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.genealogy/qiao-genealogy-dao/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.genealogy/qiao-genealogy-biz/${project.qiao.version}</bundle>
-        <bundle>mvn:com.kalix.qiao.genealogy/qiao-genealogy-rest/${project.qiao.version}</bundle>
-        <!--<bundle>mvn:com.kalix.common.news/common-news-extjs/${project.common.version}</bundle>-->
+    <feature name="per-reg" version="${project.per.version}">
+        <bundle>mvn:com.kalix.per.reg/per-reg-entities/${project.per.version}</bundle>
+        <bundle>mvn:com.kalix.per.reg/per-reg-api/${project.per.version}</bundle>
+        <bundle>mvn:com.kalix.per.reg/per-reg-dao/${project.per.version}</bundle>
+        <bundle>mvn:com.kalix.per.reg/per-reg-biz/${project.per.version}</bundle>
+        <bundle>mvn:com.kalix.per.reg/per-reg-rest/${project.per.version}</bundle>
     </feature>
 
     <feature name="common-note" version="${project.common.version}">
@@ -38,12 +28,12 @@
         <!--<bundle>mvn:com.kalix.common.note/common-note-extjs/${project.common.version}</bundle>-->
     </feature>
 
-    <feature name="qiao-config" version="${project.qiao.version}">
-        <configfile finalname="/etc/config.qiao.app.cfg" override="true">
-            mvn:com.kalix.qiao.core/qiao-core-etc/${project.qiao.version}/cfg/config.qiao.app
+    <feature name="per-config" version="${project.per.version}">
+        <configfile finalname="/etc/config.per.app.cfg" override="true">
+            mvn:com.kalix.per.core/per-core-etc/${project.per.version}/cfg/config.per.app
         </configfile>
-        <configfile finalname="/etc/config.qiao.dict.cfg" override="true">
-            mvn:com.kalix.qiao.core/qiao-core-etc/${project.qiao.version}/cfg/config.qiao.dict
+        <configfile finalname="/etc/config.per.dict.cfg" override="true">
+            mvn:com.kalix.per.core/per-core-etc/${project.per.version}/cfg/config.per.dict
         </configfile>
     </feature>
 </features>

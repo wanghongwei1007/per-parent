@@ -1,7 +1,0 @@
-#-----------------------------------------------------------------
-# Use this file to add customized Bnd instructions for the bundle
-#-----------------------------------------------------------------
-
-Bundle-Activator: ${bundle.namespace}.internal.InitActivator
-Import-Package:javax.persistence,com.kalix.qiao.genealogy.dao,*
-Bundle-Category: Kalix Qiao Genealogy

@@ -3,13 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.kalix.qiao</groupId>
-        <artifactId>qiao-parent</artifactId>
+        <groupId>com.kalix.per</groupId>
+        <artifactId>per-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>karaf-features</artifactId>
-    <name>Kalix Qiao Karaf Features</name>
+    <name>Kalix Per Karaf Features</name>
     <packaging>pom</packaging>
 
     <properties>

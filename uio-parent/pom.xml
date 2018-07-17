@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.kalix.per</groupId>
+        <artifactId>per-parent</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kalix.per.uio</groupId>
+    <artifactId>uio-parent</artifactId>
+
+    <name>Kalix Per uio</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+
+    </properties>
+    <modules>
+        <module>per-uio-entities</module>
+        <module>per-uio-api</module>
+        <module>per-uio-dao</module>
+        <module>per-uio-biz</module>
+        <module>per-uio-rest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.per.uio</groupId>
+                <artifactId>per-uio-api</artifactId>
+                <version>${project.per.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.per.uio</groupId>
+                <artifactId>per-uio-entities</artifactId>
+                <version>${project.per.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.admin.core</groupId>
+                <artifactId>admin-core-api</artifactId>
+                <version>${project.admin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

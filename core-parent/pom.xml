@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.kalix.qiao</groupId>
-        <artifactId>qiao-parent</artifactId>
+        <groupId>com.kalix.per</groupId>
+        <artifactId>per-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kalix.qiao.core</groupId>
+    <groupId>com.kalix.per.core</groupId>
     <artifactId>core-parent</artifactId>
-    <name>Kalix Qiao Core Parent</name>
+    <name>Kalix Per Core Parent</name>
     <modules>
-        <module>qiao-core-etc</module>
+        <module>per-core-etc</module>
     </modules>
     <packaging>pom</packaging>
 
