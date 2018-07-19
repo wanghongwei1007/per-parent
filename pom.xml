@@ -19,9 +19,8 @@
     <modules>
         <module>core-parent</module>
         <module>karaf-features</module>
-        <module>system-parent</module>
-        <module>uio-parent</module>
         <module>regc-parent</module>
+        <module>uio-parent</module>
     </modules>
     <build>
         <plugins>

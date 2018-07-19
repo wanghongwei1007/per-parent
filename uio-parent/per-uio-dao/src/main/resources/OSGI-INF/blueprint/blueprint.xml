@@ -8,7 +8,7 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <!--回复-->
+
     <bean id="UioBeanDaoImpl" class="com.kalix.per.uio.dao.UioBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>

@@ -9,9 +9,9 @@
     <tx:enable-annotations/>
 
     <!--回复-->
-    <bean id="RegBeanDaoImpl" class="com.kalix.per.regc.dao.UioBeanDaoImpl">
+    <bean id="RegBeanDaoImpl" class="com.kalix.per.regc.dao.RegBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
-    <service interface="com.kalix.per.regc.api.dao.IUioBeanDao" ref="RegBeanDaoImpl"/>
+    <service interface="com.kalix.per.regc.api.dao.IRegBeanDao" ref="RegBeanDaoImpl"/>
 </blueprint>
 

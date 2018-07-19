@@ -1,15 +1,63 @@
 package com.kalix.per.uio.entities;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
 
 
 @Entity
 @Table(name = "per_uio")
 public class UioBean extends PersistentEntity {
-    private  String topic;//题
+    @Column(name = "topic", columnDefinition = "text")
+    private  String topic;
+    private  String a_option;
+    private  String b_option;
+    private  String c_option;
+    private  String d_option;
+    private  String Correct;
+
+    public String getCorrect() {
+        return Correct;
+    }
+
+    public void setCorrect(String correct) {
+        Correct = correct;
+    }
+
+    public String getA_option() {
+        return a_option;
+    }
+
+    public void setA_option(String a_option) {
+        this.a_option = a_option;
+    }
+
+    public String getB_option() {
+        return b_option;
+    }
+
+    public void setB_option(String b_option) {
+        this.b_option = b_option;
+    }
+
+    public String getC_option() {
+        return c_option;
+    }
+
+    public void setC_option(String c_option) {
+        this.c_option = c_option;
+    }
+
+    public String getD_option() {
+        return d_option;
+    }
+
+    public void setD_option(String d_option) {
+        this.d_option = d_option;
+    }
 
     public String getTopic() {
         return topic;
@@ -18,4 +66,5 @@ public class UioBean extends PersistentEntity {
     public void setTopic(String topic) {
         this.topic = topic;
     }
+
 }

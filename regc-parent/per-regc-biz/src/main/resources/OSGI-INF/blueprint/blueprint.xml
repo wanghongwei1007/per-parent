@@ -5,10 +5,10 @@
 ">
     <tx:enable-annotations/>
 
-    <reference id="regBeanDao" interface="com.kalix.per.regc.api.dao.IUioBeanDao"/>
-    <service id="regBeanService" interface="com.kalix.per.regc.api.biz.IUioBeanService"
+    <reference id="regBeanDao" interface="com.kalix.per.regc.api.dao.IRegBeanDao"/>
+    <service id="regBeanService" interface="com.kalix.per.regc.api.biz.IRegBeanService"
              ref="regBeanServiceImpl"/>
-    <bean id="regBeanServiceImpl" class="com.kalix.per.regc.biz.UioBeanServiceImpl">
+    <bean id="regBeanServiceImpl" class="com.kalix.per.regc.biz.RegBeanServiceImpl">
         <property name="dao" ref="regBeanDao"/>
     </bean>
 </blueprint>

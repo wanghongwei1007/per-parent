@@ -13,7 +13,7 @@ import org.junit.runners.MethodSorters;
 import javax.ws.rs.core.MediaType;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestReg extends APITest {
+public class TestUio extends APITest {
     //login cookie token
     private String token;
     private String access_token;

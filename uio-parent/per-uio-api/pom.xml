@@ -22,11 +22,16 @@
         <dependency>
             <groupId>com.kalix.per.uio</groupId>
             <artifactId>per-uio-entities</artifactId>
+            <version>${project.per.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kalix.framework.core</groupId>
             <artifactId>framework-core-impl</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
 
+        </plugins>
+    </build>
 </project>
