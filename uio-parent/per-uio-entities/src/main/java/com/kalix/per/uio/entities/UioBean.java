@@ -2,18 +2,22 @@ package com.kalix.per.uio.entities;
 
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name = "per_uio")
 public class UioBean extends PersistentEntity {
+    @Column(name = "topic", columnDefinition = "text")
     private  String topic;
     private  String a_option;
     private  String b_option;
     private  String c_option;
     private  String d_option;
-    private  String correct;
+    private  String Correct;
     private  String q_number;
 
     public String getQ_number() {
@@ -21,15 +25,15 @@ public class UioBean extends PersistentEntity {
     }
 
     public void setQ_number(String q_number) {
-        this.q_number=q_number;
+        this.q_number = q_number;
     }
 
     public String getCorrect() {
-        return correct;
+        return Correct;
     }
 
     public void setCorrect(String correct) {
-        this.correct=correct;
+        Correct = correct;
     }
 
     public String getA_option() {
