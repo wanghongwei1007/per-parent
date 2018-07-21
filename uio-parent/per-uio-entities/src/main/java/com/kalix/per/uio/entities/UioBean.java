@@ -2,29 +2,34 @@ package com.kalix.per.uio.entities;
 
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
-
 
 @Entity
 @Table(name = "per_uio")
 public class UioBean extends PersistentEntity {
-    @Column(name = "topic", columnDefinition = "text")
     private  String topic;
     private  String a_option;
     private  String b_option;
     private  String c_option;
     private  String d_option;
-    private  String Correct;
+    private  String correct;
+    private  String q_number;
+
+    public String getQ_number() {
+        return q_number;
+    }
+
+    public void setQ_number(String q_number) {
+        this.q_number=q_number;
+    }
 
     public String getCorrect() {
-        return Correct;
+        return correct;
     }
 
     public void setCorrect(String correct) {
-        Correct = correct;
+        this.correct=correct;
     }
 
     public String getA_option() {
