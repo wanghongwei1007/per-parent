@@ -18,6 +18,15 @@ public class UioBean extends PersistentEntity {
     private  String c_option;
     private  String d_option;
     private  String Correct;
+    private  String q_number;
+
+    public String getQ_number() {
+        return q_number;
+    }
+
+    public void setQ_number(String q_number) {
+        this.q_number = q_number;
+    }
 
     public String getCorrect() {
         return Correct;
