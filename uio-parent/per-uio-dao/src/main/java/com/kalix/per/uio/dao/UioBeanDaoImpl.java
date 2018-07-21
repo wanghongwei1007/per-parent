@@ -24,9 +24,10 @@ public class UioBeanDaoImpl extends GenericDao<UioBean, Long> implements IUioBea
      * @return
      */
     @Override
-    public List<UioBean> getAllDistinct() {
-        final Query query = entityManager.createQuery("select Distinct c from " + className + " c " + "where c.q_number=1");
+    public List<UioBean> getAll() {
+        final Query query = entityManager.createQuery("select c from " + className + " c " + "where c.q_number=1");
         final List<UioBean> resultList = query.getResultList();
         return resultList;
     }
+
 }

@@ -29,8 +29,9 @@ public class TesBeanServiceImpl extends GenericBizServiceImpl<ITesBeanDao, TesBe
      */
     @Override
     @Transactional
-    public JsonStatus saveTes(String str) {
-        Map<String, Object> jsonMap = SerializeUtil.jsonToMap(str);
+    public JsonStatus saveTes(String strings) {
+        String s1 = strings;
+        Map<String, Object> jsonMap = SerializeUtil.jsonToMap(strings);
         //返回对象
         JsonStatus jsonStatus = new JsonStatus();
         // 数据库对象
@@ -39,14 +40,8 @@ public class TesBeanServiceImpl extends GenericBizServiceImpl<ITesBeanDao, TesBe
         List<TesBean> tList = new ArrayList<>();
 
         //解析字符串
-        String items = (String)jsonMap.get("str");
+        String items = (String) jsonMap.get("str");
         String[] subStr = items.split("-");
-
-        int q = subStr.length;
-
-        System.out.println(q);
-
-        String sss = "1";
 
         for (int i=0; i<subStr.length; i++) {
             String s = subStr[i];

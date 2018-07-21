@@ -11,12 +11,12 @@
         </restConfiguration>
 
         <rest path="/tess" consumes="application/json;charset=utf-8" produces="application/json">
-            <description>template rest service</description>
+            <description>tes rest service</description>
 
             <!-- 保存考试记录 -->
             <get id="route-saveTes" outType="com.kalix.framework.core.api.persistence.JsonStatus">
-                <description>Create a Template</description>
-                <to uri="bean:tesService?method=saveTes(${header.str})"/>
+                <description>Create a Tes</description>
+                <to uri="bean:tesService?method=saveTes(${header.strings})"/>
             </get>
 
         </rest>

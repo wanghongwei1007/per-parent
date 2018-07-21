@@ -11,6 +11,6 @@ import com.kalix.per.uio.entities.TesBean;
 public interface ITesBeanService extends IBizService<TesBean> {
 
     // 添加
-    JsonStatus saveTes(String items);
+    JsonStatus saveTes(String str);
 
 }
