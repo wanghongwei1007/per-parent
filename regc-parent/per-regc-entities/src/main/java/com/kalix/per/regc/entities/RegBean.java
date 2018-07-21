@@ -16,9 +16,9 @@ public class RegBean extends PersistentEntity {
     private  String major;//专业
     private  String position;//岗位
     private  String education;//学历
-    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd ",timezone="GMT+8")
+    @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")
     private  Date time;
-    private String num;
+    private  String num;
 
     public String getNum() {
         return num;
