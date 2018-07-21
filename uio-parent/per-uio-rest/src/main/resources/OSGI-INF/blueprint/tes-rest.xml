@@ -3,7 +3,7 @@
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
-
+    <reference id="tesService" interface="com.kalix.per.uio.api.biz.ITesBeanService"/>
     <camelContext id="tesCamelExt" xmlns="http://camel.apache.org/schema/blueprint">
 
         <restConfiguration component="servlet" bindingMode="json">
@@ -14,10 +14,10 @@
             <description>template rest service</description>
 
             <!-- 保存考试记录 -->
-            <post id="route-saveTes" type="java.lang.String" outType="com.kalix.framework.core.api.persistence.JsonStatus">
+            <get id="route-saveTes" outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Template</description>
-                <to uri="bean:tesService?method=saveTes"/>
-            </post>
+                <to uri="bean:tesService?method=saveTes(${header.str})"/>
+            </get>
 
         </rest>
 
