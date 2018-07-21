@@ -3,6 +3,7 @@ package com.kalix.per.uio.biz;
 import com.kalix.framework.core.api.persistence.JsonStatus;
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
+import com.kalix.framework.core.util.SerializeUtil;
 import com.kalix.per.uio.api.biz.ITesBeanService;
 import com.kalix.per.uio.api.dao.ITesBeanDao;
 import com.kalix.per.uio.entities.TesBean;
@@ -12,6 +13,7 @@ import java.awt.event.TextListener;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>www.bjpowernode.com</p>
@@ -23,12 +25,12 @@ public class TesBeanServiceImpl extends GenericBizServiceImpl<ITesBeanDao, TesBe
 
     /**
      * 添加考试结果
-     * @param items
      * @return
      */
     @Override
     @Transactional
-    public JsonStatus saveTes(String items) {
+    public JsonStatus saveTes(String str) {
+        Map<String, Object> jsonMap = SerializeUtil.jsonToMap(str);
         //返回对象
         JsonStatus jsonStatus = new JsonStatus();
         // 数据库对象
@@ -37,7 +39,14 @@ public class TesBeanServiceImpl extends GenericBizServiceImpl<ITesBeanDao, TesBe
         List<TesBean> tList = new ArrayList<>();
 
         //解析字符串
+        String items = (String)jsonMap.get("str");
         String[] subStr = items.split("-");
+
+        int q = subStr.length;
+
+        System.out.println(q);
+
+        String sss = "1";
 
         for (int i=0; i<subStr.length; i++) {
             String s = subStr[i];
