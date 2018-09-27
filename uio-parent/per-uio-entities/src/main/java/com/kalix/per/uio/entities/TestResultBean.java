@@ -4,13 +4,10 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
-
-
 
 @Entity
-@Table(name = "per_uio")
-public class UioBean extends PersistentEntity {
+public class TestResultBean extends PersistentEntity {
+
     @Column(name = "topic", columnDefinition = "text")
     private  String topic;
     private  String a_option;
@@ -19,21 +16,15 @@ public class UioBean extends PersistentEntity {
     private  String d_option;
     private  String Correct;
     private  int q_number;
+    private  String r_option; // 选择
+    private  int r_score;     // 分数
 
-    public int getQ_number() {
-        return q_number;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setQ_number(int q_number) {
-        this.q_number=q_number;
-    }
-
-    public String getCorrect() {
-        return Correct;
-    }
-
-    public void setCorrect(String correct) {
-        Correct = correct;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public String getA_option() {
@@ -68,12 +59,35 @@ public class UioBean extends PersistentEntity {
         this.d_option = d_option;
     }
 
-    public String getTopic() {
-        return topic;
+    public String getCorrect() {
+        return Correct;
     }
 
-    public void setTopic(String topic) {
-        this.topic = topic;
+    public void setCorrect(String correct) {
+        Correct = correct;
     }
 
+    public int getQ_number() {
+        return q_number;
+    }
+
+    public void setQ_number(int q_number) {
+        this.q_number = q_number;
+    }
+
+    public String getR_option() {
+        return r_option;
+    }
+
+    public void setR_option(String r_option) {
+        this.r_option = r_option;
+    }
+
+    public int getR_score() {
+        return r_score;
+    }
+
+    public void setR_score(int r_score) {
+        this.r_score = r_score;
+    }
 }

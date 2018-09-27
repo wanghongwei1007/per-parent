@@ -18,14 +18,14 @@ public class RegBean extends PersistentEntity {
     private  String education;//学历
     @JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")
     private  Date time;
-    private  String num;
+    private  int score;
 
-    public String getNum() {
-        return num;
+    public int getScore() {
+        return score;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public void setScore(int score) {
+        this.score=score;
     }
 
     public Date getTime() {

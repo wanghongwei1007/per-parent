@@ -11,5 +11,13 @@
     <bean id="uioBeanServiceImpl" class="com.kalix.per.uio.biz.UioBeanServiceImpl">
         <property name="dao" ref="uioBeanDao"/>
     </bean>
+
+    <!--考试列表-->
+    <reference id="tesBeanDao" interface="com.kalix.per.uio.api.dao.ITesBeanDao"/>
+    <service id="tesBeanService" interface="com.kalix.per.uio.api.biz.ITesBeanService"
+             ref="tesBeanServiceImpl"/>
+    <bean id="tesBeanServiceImpl" class="com.kalix.per.uio.biz.TesBeanServiceImpl">
+        <property name="dao" ref="tesBeanDao"/>
+    </bean>
 </blueprint>
 

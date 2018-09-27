@@ -8,10 +8,14 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-
     <bean id="UioBeanDaoImpl" class="com.kalix.per.uio.dao.UioBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
     <service interface="com.kalix.per.uio.api.dao.IUioBeanDao" ref="UioBeanDaoImpl"/>
+
+    <bean id="TesBeanDaoImpl" class="com.kalix.per.uio.dao.TesBeanDaoImpl">
+        <tx:transaction method="*" value="Required"/>
+    </bean>
+    <service interface="com.kalix.per.uio.api.dao.ITesBeanDao" ref="TesBeanDaoImpl"/>
 </blueprint>
 

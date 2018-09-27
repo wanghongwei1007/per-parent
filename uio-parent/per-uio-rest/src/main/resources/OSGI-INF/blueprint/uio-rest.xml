@@ -12,26 +12,13 @@
         <routeBuilder ref="uioRoute"/>
     </camelContext>
 
+    <!--考试结果-->
+    <reference id="tesService" interface="com.kalix.per.uio.api.biz.ITesBeanService"/>
+    <bean id="tesRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
+        <property name="beanName" value="com.kalix.per.uio.entities.TesBean"/>
+    </bean>
+    <camelContext id="tesCamel" xmlns="http://camel.apache.org/schema/blueprint">
+        <routeBuilder ref="tesRoute"/>
+    </camelContext>
 
-    <!--<camelContext id="regCamel" xmlns="http://camel.apache.org/schema/blueprint">-->
-        <!--<restConfiguration component="servlet" bindingMode="json">-->
-            <!--<dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>-->
-        <!--</restConfiguration>-->
-
-        <!-- defines the rest services using the context-path /template -->
-        <!--<rest path="/menus/getMenuById" consumes="application/json;charset=utf-8" produces="application/json">-->
-            <!--&lt;!&ndash; this is a rest GET to view a template by the given id &ndash;&gt;-->
-            <!--<get id="route-getMenuById" outType="com.kalix.framework.core.api.persistence.JsonData">-->
-                <!--<description>Find Column And Menu</description>-->
-                <!--<to uri="bean:menuService?method=getMenuById(${header.model_id})"/>-->
-            <!--</get>-->
-        <!--</rest>-->
-        <!--<rest path="/menus/getMenuList" consumes="application/json;charset=utf-8" produces="application/json">-->
-            <!--&lt;!&ndash; this is a rest GET to view a template by the given id &ndash;&gt;-->
-            <!--<get id="route-getMenuList" outType="com.kalix.framework.core.api.persistence.JsonData">-->
-                <!--<description>Find Column And Menu</description>-->
-                <!--<to uri="bean:menuService?method=getMenuList(${header.page},${header.limit})"/>-->
-            <!--</get>-->
-        <!--</rest>-->
-    <!--</camelContext>-->
 </blueprint>

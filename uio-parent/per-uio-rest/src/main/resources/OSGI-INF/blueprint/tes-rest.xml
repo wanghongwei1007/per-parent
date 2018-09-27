@@ -3,22 +3,25 @@
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
-    <reference id="tesService" interface="com.kalix.per.uio.api.biz.ITesBeanService"/>
+    <!--<reference id="tesService" interface="com.kalix.per.uio.api.biz.ITesBeanService"/>-->
     <camelContext id="tesCamelExt" xmlns="http://camel.apache.org/schema/blueprint">
-
         <restConfiguration component="servlet" bindingMode="json">
             <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
         </restConfiguration>
 
-        <rest path="/tess" consumes="application/json;charset=utf-8" produces="application/json">
-            <description>tes rest service</description>
-
-            <!-- 保存考试记录 -->
+        <rest path="/tess/saveTes" consumes="application/json;charset=utf-8" produces="application/json">
             <get id="route-saveTes" outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Tes</description>
-                <to uri="bean:tesService?method=saveTes(${header.strings})"/>
+                <to uri="bean:tesService?method=saveTes(${header.rStr})"/>
             </get>
+        </rest>
 
+        <!--按名称查询-->
+        <rest path="/tess/getListByName" consumes="application/json;charset=utf-8" produces="application/json">
+            <get id="route-getListByName" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Create a GetAllByName</description>
+                <to uri="bean:tesService?method=getListByName(${header.rName})"/>
+            </get>
         </rest>
 
     </camelContext>

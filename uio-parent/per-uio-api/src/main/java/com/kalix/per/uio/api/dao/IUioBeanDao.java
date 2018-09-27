@@ -5,5 +5,4 @@ import com.kalix.per.uio.entities.UioBean;
 
 
 public interface IUioBeanDao extends IGenericDao<UioBean, Long> {
-
 }
